@@ -1,2 +1,13 @@
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
+
+@media (min-width: 1440px) {
+    .container-xxl,
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 1440px;
+    }
+}
