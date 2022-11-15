@@ -1,13 +1,27 @@
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
 
-@media (min-width: 1440px) {
-    .container-xxl,
-    .container-xl,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container {
-        max-width: 1440px;
+
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.container {
+    max-width: 1440px;
+    padding: 0;
+}
+
+.navbar {
+    &-toggler {
+        border: none;
+    }
+
+    &-toggler:focus {
+        box-shadow: none;
+    }
+
+    &-toggler-icon {
+        background-image: url("../../dist/images/common/btn_hambuger.svg");
     }
 }
