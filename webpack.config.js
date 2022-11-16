@@ -17,6 +17,14 @@ module.exports = {
     module: {
         rules: [
             {
+                mimetype: 'image/svg+xml',
+                scheme: 'data',
+                type: 'asset/resource',
+                generator: {
+                    filename: 'icons/[hash].svg'
+                }
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
                     {
