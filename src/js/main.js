@@ -11,7 +11,6 @@ document.querySelectorAll ('[data-bs-toggle="popover"]').forEach (popover => {
 
 // swiperType_01
 const swiper_1 = new Swiper ('.swiperType_01', {
-  loop: true,
   slidesPerView: 1.8,
   spaceBetween: 25,
   centeredSlides: false,
@@ -19,12 +18,18 @@ const swiper_1 = new Swiper ('.swiperType_01', {
     el: '.swiperType_01 .swiper-pagination',
     clickable: true,
   },
+  navigation: {
+    nextEl: '.myNoteSlide .swiper-button-next',
+    prevEl: '.myNoteSlide .swiper-button-prev',
+  },
+
   breakpoints: {
     0: {
+      loop: true,
       slidesPerView: 1.1,
     },
-
-    960: {
+    540: {
+      loop: false,
       slidesPerView: 2.1,
     },
   },

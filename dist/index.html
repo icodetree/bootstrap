@@ -12,8 +12,8 @@
 	<meta property="og:image" content="./img/common/opengraph.jpg" />
 	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
 
+	<link rel="stylesheet" href="./css/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="./main.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
 </head>
 
@@ -120,7 +120,7 @@
 								<source srcset="
 											./images/main/main_visual_01_2x.png
 										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="..." />
+								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
 							</picture>
 							<div class="carousel-caption">
 								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
@@ -137,7 +137,7 @@
 								<source srcset="
 											./images/main/main_visual_01_2x.png
 										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="..." />
+								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
 							</picture>
 							<div class="carousel-caption">
 								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
@@ -154,7 +154,7 @@
 								<source srcset="
 											./images/main/main_visual_01_2x.png
 										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="..." />
+								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
 							</picture>
 							<div class="carousel-caption">
 								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
@@ -194,13 +194,15 @@
 				<section class="my-note mb-3">
 					<article class="title mx-3 d-flex justify-content-between">
 						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold">나의 단어장</h2>
-							<a href="#" class="ms-2 link-utility">전체보기 <span>(3)</span></a>
+							<h2 class="fw-bold fs-5">나의 단어장</h2>
+							<a href="#" class="ms-2 link-utility fs-7">전체보기 <span>(3)</span></a>
 						</div>
-						<button type="button" class="btn link-utility btn-category border-0" type="button"
+
+						<!-- 분류 : mobile -->
+						<button type="button" class="btn link-utility btn-category border-0 d-lg-none" type="button"
 							data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
 							aria-controls="collapseExample">
-							<span>분류</span>
+							<span class="fs-7">분류</span>
 							<span><img src="./images/common/ico_arr_bg.svg" alt=""></span>
 						</button>
 					</article>
@@ -222,9 +224,9 @@
 				</section>
 
 				<!-- 나의 단어장 슬라이드 -->
-				<section class="my-note-slide mb-4">
+				<section class="swiper myNoteSlide mb-4">
 					<!-- Slider main container -->
-					<div class="swiper swiperType_01 px-3 pb-5">
+					<div class="swiperType_01 pb-5">
 						<div class="swiper-wrapper">
 							<!-- Slides -->
 							<div class="swiper-slide">
@@ -238,12 +240,12 @@
 											</div>
 											<div class="col-md-8">
 												<dl class="card-body py-0 px-3">
-													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
-													<dd class="card-text fs-7">Benly 초등 영어</dd>
-													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
-															100개</small></dd>
+													<dt class="card-title">Max 50 characters & 2 lines</dt>
+													<dd class="card-text">Benly 초등 영어</dd>
+													<dd class="card-text">챕터 3개 | 단어
+														100개</dd>
 													<dd>
-														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+														<a href="#" class="card-link text-decoration-none">단어장
 															보러가기</a>
 														<img src="./images/common/ico_arr_rb.svg" alt="">
 													</dd>
@@ -253,6 +255,7 @@
 									</div>
 								</article>
 							</div>
+							<!-- Slides -->
 							<div class="swiper-slide">
 								<!-- thumb -->
 								<article class="thumb-area">
@@ -264,12 +267,12 @@
 											</div>
 											<div class="col-md-8">
 												<dl class="card-body py-0 px-3">
-													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
-													<dd class="card-text fs-7">Benly 초등 영어</dd>
-													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
-															100개</small></dd>
+													<dt class="card-title">Max 50 characters & 2 lines</dt>
+													<dd class="card-text">Benly 초등 영어</dd>
+													<dd class="card-text">챕터 3개 | 단어
+														100개</dd>
 													<dd>
-														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+														<a href="#" class="card-link text-decoration-none">단어장
 															보러가기</a>
 														<img src="./images/common/ico_arr_rb.svg" alt="">
 													</dd>
@@ -279,6 +282,7 @@
 									</div>
 								</article>
 							</div>
+							<!-- Slides -->
 							<div class="swiper-slide">
 								<!-- thumb -->
 								<article class="thumb-area">
@@ -290,12 +294,12 @@
 											</div>
 											<div class="col-md-8">
 												<dl class="card-body py-0 px-3">
-													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
-													<dd class="card-text fs-7">Benly 초등 영어</dd>
-													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
-															100개</small></dd>
+													<dt class="card-title">Max 50 characters & 2 lines</dt>
+													<dd class="card-text">Benly 초등 영어</dd>
+													<dd class="card-text">챕터 3개 | 단어
+														100개</dd>
 													<dd>
-														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+														<a href="#" class="card-link text-decoration-none">단어장
 															보러가기</a>
 														<img src="./images/common/ico_arr_rb.svg" alt="">
 													</dd>
@@ -305,6 +309,7 @@
 									</div>
 								</article>
 							</div>
+							<!-- Slides -->
 							<div class="swiper-slide">
 								<!-- thumb -->
 								<article class="thumb-area">
@@ -316,12 +321,12 @@
 											</div>
 											<div class="col-md-8">
 												<dl class="card-body py-0 px-3">
-													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
-													<dd class="card-text fs-7">Benly 초등 영어</dd>
-													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
-															100개</small></dd>
+													<dt class="card-title">Max 50 characters & 2 lines</dt>
+													<dd class="card-text">Benly 초등 영어</dd>
+													<dd class="card-text">챕터 3개 | 단어
+														100개</dd>
 													<dd>
-														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+														<a href="#" class="card-link text-decoration-none">단어장
 															보러가기</a>
 														<img src="./images/common/ico_arr_rb.svg" alt="">
 													</dd>
@@ -331,11 +336,62 @@
 									</div>
 								</article>
 							</div>
+
 						</div>
 						<!-- pagination -->
 						<div class="swiper-pagination"></div>
 					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
 				</section>
+
+				<!-- 메뉴 -->
+				<article class="menu-list mx-3">
+					<ul class="list-unstyled d-lg-flex mx-lg-0">
+						<li class="py-2 d-flex justify-content-between">
+							<a href="#" class="text-decoration-none">벤리 인기 콘텐츠</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between ">
+							<a href="#" class="text-decoration-none">프리미엄 컨텐츠</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between ">
+							<a href="#" class="text-decoration-none">10대</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between ">
+							<a href="#" class="text-decoration-none">20-30대</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between ">
+							<a href="#" class="text-decoration-none">KIDS</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between ">
+							<a href="#" class="text-decoration-none">REMINDER (모든 연령대)</a>
+							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
+						</li>
+					</ul>
+				</article>
+
+				<!-- 분류 : PC -->
+				<article class="pc-category d-none d-lg-flex justify-content-end py-2 mx-3">
+					<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" class="d-lg-flex">
+						<p class="me-3">분류 : </p>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item active" aria-current="page"><a href="#"
+									class="text-decoration-none">총 다운로드 수</a></li>
+							<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">챕터 수</a>
+							</li>
+							<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">단어 수</a>
+							</li>
+							<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">클리어
+									목표</a></li>
+						</ol>
+					</nav>
+				</article>
 
 			</div>
 		</main>
@@ -376,7 +432,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script src="./js/swiper-bundle.min.js"></script>
 	<script src="./main.js"></script>
 </body>
 
