@@ -13,6 +13,8 @@
 	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
 
 	<link rel="stylesheet" href="./main.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
 </head>
 
 <body>
@@ -195,12 +197,50 @@
 							<h2>나의 단어장</h2>
 							<a href="#" class="ms-2 link-utility">전체보기 <span>(3)</span></a>
 						</div>
-						<button type="button" class="btn link-utility">
+						<button type="button" class="btn link-utility btn-category btn-outline-white" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+							aria-controls="collapseExample">
 							<span>분류</span>
 							<span><img src="./images/common/ico_arr_bg.svg" alt=""></span>
 						</button>
 					</article>
+
+					<div class="collapse mx-3 my-3 border-bottom" id="collapseExample">
+						<nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
+							<ol class="breadcrumb fs-7">
+								<li class="breadcrumb-item active" aria-current="page"><a href="#" class="">총 다운로드 수</a>
+								</li>
+								<li class="breadcrumb-item"><a href="#" class="">챕터 수</a></li>
+								<li class="breadcrumb-item"><a href="#" class="">단어 수</a></li>
+								<li class="breadcrumb-item"><a href="#" class="">클리어 목표</a></li>
+							</ol>
+						</nav>
+					</div>
 				</section>
+
+				<!-- 나의 단어장 슬라이드 -->
+				<section class="my-note slide">
+					<!-- Slider main container -->
+					<div class="swiper swiperType_01">
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<div class="swiper-slide">
+								<article class="thumb-area">
+
+								</article>
+							</div>
+							<div class="swiper-slide">Slide 2</div>
+							<div class="swiper-slide">Slide 3</div>
+							<div class="swiper-slide">Slide 1</div>
+							<div class="swiper-slide">Slide 2</div>
+							<div class="swiper-slide">Slide 3</div>
+						</div>
+						<!-- pagination -->
+						<div class="swiper-pagination"></div>
+
+					</div>
+				</section>
+
 			</div>
 		</main>
 
@@ -240,6 +280,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 	<script src="./main.js"></script>
 </body>
 

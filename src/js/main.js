@@ -5,7 +5,16 @@ import '../scss/default.scss';
 import { Util, Dropdown, Offcanvas, Popover } from 'bootstrap';
 
 // Create an example popover
-document.querySelectorAll('[data-bs-toggle="popover"]')
-  .forEach(popover => {
-    new Popover(popover)
-  })
+document.querySelectorAll('[data-bs-toggle="popover"]').forEach(popover => {
+  new Popover(popover)
+});
+
+
+var swiper = new Swiper(".swiperType_01", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiperType_01 .swiper-pagination",
+    clickable: true,
+  },
+});
