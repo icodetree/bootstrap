@@ -44,6 +44,24 @@ $theme-colors: (
     ) !default;
 
 
+$grid-breakpoints: (
+	xs: 0,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1200px,
+	xxl: 1440px,
+	) !default;
+
+$container-max-widths: (
+	sm: 100%,
+	md: 100%,
+	lg: 100%,
+	xl: 100%,
+	xxl: 1440px,
+	) !default;
+
+	
 // scss-docs-start spacer-variables-maps
 $spacer: 1.8rem !default;
 $spacers: (
@@ -85,8 +103,9 @@ $h2-font-size: $font-size-base * 2 !default;
 $h3-font-size: $font-size-base * 1.75 !default;
 $h4-font-size: $font-size-base * 1.5 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
-$h6-font-size: $font-size-base !default;
+$h6-font-size: $font-size-base * 0.95 !default;
 $h7-font-size: $font-size-base * 0.75 !default;
+$h8-font-size: $font-size-base * 0.5 !default;
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
@@ -98,6 +117,7 @@ $font-sizes: (
     5: $h5-font-size,
     6: $h6-font-size,
     7: $h7-font-size,
+    8: $h8-font-size,
     ) !default;
 
 // scss-docs-start display-headings
@@ -118,7 +138,7 @@ $display-font-sizes: (
 
 
 // scss-docs-start border-variables
-$border-width: 0 !default;
+$border-width: 1px !default;
 $border-widths: (
     1: 1px,
     2: 2px,
@@ -127,19 +147,17 @@ $border-widths: (
     5: 5px) !default;
 
 
-$grid-breakpoints: (
-    xs: 0,
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1200px,
-    xxl: 1440px,
-    ) !default;
+// Breadcrumbs
 
-$container-max-widths: (
-    sm: 100%,
-    md: 100%,
-    lg: 100%,
-    xl: 100%,
-    xxl: 1440px,
-    ) !default;
+// scss-docs-start breadcrumb-variables
+$breadcrumb-font-size:              null !default;
+$breadcrumb-padding-y:              0 !default;
+$breadcrumb-padding-x:              0 !default;
+$breadcrumb-item-padding-x:         .5rem !default;
+$breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-bg:                     null !default;
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $blue !default;
+$breadcrumb-divider:                quote("/") !default;
+$breadcrumb-divider-flipped:        $breadcrumb-divider !default;
+$breadcrumb-border-radius:          null !default;
