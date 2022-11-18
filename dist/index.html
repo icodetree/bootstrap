@@ -191,13 +191,13 @@
 				</section>
 
 				<!-- 나의 단어장 -->
-				<section class="my-note">
+				<section class="my-note mb-3">
 					<article class="title mx-3 d-flex justify-content-between">
 						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2>나의 단어장</h2>
+							<h2 class="fw-bold">나의 단어장</h2>
 							<a href="#" class="ms-2 link-utility">전체보기 <span>(3)</span></a>
 						</div>
-						<button type="button" class="btn link-utility btn-category btn-outline-white" type="button"
+						<button type="button" class="btn link-utility btn-category border-0" type="button"
 							data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
 							aria-controls="collapseExample">
 							<span>분류</span>
@@ -205,39 +205,135 @@
 						</button>
 					</article>
 
-					<div class="collapse mx-3 my-3 border-bottom" id="collapseExample">
+					<div class="collapse mx-3 border-bottom" id="collapseExample">
 						<nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
-							<ol class="breadcrumb fs-7">
-								<li class="breadcrumb-item active" aria-current="page"><a href="#" class="">총 다운로드 수</a>
+							<ol class="breadcrumb fs-7 mt-3">
+								<li class="breadcrumb-item active" aria-current="page"><a href="#"
+										class="text-reset text-decoration-none">총 다운로드 수</a></li>
+								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">챕터 수</a>
 								</li>
-								<li class="breadcrumb-item"><a href="#" class="">챕터 수</a></li>
-								<li class="breadcrumb-item"><a href="#" class="">단어 수</a></li>
-								<li class="breadcrumb-item"><a href="#" class="">클리어 목표</a></li>
+								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">단어 수</a>
+								</li>
+								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">클리어
+										목표</a></li>
 							</ol>
 						</nav>
 					</div>
 				</section>
 
 				<!-- 나의 단어장 슬라이드 -->
-				<section class="my-note slide">
+				<section class="my-note-slide mb-4">
 					<!-- Slider main container -->
-					<div class="swiper swiperType_01">
+					<div class="swiper swiperType_01 px-3 pb-5">
 						<div class="swiper-wrapper">
 							<!-- Slides -->
 							<div class="swiper-slide">
+								<!-- thumb -->
 								<article class="thumb-area">
-
+									<div class="card border-0">
+										<div class="d-flex">
+											<div class="photo col-md-4">
+												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
+													alt="">
+											</div>
+											<div class="col-md-8">
+												<dl class="card-body py-0 px-3">
+													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
+													<dd class="card-text fs-7">Benly 초등 영어</dd>
+													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
+															100개</small></dd>
+													<dd>
+														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+															보러가기</a>
+														<img src="./images/common/ico_arr_rb.svg" alt="">
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
 								</article>
 							</div>
-							<div class="swiper-slide">Slide 2</div>
-							<div class="swiper-slide">Slide 3</div>
-							<div class="swiper-slide">Slide 1</div>
-							<div class="swiper-slide">Slide 2</div>
-							<div class="swiper-slide">Slide 3</div>
+							<div class="swiper-slide">
+								<!-- thumb -->
+								<article class="thumb-area">
+									<div class="card border-0">
+										<div class="d-flex">
+											<div class="photo col-md-4">
+												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
+													alt="">
+											</div>
+											<div class="col-md-8">
+												<dl class="card-body py-0 px-3">
+													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
+													<dd class="card-text fs-7">Benly 초등 영어</dd>
+													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
+															100개</small></dd>
+													<dd>
+														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+															보러가기</a>
+														<img src="./images/common/ico_arr_rb.svg" alt="">
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- thumb -->
+								<article class="thumb-area">
+									<div class="card border-0">
+										<div class="d-flex">
+											<div class="photo col-md-4">
+												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
+													alt="">
+											</div>
+											<div class="col-md-8">
+												<dl class="card-body py-0 px-3">
+													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
+													<dd class="card-text fs-7">Benly 초등 영어</dd>
+													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
+															100개</small></dd>
+													<dd>
+														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+															보러가기</a>
+														<img src="./images/common/ico_arr_rb.svg" alt="">
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- thumb -->
+								<article class="thumb-area">
+									<div class="card border-0">
+										<div class="d-flex">
+											<div class="photo col-md-4">
+												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
+													alt="">
+											</div>
+											<div class="col-md-8">
+												<dl class="card-body py-0 px-3">
+													<dt class="card-title fs-6">Max 50 characters & 2 lines</dt>
+													<dd class="card-text fs-7">Benly 초등 영어</dd>
+													<dd class="card-text fs-7"><small class="text-muted">챕터 3개 | 단어
+															100개</small></dd>
+													<dd>
+														<a href="#" class="card-link fs-7 text-decoration-none">단어장
+															보러가기</a>
+														<img src="./images/common/ico_arr_rb.svg" alt="">
+													</dd>
+												</dl>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
 						</div>
 						<!-- pagination -->
 						<div class="swiper-pagination"></div>
-
 					</div>
 				</section>
 
