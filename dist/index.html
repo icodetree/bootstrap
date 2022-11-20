@@ -19,6 +19,7 @@
 
 <body>
 	<div class="container">
+		<!-- header -->
 		<header class="header">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">
@@ -184,7 +185,7 @@
 
 				<!-- welcome -->
 				<section class="welcome">
-					<div class="text-start border-top border-bottom mb-5 mx-3 py-3">
+					<div class="text-start border-top border-bottom mb-3 mx-3 py-3">
 						<p class="d-inline me-2">안녕하세요, 정윤 님</p>
 						<p class="d-inline">첫 방문을 환영합니다.</p>
 					</div>
@@ -198,16 +199,34 @@
 							<a href="#" class="ms-2 link-utility fs-7">전체보기 <span>(3)</span></a>
 						</div>
 
+						<!-- 분류 : PC -->
+						<article class="pc-category d-none d-lg-flex justify-content-end py-2">
+							<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" class="d-lg-flex">
+								<p class="me-3">분류 : </p>
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item active" aria-current="page"><a href="#"
+											class="text-decoration-none">총 다운로드 수</a></li>
+									<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">챕터 수</a>
+									</li>
+									<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">단어 수</a>
+									</li>
+									<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility m-0 p-0">클리어
+											목표</a></li>
+								</ol>
+							</nav>
+						</article>
+
+
 						<!-- 분류 : mobile -->
-						<button type="button" class="btn link-utility btn-category border-0 d-lg-none" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
-							aria-controls="collapseExample">
+						<button type="button" class="btn link-utility btn-category border-0 d-lg-none"
+							data-bs-toggle="collapse" data-bs-target="#collapseMobile" aria-expanded="false"
+							aria-controls="collapseMobile">
 							<span class="fs-7">분류</span>
 							<span><img src="./images/common/ico_arr_bg.svg" alt=""></span>
 						</button>
 					</article>
 
-					<div class="collapse mx-3 border-bottom" id="collapseExample">
+					<div class="collapse mx-3 border-bottom" id="collapseMobile">
 						<nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
 							<ol class="breadcrumb fs-7 mt-3">
 								<li class="breadcrumb-item active" aria-current="page"><a href="#"
@@ -223,10 +242,14 @@
 					</div>
 				</section>
 
+				<div class="title_pc mx-3 fs-2 fw-bold mb-4">
+					<p>정윤 님이 새롭게 시작할 단어장을 선택해 주세요.</p>
+				</div>
+
 				<!-- 나의 단어장 슬라이드 -->
 				<section class="swiper myNoteSlide mb-4">
 					<!-- Slider main container -->
-					<div class="swiperType_01 pb-5">
+					<div class="swiperType_01 pb-6">
 						<div class="swiper-wrapper">
 							<!-- Slides -->
 							<div class="swiper-slide">
@@ -347,40 +370,140 @@
 				</section>
 
 				<!-- 메뉴 -->
-				<article class="menu-list mx-3">
-					<ul class="list-unstyled d-lg-flex mx-lg-0">
-						<li class="py-2 d-flex justify-content-between">
-							<a href="#" class="text-decoration-none">벤리 인기 콘텐츠</a>
+				<article class="menu-list">
+					<ul class="list-unstyled d-lg-flex mx-lg-0 mb-3">
+						<li class="d-flex justify-content-between active">
+							<a href="#none" class="px-0" data-index="1">벤리 인기 콘텐츠</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-decoration-none">프리미엄 컨텐츠</a>
+						<li class="d-flex justify-content-between ">
+							<a href="#none" class="px-0" data-index="2">프리미엄 콘텐츠</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-decoration-none">10대</a>
+						<li class="d-flex justify-content-between ">
+							<a href="#none" class="px-0" data-index="3">10대</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-decoration-none">20-30대</a>
+						<li class="d-flex justify-content-between ">
+							<a href="#none" class="px-0" data-index="4">20-30대</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-decoration-none">KIDS</a>
+						<li class="d-flex justify-content-between ">
+							<a href="#none" class="px-0" data-index="5">KIDS</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-decoration-none">REMINDER (모든 연령대)</a>
+						<li class="d-flex justify-content-between ">
+							<a href="#none" class="px-0" data-index="6">REMINDER ( 모든 연령대)</a>
 							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
 						</li>
 					</ul>
+
+					<!-- 서브 카테고리 -->
+					<div class="sub-category mb-3">
+						<div class="active">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+						<div class="">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+						<div class="">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+						<div class="">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+						<div class="">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+						<div class="">
+							<ol class="breadcrumb fs-5">
+								<li class="active" aria-current="page"><a href="#" class="text-reset text-decoration-none">Benly</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">ETS</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">경선식</a></li>
+							</ol>
+							<ol class="breadcrumb fs-5">
+								<li class=""><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
+								<li class=""><a href="#" class="text-reset text-decoration-none">전문직</a>
+								</li>
+							</ol>
+						</div>
+					</div>
 				</article>
 
 				<!-- 분류 : PC -->
-				<article class="pc-category d-none d-lg-flex justify-content-end py-2 mx-3">
+				<article class="pc-category d-none d-lg-flex justify-content-end py-2 px-3 border-top border-bottom">
 					<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" class="d-lg-flex">
-						<p class="me-3">분류 : </p>
-						<ol class="breadcrumb">
+						<p class="m-0 me-3">분류 : </p>
+						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item active" aria-current="page"><a href="#"
 									class="text-decoration-none">총 다운로드 수</a></li>
 							<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">챕터 수</a>
@@ -392,6 +515,177 @@
 						</ol>
 					</nav>
 				</article>
+
+
+				<!-- 지금 뜨는 콘텐츠 -->
+				<section class="my-note mt-6 mb-3">
+					<article class="title mx-3 d-flex justify-content-between">
+						<div class="hgroup d-flex justify-content-between align-items-center">
+							<h2 class="fw-bold fs-5">지금 뜨는 콘텐츠</h2>
+							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
+						</div>
+					</article>
+				</section>
+
+				<!-- 나의 단어장 슬라이드 -->
+				<section class="swiper contentTitleSlide">
+					<!-- Slider main container -->
+					<div class="swiperType_02 pb-3">
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="title-area rounded-5 py-3 text-center">
+									<dl>
+										<dt class="mb-3">Title</dt>
+										<dd><a href="#" class="link-dark">자세히보기</a></dd>
+									</dl>
+								</article>
+							</div>
+
+							
+						</div>
+					</div>
+				</section>
+
+				<!-- 카드 슬라이드 -->
+				<section class="swiper cardSlide mb-4">
+					<!-- Slider main container -->
+					<div class="swiperType_card pb-6">
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+									  <dt class="card-title text-white">Benly 초등학생 영단어</dt>
+									  <dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 </dd>
+									  <dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									</dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
+										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
+										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									  </dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
+										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
+										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									  </dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
+										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
+										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									  </dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
+										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
+										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									  </dl>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<!-- title -->
+								<article class="card rounded-5">
+									<div class="photo">
+										<img src="..." class="" alt="...">
+									</div>
+									<dl class="card-body m-0">
+										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
+										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 </dd>
+										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2">Button</a></dd>
+									  </dl>
+								</article>
+							</div>
+						</div>
+						<!-- pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
+				</section>
+
+
+
+
 
 			</div>
 		</main>
