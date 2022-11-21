@@ -53,6 +53,35 @@ button[aria-expanded="true"].btn-category img {
     transform: rotate(180deg);
 }
 
+.btn-top {
+    position: fixed;
+    bottom: 5rem;
+    right: 1.6rem;
+    z-index: 10;
+    width: 4.2rem;
+    height: 4.2rem;
+    background: $primary;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        width: 50%;
+        height: 50%;
+        text-indent: -9999px;
+        font-size: 0;
+        background: url("../../dist/images/common/ico_arr_top.svg") no-repeat center center;
+        background-size: contain;
+    }
+
+    &.active {
+        display: flex;
+
+    }
+}
+
+
 .navbar {
     &-toggler {
         border: none;
@@ -408,6 +437,10 @@ button[aria-expanded="true"].btn-category img {
 
 // desktop
 @include media-breakpoint-up(lg) {
+    .btn-top {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
 
     .navbar-nav .show>.nav-link,
     .navbar-nav .nav-link.active {
@@ -465,8 +498,6 @@ button[aria-expanded="true"].btn-category img {
         margin: 0 8rem;
         overflow: visible;
 
-
-
         &.active .swiper-slide {
             margin-bottom: 4rem;
         }
@@ -494,7 +525,6 @@ button[aria-expanded="true"].btn-category img {
     .swiperType_01 {
         overflow: hidden;
 
-
         .photo {
             max-width: 250px;
         }
@@ -517,11 +547,12 @@ button[aria-expanded="true"].btn-category img {
         background: #fff;
         font-weight: normal;
         line-height: 1;
+        height: 9.3rem;
         border-top: 1px solid #e2e2e2;
         transition: height 0.3s ease-in-out;
 
         &.active {
-            height: 150px;
+            height: 15rem;
         }
 
         &>ul {
@@ -684,7 +715,7 @@ button[aria-expanded="true"].btn-category img {
                 transform: translateY(-50%);
                 text-decoration: none;
                 font-weight: bold;
-                width: 80px;
+                width: 8.2rem;
             }
         }
     }

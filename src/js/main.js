@@ -9,6 +9,7 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach(popover => {
 	new Popover(popover);
 });
 
+
 // myNoteSlide
 const myNoteSlide = new Swiper('.myNoteSlide .swiperType_01', {
 	slidesPerView: 1.8,
@@ -98,9 +99,9 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 });
 
 
-
-// menu-list
+// UI Common
 (() => {
+	// Category TabList only DeskTop
 	class TabList {
 		constructor(opt) {
 			this.tab = document.querySelector('.' + opt.elmName);
@@ -110,6 +111,7 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 			this.index = null;
 			this.lastChild = null;
 
+			console.log(this.tabLi);
 			this.active = 'active';
 		}
 		init() {
@@ -152,22 +154,15 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 		}
 	}
 
-	window.addEventListener('load', () => {
-		const tabList = new TabList({
-			elmName: 'TabList',
-		});
-		tabList.init();
-	});
-})();
-
-
-// addSearch
-(() => {
+	// AddSearch only DeskTop
+	// Common Top button
 	class AddSearch {
 		constructor(opt) {
+			this.html = document.querySelector('html');
 			this.body = document.querySelector('body');
 			this.addBtn = document.querySelector('.' + opt.elmName);
 			this.addSearch = document.querySelector('.addSearch');
+
 			this.active = 'active';
 		}
 		init() {
@@ -175,11 +170,14 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 		}
 		mouseEvent() {
 			this.body.addEventListener('click', e => this.eventHandler(e));
+			window.addEventListener('scroll', e => this.scrollEvent(e));
 		}
 		eventHandler(e) {
 			e.preventDefault();
 
 			this.parent = e.target.parentElement;
+
+			console.log(e.target, e.currentTarget);
 			if (
 				!this.parent.classList.contains(this.active) &&
 				e.target === e.currentTarget.querySelector('.addSearchBtn')
@@ -193,6 +191,7 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 					return;
 				this.close();
 			}
+
 		}
 		open() {
 			this.addBtn.classList.add(this.active);
@@ -202,19 +201,27 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 			this.addBtn.classList.remove(this.active);
 			this.addSearch.classList.remove(this.active);
 		}
+		scrollEvent(e) {
+			e.preventDefault();
+
+			this.topBtn = document.querySelector('.btnTop');
+			this.headerH = document.querySelector('.header').clientHeight;
+			this.visualH = document.querySelector('.visual').clientHeight;
+
+			if (this.html.scrollTop > this.visualH + this.visualH) {
+				this.topBtn.classList.add(this.active);
+				this.topBtn.addEventListener('click', e => this.moveTop(e));
+
+			} else {
+				this.topBtn.classList.remove(this.active);
+			}
+		}
+		moveTop() {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		}
 	}
 
-	window.addEventListener('load', () => {
-		const addSearch = new AddSearch({
-			elmName: 'addSearchBtn',
-		});
-		addSearch.init();
-	});
-})();
-
-
-// changeView Slide
-(() => {
+	// Common ChangeView
 	class ChangeView {
 		constructor(opt) {
 			this.targetBtn = document.querySelector('.' + opt.elmName);
@@ -231,7 +238,6 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 		eventHandler(e) {
 			e.preventDefault();
 			this.parent = e.target;
-			console.log(this.parent);
 			if (!this.parent.classList.contains(this.active)) {
 				this.open();
 			} else {
@@ -243,21 +249,23 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
 			this.parent.textContent = `전체보기 취소`;
 			this.swiper.classList.add(this.active);
 			myNoteSlide.disable();
-			console.log("open");
 		}
 		close() {
 			this.targetBtn.classList.remove(this.active);
 			this.parent.textContent = `전체보기`;
 			this.swiper.classList.remove(this.active);
 			myNoteSlide.enable();
-			console.log("close");
 		}
 	}
 
 	window.addEventListener('load', () => {
-		const changeView = new ChangeView({
-			elmName: 'changeViewBtn',
-		});
+		const tabList = new TabList({ elmName: 'TabList' });
+		tabList.init();
+
+		const addSearch = new AddSearch({ elmName: 'addSearchBtn' });
+		addSearch.init();
+
+		const changeView = new ChangeView({ elmName: 'changeViewBtn' });
 		changeView.init();
 	});
 })();
