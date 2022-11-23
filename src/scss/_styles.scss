@@ -434,6 +434,29 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+.offcanvas.offcanvas-middle {
+	top: -50%;
+	right: 0;
+	left: 50%;
+	height: var(--bs-offcanvas-height);
+	max-height: 100%;
+	transform: translate(-50%, -50%);
+	width: 90%;
+	height: 80%;
+	border-radius: 15px;
+}
+.offcanvas.showing,
+.offcanvas.show:not(.hiding) {
+	top: 50%;
+	transform: translate(-50%, -50%) !important;
+}
+.offcanvas .offcanvas-header .btn-close {
+	width: 2rem;
+	height: 2rem;
+	font-size: 2rem;
+	margin: 0;
+	padding: 0;
+}
 // Common End
 //
 //
