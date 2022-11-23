@@ -50,23 +50,6 @@ module.exports = {
               },
             },
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                quietDeps: ['node_modules/bootstrap/**/*.scss'],
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-          },
         ],
       },
     ],

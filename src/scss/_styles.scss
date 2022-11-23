@@ -435,28 +435,40 @@ button[aria-expanded="true"].btn-category img {
 }
 
 .offcanvas.offcanvas-middle {
+	width: 90%;
+	height: auto;
 	top: -50%;
 	right: 0;
 	left: 50%;
-	height: var(--bs-offcanvas-height);
 	max-height: 100%;
 	transform: translate(-50%, -50%);
-	width: 90%;
-	height: 80%;
 	border-radius: 15px;
+	overflow: hidden;
+
+	.offcanvas-header {
+		height: 50vh;
+		background: url("../../dist/images/photo/sample_popup.jpg") no-repeat
+			left top;
+
+		.btn-close {
+			width: 2rem;
+			height: 2rem;
+			font-size: 2rem;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.offcanvas-body {
+		overflow-y: hidden;
+	}
 }
 .offcanvas.showing,
 .offcanvas.show:not(.hiding) {
 	top: 50%;
 	transform: translate(-50%, -50%) !important;
 }
-.offcanvas .offcanvas-header .btn-close {
-	width: 2rem;
-	height: 2rem;
-	font-size: 2rem;
-	margin: 0;
-	padding: 0;
-}
+
 // Common End
 //
 //
