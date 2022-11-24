@@ -2171,8 +2171,11 @@
 		<div class="offcanvas offcanvas-middle" tabindex="-1" id="offcanvasMiddle"
 			aria-labelledby="offcanvasMiddleLabel">
 			<div class="offcanvas-header">
-				<h2 class="offcanvas-title" id="offcanvasMiddleLabel">Title</h2>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				<div class="blackLayer"></div>
+				<div class="inner">
+					<h2 class="offcanvas-title" id="offcanvasMiddleLabel">Title</h2>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
 			</div>
 			<div class="offcanvas-body">
 				<div class="info-list">
@@ -2204,13 +2207,14 @@
 					</ul>
 				</div>
 
-				<div class="price-wrap">
+				<div class="price-wrap mb-3">
 					<strong>5,900원</strong>
-					<p>11월 19일 - 12월 30일 까지</p>
+					<p class="text-utility">11월 19일 - 12월 30일 까지</p>
 				</div>
 
 				<div class="btn-add">
-					<button type="button" class="btn btn-primary text-white d-block rounded-5">추가하기</button>
+					<button type="button"
+						class="btn btn-primary text-white d-block rounded-pill w-100 p-3 fs-4">추가하기</button>
 					<button type="button" class="btn btn-black text-decoration-underline border-0">닫기</button>
 				</div>
 			</div>
