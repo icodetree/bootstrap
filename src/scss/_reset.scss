@@ -2,19 +2,19 @@ $blue: #017afb;
 $indigo: #485cc7;
 $purple: #6f42c1;
 $pink: #d63384;
-$red: #bd411d;
+$red: #BF2D2D;
 $orange: #fd7e14;
-$yellow: #ede04b;
-$green: #00746d;
+$yellow: #F6C233;
+$green: #005427;
 $teal: #20c997;
 $cyan: #0dcaf0;
 
-$gray-100: #f8f9fa !default;
+$gray-100: #FAFAFA !default;
 $gray-200: #e9ecef !default;
-$gray-300: #e2e2e2 !default;
-$gray-400: #cccccc !default;
-$gray-500: #6a6a6a !default;
-$gray-600: #6c6c6c !default;
+$gray-300: #F1F2F2 !default;
+$gray-400: #c6c6c6 !default;
+$gray-500: #666666 !default;
+$gray-600: #333333 !default;
 $gray-700: #333333 !default;
 $gray-800: #343a40 !default;
 $gray-900: #2d2d2d !default;
@@ -41,7 +41,7 @@ $theme-colors: (
 	"light": $light,
 	"dark": $dark,
 	"utility": $utility,
-) !default;
+	) !default;
 
 $grid-breakpoints: (
 	xs: 0,
@@ -50,7 +50,7 @@ $grid-breakpoints: (
 	lg: 960px,
 	xl: 1200px,
 	xxl: 1440px,
-) !default;
+	) !default;
 
 $container-max-widths: (
 	sm: 100%,
@@ -58,7 +58,7 @@ $container-max-widths: (
 	lg: 100%,
 	xl: 100%,
 	xxl: 1440px,
-) !default;
+	) !default;
 
 // scss-docs-start spacer-variables-maps
 $spacer: 1.8rem !default;
@@ -74,7 +74,7 @@ $spacers: (
 	8: $spacer * 3.5,
 	9: $spacer * 4,
 	10: $spacer * 5,
-) !default;
+	) !default;
 
 $font-size-root: 10px !default;
 $font-size-base: 1.6rem !default; // Assumes the browser default, typically `16px`
@@ -114,7 +114,7 @@ $font-sizes: (
 	6: $h6-font-size,
 	7: $h7-font-size,
 	8: $h8-font-size,
-) !default;
+	) !default;
 
 // scss-docs-start display-headings
 $display-font-sizes: (
@@ -130,7 +130,7 @@ $display-font-sizes: (
 	20: 2rem,
 	24: 2.4rem,
 	32: 3.2rem,
-) !default;
+	) !default;
 
 // scss-docs-start border-variables
 $border-width: 1px !default;
@@ -140,7 +140,7 @@ $border-widths: (
 	3: 3px,
 	4: 4px,
 	5: 5px,
-) !default;
+	) !default;
 
 // Breadcrumbs
 
@@ -160,20 +160,32 @@ $breadcrumb-border-radius: null !default;
 /* 스크롤바 */
 ::-webkit-scrollbar {
 	width: 6px;
-} /* 스크롤 바 */
+}
+
+/* 스크롤 바 */
 ::-webkit-scrollbar-track {
 	background-color: transparent;
-} /* 스크롤 바 밑의 배경 */
+}
+
+/* 스크롤 바 밑의 배경 */
 ::-webkit-scrollbar-thumb {
 	background: #aaa;
 	border-radius: 0.25rem;
-} /* 실질적 스크롤 바 */
+}
+
+/* 실질적 스크롤 바 */
 ::-webkit-scrollbar-thumb:hover {
 	background: transparent;
-} /* 실질적 스크롤 바 위에 마우스를 올려다 둘 때 */
+}
+
+/* 실질적 스크롤 바 위에 마우스를 올려다 둘 때 */
 ::-webkit-scrollbar-thumb:active {
 	background: #808080;
-} /* 실질적 스크롤 바를 클릭할 때 */
+}
+
+/* 실질적 스크롤 바를 클릭할 때 */
 ::-webkit-scrollbar-button {
 	display: none;
-} /* 스크롤 바 상 하단 버튼 */
+}
+
+/* 스크롤 바 상 하단 버튼 */

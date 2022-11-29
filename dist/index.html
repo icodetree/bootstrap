@@ -1,2229 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Benly</title>
-	<meta name="description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" id="viewport"
+		content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+	<meta name="description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나.">
 	<meta property="og:url" content="" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Benly" />
-	<meta property="og:image" content="./img/common/opengraph.jpg" />
-	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Benly">
+	<meta property="og:image" content="./img/common/opengraph.jpg">
+	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나.">
 
-	<link rel="stylesheet" href="./css/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="./main.css" />
 
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+		html {
+			font-size: 62.5%;
+		}
+
+		body {
+			min-width: 32rem;
+			font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+			line-height: 1.5;
+			color: #343745;
+			font-weight: normal;
+			margin: 1em;
+		}
+
+		button {
+			border: 0;
+			padding: 0;
+			margin: 0;
+			background: none;
+			cursor: pointer;
+			font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+		}
+
+		h1 {
+			color: #000;
+			text-align: center;
+		}
+
+		h1 span {
+			font-size: 2rem;
+		}
+
+		.btnSet {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		p.desc {
+			height: 2rem;
+		}
+
+		p.desc span {
+			display: inline-block;
+			padding: 0.2rem 1rem;
+			font-size: 1.2rem;
+			border-radius: 0.3rem;
+		}
+
+		p.desc span.done {
+			background: #00a950;
+			color: #fff;
+		}
+
+		p.desc span.ing {
+			background: #f00;
+			color: #fff;
+		}
+
+		p.btn {
+			padding: 5px 0;
+			text-align: right;
+		}
+
+		p.btn button {
+			padding: 0.2rem 0.6rem;
+			font-size: 1.1rem;
+			border-radius: 0.2rem;
+			border: 1px solid #666;
+			background: #fff;
+			color: #666;
+			box-sizing: border-box;
+		}
+
+		p.btn .ctrBtn.cl {
+			background: #999;
+			color: #fff;
+			border: none;
+		}
+
+		table {
+			font-size: 1.4rem;
+			width: 100%;
+			text-align: left;
+			border-collapse: collapse;
+			border-bottom: 1px solid #d1d1d1;
+			border-top: 1px solid #d1d1d1;
+		}
+
+		table thead th {
+			color: #fff;
+			background: #888;
+		}
+
+		table th {
+			height: 1.6em;
+			text-align: center;
+			padding: 0.5em;
+			border: 1px solid #d1d1d1
+		}
+
+		table td {
+			height: 1.6em;
+			padding: 0.2rem 0.5rem;
+			white-space: nowrap;
+			border: 1px solid #d1d1d1;
+		}
+
+		table td a {
+			letter-spacing: 0;
+		}
+
+		table tbody th {
+			font-weight: normal;
+		}
+
+		table .sector {
+			font-weight: bold;
+			cursor: pointer;
+			background: #ffe9ed
+		}
+
+		table .sector th {
+			font-weight: bold;
+		}
+
+		table th span {
+			color: #888;
+			white-space: nowrap;
+		}
+
+		table th span:last-child {
+			color: #333;
+		}
+
+		table .done {
+			color: #00a950;
+			text-align: center;
+		}
+
+		table .ing {
+			color: #f00;
+			text-align: center;
+		}
+
+		table .sector th:first-child {
+			width: 30%;
+			text-align: left;
+		}
+
+		table .sector td:last-child {
+			width: 20%
+		}
+
+		table .sector.on {
+			background: #d6faff
+		}
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+			body {
+				font-size: 11px;
+			}
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<!-- header -->
-		<header class="header">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container-fluid">
-					<!-- logo -->
-					<h1 class="d-flex align-items-center mb-0 mt-1">
-						<a class="navbar-brand p-0" href="#"><img src="./images/common/logo.svg" alt=""
-								class="img-fluid" /></a>
-					</h1>
 
-					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-						data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-						aria-labelledby="offcanvasNavbarLabel">
-						<div class="offcanvas-header">
-							<h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-							<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-								aria-label="Close"></button>
-						</div>
-						<div class="offcanvas-body">
-							<ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
-								<li class="nav-item active">
-									<a class="nav-link" aria-current="page" href="./index.html">홈</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="./status.html">나의 상태</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="./review.html">복습센터</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="./mypage.html">내 정보</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#">검색하기</a>
-								</li>
-							</ul>
-							<!-- 문의하기 -->
-							<div class="contact mx-2 my-5 d-sm-block d-lg-none">
-								<ul class="list-unstyled">
-									<li class="mb-5">
-										<img src="./images/common/ico_mail.svg" alt="" class="img-fluid" />
-										<a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
-									</li>
-									<li>
-										<img src="./images/common/ico_phone.svg" alt="" class="img-fluid" />
-										<a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
-									</li>
-								</ul>
-							</div>
 
-							<!-- share -->
-							<div class="share mx-2 my-5 d-sm-block d-lg-none">
-								<ul class="list-unstyled d-flex">
-									<li>
-										<a href="#" class="rounded-circle me-5"><img
-												src="./images/common/ico_facebook.svg" alt="facebook"
-												class="img-fluid" /></a>
-									</li>
-									<li>
-										<a href="#" class="rounded-circle me-5"><img
-												src="./images/common/ico_pinterest.svg" alt="pinterest"
-												class="img-fluid" /></a>
-									</li>
-									<li>
-										<a href="#" class="rounded-circle me-5"><img
-												src="./images/common/ico_twitter.svg" alt="twitter"
-												class="img-fluid" /></a>
-									</li>
-									<li>
-										<a href="#" class="rounded-circle me-5"><img
-												src="./images/common/ico_linked.svg" alt="linkedin"
-												class="img-fluid" /></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</header>
+	<h1><span>Benly</span></h1>
+
+	<table>
+		<colgroup>
+			<col width="150" />
+			<col width="250" />
+			<col width="50" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>화면</th>
+				<th>경로</th>
+				<th>상태</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr class="sector">
+				<th>store</th>
+				<td>/store</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>기본 화면</td>
+				<td><a href="./store/home_members.html" target="_self">home_members.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>더 많은 단어에 도전하세요 펼 쳤을때 화면</td>
+				<td><a href="./store/home_wordchallenge.html" target="_self">home_wordchallenge.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>가입 후 첫 화면</td>
+				<td><a href="./store/home_first.html" target="_self">home_first.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>home_L1</td>
+				<td><a href="./store/home_L1.html" target="_self">home_L1.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>home_L2</td>
+				<td><a href="./store/home_L2.html" target="_self">home_L2.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>home_L3</td>
+				<td><a href="./store/home_L3.html" target="_self">home_L3.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr class="sector">
+				<th>status</th>
+				<td>/status</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>나의 상태</td>
+				<td><a href="./status/home.html" target="_self">home.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr class="sector">
+				<th>review</th>
+				<td>/review</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>단어장 상세페이지</td>
+				<td><a href="./review/view.html" target="_self">view.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr class="sector">
+				<th>game</th>
+				<td>/game</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>게임화면</td>
+				<td><a href="./game/play.html" target="_self">view.html</a></td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+		</tbody>
+	</table>
 
-		<main class="main">
-			<!-- visual -->
-			<section class="visual">
-				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-							class="rounded-circle active" aria-current="true" aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-							class="rounded-circle" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-							class="rounded-circle" aria-label="Slide 3"></button>
-					</div>
-					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="5000">
-							<picture>
-								<source srcset="
-											./images/main/main_visual_01_2x.png
-										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
-							</picture>
-							<div class="carousel-caption">
-								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
-										alt=""></span>
-								<h2><span class="d-inline-block me-2">목표는 수능 1등급</span><span
-										class="d-block d-md-inline-block"> 영단어</span></h2>
-								<p class="d-none d-lg-block text-decoration-underline">
-									내게 필요한 영단어 찾아보기
-								</p>
-							</div>
-						</div>
-						<div class="carousel-item" data-bs-interval="5000">
-							<picture>
-								<source srcset="
-											./images/main/main_visual_01_2x.png
-										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
-							</picture>
-							<div class="carousel-caption">
-								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
-										alt=""></span>
-								<h2><span class="d-inline-block me-2">목표는 수능 1등급</span><span
-										class="d-block d-md-inline-block"> 영단어</span></h2>
-								<p class="d-none d-lg-block text-decoration-underline">
-									내게 필요한 영단어 찾아보기
-								</p>
-							</div>
-						</div>
-						<div class="carousel-item" data-bs-interval="5000">
-							<picture>
-								<source srcset="
-											./images/main/main_visual_01_2x.png
-										" media="all and (min-width: 960px)" />
-								<img src="./images/main/main_visual_01.png" class="d-block w-100" alt="" />
-							</picture>
-							<div class="carousel-caption">
-								<span class="d-lg-none"><img src="./images/common/logo_w.svg" class="mw-100"
-										alt=""></span>
-								<h2><span class="d-inline-block me-2">목표는 수능 1등급</span><span
-										class="d-block d-md-inline-block"> 영단어</span></h2>
-								<p class="d-none d-lg-block text-decoration-underline">
-									내게 필요한 영단어 찾아보기
-								</p>
-							</div>
-						</div>
-					</div>
-					<button class="carousel-control-prev d-none d-lg-block" type="button"
-						data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next d-none d-lg-block" type="button"
-						data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
-				</div>
-			</section>
-
-			<div class="content mt-5 mb-7">
-
-				<!-- welcome -->
-				<section class="welcome">
-					<div class="text-start border-top border-bottom mb-3 mx-3 py-3">
-						<p class="d-inline me-2">안녕하세요, 정윤 님</p>
-						<p class="d-inline">첫 방문을 환영합니다.</p>
-					</div>
-				</section>
-
-				<!-- 나의 단어장 -->
-				<section class="my-note mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">나의 단어장</h2>
-							<a href="#" class="ms-2 link-utility fs-7 changeViewBtn">전체보기</a><span
-								class="fs-7">(3)</span>
-						</div>
-
-						<!-- 분류 : PC -->
-						<article class="pc-category d-none d-lg-flex justify-content-end py-2">
-							<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" class="d-lg-flex">
-								<p class="me-3">분류 : </p>
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item active" aria-current="page"><a href="#"
-											class="text-decoration-none">총 다운로드 수</a></li>
-									<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">챕터
-											수</a>
-									</li>
-									<li class="breadcrumb-item"><a href="#" class="text-decoration-none link-utility">단어
-											수</a>
-									</li>
-									<li class="breadcrumb-item"><a href="#"
-											class="text-decoration-none link-utility m-0 p-0">클리어
-											목표</a></li>
-								</ol>
-							</nav>
-						</article>
-
-
-						<!-- 분류 : mobile -->
-						<button type="button" class="btn link-utility btn-category border-0 d-lg-none"
-							data-bs-toggle="collapse" data-bs-target="#collapseMobile" aria-expanded="false"
-							aria-controls="collapseMobile">
-							<span class="fs-7">분류</span>
-							<span><img src="./images/common/ico_arr_bg.svg" alt=""></span>
-						</button>
-					</article>
-
-					<div class="collapse mx-3 border-bottom" id="collapseMobile">
-						<nav style="--bs-breadcrumb-divider: '|';" aria-label="breadcrumb">
-							<ol class="breadcrumb fs-7 mt-3">
-								<li class="breadcrumb-item active" aria-current="page"><a href="#"
-										class="text-reset text-decoration-none">총 다운로드 수</a></li>
-								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">챕터 수</a>
-								</li>
-								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">단어 수</a>
-								</li>
-								<li class="breadcrumb-item"><a href="#" class="text-reset text-decoration-none">클리어
-										목표</a></li>
-							</ol>
-						</nav>
-					</div>
-				</section>
-
-				<!-- 
-				<div class="title_pc d-none d-lg-block mx-3 fs-2 fw-bold mb-4">
-					<p>정윤 님이 새롭게 시작할 단어장을 선택해 주세요.</p>
-				</div>
-				 -->
-
-				<!-- 나의 단어장 슬라이드 -->
-				<section class="swiper myNoteSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_01">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<article class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
-													alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">Max 50 characters & 2 lines</dt>
-													<dd class="card-text">Benly 초등 영어</dd>
-													<dd class="card-text">챕터 3개 | 단어
-														100개</dd>
-													<dd>
-														<a href="#" class="card-link text-decoration-none">단어장
-															보러가기</a>
-														<img src="./images/common/ico_arr_rb.svg" alt="">
-													</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<article class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
-													alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">Max 50 characters & 2 lines</dt>
-													<dd class="card-text">Benly 초등 영어</dd>
-													<dd class="card-text">챕터 3개 | 단어
-														100개</dd>
-													<dd>
-														<a href="#" class="card-link text-decoration-none">단어장
-															보러가기</a>
-														<img src="./images/common/ico_arr_rb.svg" alt="">
-													</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<article class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
-													alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">Max 50 characters & 2 lines</dt>
-													<dd class="card-text">Benly 초등 영어</dd>
-													<dd class="card-text">챕터 3개 | 단어
-														100개</dd>
-													<dd>
-														<a href="#" class="card-link text-decoration-none">단어장
-															보러가기</a>
-														<img src="./images/common/ico_arr_rb.svg" alt="">
-													</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<article class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_word_01.jpg" class="img-fluid rounded"
-													alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">Max 50 characters & 2 lines</dt>
-													<dd class="card-text">Benly 초등 영어</dd>
-													<dd class="card-text">챕터 3개 | 단어
-														100개</dd>
-													<dd>
-														<a href="#" class="card-link text-decoration-none">단어장
-															보러가기</a>
-														<img src="./images/common/ico_arr_rb.svg" alt="">
-													</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</section>
-
-				<!-- 메뉴 -->
-				<article class="menu-list TabList mx-lg-3">
-					<ul class="d-lg-flex mx-lg-0 mb-3 px-0">
-						<li class="d-flex justify-content-between">
-							<a href="#none" class="px-0 subtit">벤리 인기 콘텐츠</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<!-- 클릭시 li class="active" -->
-									<li class="active"><a href="#" class="text-reset text-decoration-none">Benly</a>
-									</li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-						<li class="d-flex justify-content-between ">
-							<a href="#none" class="px-0 subtit">프리미엄 콘텐츠</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<li class="active"><a href="#" class="text-reset text-decoration-none">프리미엄</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-						<li class="d-flex justify-content-between ">
-							<a href="#none" class="px-0 subtit">10대</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<li class="active"><a href="#" class="text-reset text-decoration-none">10대</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-						<li class="d-flex justify-content-between ">
-							<a href="#none" class="px-0 subtit">20-30대</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<li class="active"><a href="#" class="text-reset text-decoration-none">20-30대</a>
-									</li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-						<li class="d-flex justify-content-between ">
-							<a href="#none" class="px-0 subtit">KIDS</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<li class="active"><a href="#" class="text-reset text-decoration-none">KIDS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-						<li class="d-flex justify-content-between ">
-							<a href="#none" class="px-0 subtit">REMINDER ( 모든 연령대)</a>
-							<div class="depth">
-								<ol class="fs-5">
-									<li class="active"><a href="#" class="text-reset text-decoration-none">REMINDER</a>
-									</li>
-									<li><a href="#" class="text-reset text-decoration-none">TOEIC</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">ETS</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">경선식</a></li>
-								</ol>
-								<ol class="fs-5">
-									<li><a href="#" class="text-reset text-decoration-none">TOEFL</a></li>
-									<li><a href="#" class="text-reset text-decoration-none">전문직</a></li>
-								</ol>
-							</div>
-
-							<span><img src="./images/common/ico_arr_rbk.svg" alt=""></span>
-						</li>
-					</ul>
-				</article>
-
-				<!-- 분류 : PC -->
-				<article
-					class="pc-category mx-lg-3 d-none d-lg-flex justify-content-end align-items-center py-2 border-top border-bottom">
-
-					<!-- 돌아가기 
-					<button type="button" class="btn link-utility btn-category border-0 d-lg-block p-0">
-						<span><img src="./images/common/ico_arr_lbk.svg" alt=""></span>
-						<span>돌아가기</span>
-					</button>
-					-->
-
-					<nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb"
-						class="d-lg-flex justify-content-end align-items-center">
-						<p class="m-0 me-3">분류 : </p>
-						<ol class="breadcrumb m-0">
-							<li class="breadcrumb-item ps-0 active" aria-current="page"><a href="#"
-									class="text-decoration-none">총 다운로드 수</a></li>
-							<li class="breadcrumb-item ps-0"><a href="#" class="text-decoration-none link-utility">챕터
-									수</a>
-							</li>
-							<li class="breadcrumb-item ps-0"><a href="#" class="text-decoration-none link-utility">단어
-									수</a>
-							</li>
-							<li class="breadcrumb-item ps-0"><a href="#" class="text-decoration-none link-utility">클리어
-									목표</a></li>
-							<li class="breadcrumb-item ps-0">
-								<a href="#" class="addSearchBtn text-decoration-none link-utility">검색하기</a>
-							</li>
-						</ol>
-						<!-- 검색하기 -->
-						<div class="search-wrap addSearch">
-							<input type="text" class="input-search">
-							<button type="button" class="btn btn-link btn-search">검색하기</button>
-						</div>
-					</nav>
-				</article>
-
-
-				<!-- Title : 지금 뜨는 콘텐츠 -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">지금 뜨는 콘텐츠</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Title : 벤리 인기 콘텐츠 -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">벤리 인기 콘텐츠</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">ETS</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Slide : 작은 썸네일 슬라이드 -->
-				<section class="swiper thumbNailSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_thumb pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_01.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">수도 한번 맞춰볼래?</dt>
-													<dd class="card-text">나라별 수도 맞추기</dd>
-													<dd class="card-text">예능 준비 게임</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_02.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">요정도는 기본이지!</dt>
-													<dd class="card-text">시험에 항상 나오는 기본 PACK 8</dd>
-													<dd class="card-text">고등 영어</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_03.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">부동산 용어 암기!</dt>
-													<dd class="card-text">기억술사들이 선택한 자격증 시험 암기 TOP 8</dd>
-													<dd class="card-text">자격증 시험 암기</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Title : 프리미엄 컨텐츠 -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">프리미엄 컨텐츠</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline" type="button"
-												aria-controls="offcanvasMiddle">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Title : 10대 -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">10대</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">ETS</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline" type="button"
-												aria-controls="offcanvasMiddle">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Slide : 작은 썸네일 슬라이드 -->
-				<section class="swiper thumbNailSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_thumb pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_01.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">수도 한번 맞춰볼래?</dt>
-													<dd class="card-text">나라별 수도 맞추기</dd>
-													<dd class="card-text">예능 준비 게임</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_02.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">요정도는 기본이지!</dt>
-													<dd class="card-text">시험에 항상 나오는 기본 PACK 8</dd>
-													<dd class="card-text">고등 영어</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- thumb -->
-								<a href="#" class="thumb-area">
-									<div class="card border-0">
-										<div class="d-flex">
-											<div class="photo col-md-4">
-												<img src="./images/photo/photo_m_03.jpg" class="img-fluid" alt="">
-											</div>
-											<div class="col-md-8">
-												<dl class="card-body py-0 px-3">
-													<dt class="card-title">부동산 용어 암기!</dt>
-													<dd class="card-text">기억술사들이 선택한 자격증 시험 암기 TOP 8</dd>
-													<dd class="card-text">자격증 시험 암기</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-
-				<!-- Title : 20-30대 -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">20-30대</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">ETS</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline" type="button"
-												aria-controls="offcanvasMiddle">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-				<!-- Title : KIDS -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">KIDS</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">ETS</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline" type="button"
-												aria-controls="offcanvasMiddle">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-				<!-- Title : REMINDER (모든 연령대) -->
-				<section class="my-note mt-6 mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-5">REMINDER (모든 연령대)</h2>
-							<a href="#" class="ms-2 link-dark fs-7">전체보기 <span>(6)</span></a>
-						</div>
-					</article>
-				</section>
-
-				<!-- Slide : PCAK 슬라이드 -->
-				<section class="swiper contentTitleSlide">
-					<!-- Slider main container -->
-					<div class="swiperType_02 pb-3">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">초등학생 레벨식 <br> 영단어 PACK</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">ETS</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline"
-												type="button">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="title-area rounded-5 py-3 text-center">
-									<dl>
-										<dt class="mb-3">Title</dt>
-										<dd>
-											<button class="btn border-0 fs-7 text-decoration-underline" type="button"
-												aria-controls="offcanvasMiddle">자세히보기</button>
-										</dd>
-									</dl>
-								</article>
-							</div>
-
-
-						</div>
-					</div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="./images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="offcanvas" data-bs-target="#offcanvasMiddle"
-												aria-controls="offcanvasMiddle">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-				</section>
-
-			</div>
-		</main>
-
-		<footer class="footer">
-			<div class="container-fluid bg-dark text-white py-4 py-lg-6 d-lg-flex">
-				<div class="footer-logo pb-3 pb-lg-0 ms-lg-6"><img src="./images/common/logo_w.svg" class="mw-100"
-						alt=""></div>
-				<div class="footer-info mb-5 mb-lg-0 mx-lg-9">
-					<ul class="list-unstyled lh-lg">
-						<li>업체명 : 벤리</li>
-						<li>사업자등록번호 : 120-81-84429</li>
-						<li>통신판매업신고번호 : 제2011서울송파-00810호</li>
-						<li>대표이사 : 이정윤</li>
-						<li>주소 : 서울특별시 송파구 풍납동 260</li>
-						<li>대표전화 : 000-0000-0000</li>
-					</ul>
-				</div>
-				<div class="footer-menu">
-					<ul class="list-unstyled lh-lg mb-0">
-						<li class="pb-2 border-bottom d-flex justify-content-between ">
-							<a href="#" class="text-reset text-decoration-none">이용 약관</a>
-							<span><img src="./images/common/ico_arr_bw.svg" alt=""></span>
-						</li>
-						<li class="py-2 border-bottom d-flex justify-content-between ">
-							<a href="#" class="text-reset text-decoration-none">개인정보 취급방침</a>
-							<span><img src="./images/common/ico_arr_bw.svg" alt=""></span>
-						</li>
-						<li class="py-2 border-bottom d-flex justify-content-between ">
-							<a href="#" class="text-reset text-decoration-none">유료 이용약관</a>
-							<span><img src="./images/common/ico_arr_bw.svg" alt=""></span>
-						</li>
-						<li class="py-2 d-flex justify-content-between ">
-							<a href="#" class="text-reset text-decoration-none">청소년 보호정책</a>
-							<span><img src="./images/common/ico_arr_bw.svg" alt=""></span>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</footer>
-
-		<!-- TOP -->
-		<article class="btn-top btnTop">
-			<a href="#">페이지 상단으로 이동</a>
-		</article>
-
-
-		<!-- Popup -->
-		<div class="offcanvas offcanvas-middle" tabindex="-1" id="offcanvasMiddle"
-			aria-labelledby="offcanvasMiddleLabel">
-			<div class="offcanvas-header">
-				<div class="blackLayer"></div>
-				<div class="inner">
-					<h2 class="offcanvas-title" id="offcanvasMiddleLabel">Title</h2>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				</div>
-			</div>
-			<div class="offcanvas-body">
-				<div class="info-list">
-					<ul class="p-0">
-						<li>
-							<dl>
-								<dt>단어 수</dt>
-								<dd>297개</dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt>클리어 목표</dt>
-								<dd>8일</dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt>총 다운로드</dt>
-								<dd>297회</dd>
-							</dl>
-						</li>
-						<li>
-							<dl>
-								<dt>쳅터 수</dt>
-								<dd>100개</dd>
-							</dl>
-						</li>
-					</ul>
-				</div>
-
-				<div class="price-wrap mb-4">
-					<strong>5,900원</strong>
-					<p class="text-utility">11월 19일 - 12월 30일 까지</p>
-				</div>
-
-				<div class="btn-add">
-					<button type="button"
-						class="btn btn-primary text-white d-block rounded-pill w-100 p-2 ">추가하기</button>
-					<button type="button"
-						class="btn btn-black text-decoration-underline border-0 fw-bold mt-3">닫기</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script src="./js/swiper-bundle.min.js"></script>
-	<script src="./main.js"></script>
 </body>
 
 </html>
