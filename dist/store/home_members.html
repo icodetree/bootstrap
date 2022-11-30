@@ -29,147 +29,193 @@
                                 class="img-fluid" /></a>
                     </h1>
 
-                    <!-- PC -->
-                    <article class="navbar-pc">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                            aria-labelledby="offcanvasNavbarLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" aria-current="page" href="../index.html">홈</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../status.html">나의 상태</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../review.html">복습센터</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../mypage.html">내 정보</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">검색하기</a>
-                                    </li>
-                                </ul>
+                    <div class="inner">
 
-                                <div class="contact mx-2 my-5 d-sm-block d-lg-none">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-5">
-                                            <img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
-                                            <a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
-                                        </li>
-                                        <li>
-                                            <img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
-                                            <a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <!-- search -->
+                        <article class="search">
+                            <button id="toggle" class="border-0 bg-white"><img src="../images/common/btn_search.svg"
+                                    alt="search"></button>
+                            <div class="overlay" id="overlay">
+                                <div class="overlay-menu">
+                                    <!-- search-input -->
+                                    <div class="search-text mb-3">
+                                        <label for="search_text"><img src="../images/common/btn_search.svg"
+                                                class="w-100" alt="search"></label>
+                                        <input class="form-control" id="search_text" type="text" placeholder="검색하기"
+                                            aria-label="검색하기">
+                                        <button type="button"
+                                            class="popClose btn text-decoration-underline border-0 px-0">닫기</button>
+                                    </div>
 
-                                <div class="share mx-2 my-5 d-sm-block d-lg-none">
-                                    <ul class="list-unstyled d-flex">
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_facebook.svg" alt="facebook"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_pinterest.svg" alt="pinterest"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_twitter.svg" alt="twitter"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_linked.svg" alt="linkedin"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                    </ul>
+                                    <!-- search-list -->
+                                    <div class="search-list">
+                                        <ul class="p-0 m-0">
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                            <li><a href="#" class="link-utility">추천 검색어</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- search-banner -->
+                                    <div class="search-banner mt-3">
+                                        <a href="#" class="link-utility">배너 이미지 높이값만큼 벌어짐</a>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
 
-                    <!-- mobile -->
-                    <article class="navbar-mobile">
-                        <div class="hamberger" id="toggle">
-                            <span class="top"></span>
-                            <span class="middle"></span>
-                            <span class="bottom"></span>
-                        </div>
-                        <div class="overlay" id="overlay">
-                            <div class="overlay-menu">
-                                <ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" aria-current="page" href="../index.html">홈</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../status.html">나의 상태</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../review.html">복습센터</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="../mypage.html">내 정보</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">검색하기</a>
-                                    </li>
-                                </ul>
-
-                                <div class="contact mx-2 my-5 d-sm-block d-lg-none">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-5">
-                                            <img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
-                                            <a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                        <!-- PC -->
+                        <article class="navbar-pc">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                                aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" aria-current="page" href="../index.html">홈</a>
                                         </li>
-                                        <li>
-                                            <img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
-                                            <a href="#" class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../status.html">나의 상태</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../review.html">복습센터</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../mypage.html">내 정보</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">검색하기</a>
                                         </li>
                                     </ul>
-                                </div>
 
-                                <div class="share mx-2 py-5 d-sm-block d-lg-none">
-                                    <ul class="d-flex justify-content-center">
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_facebook.svg" alt="facebook"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_pinterest.svg" alt="pinterest"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_twitter.svg" alt="twitter"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="rounded-circle me-5"><img
-                                                    src="../images/common/ico_linked.svg" alt="linkedin"
-                                                    class="img-fluid" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <div class="contact mx-2 my-5 d-sm-block d-lg-none">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-5">
+                                                <img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
+                                                <a href="#"
+                                                    class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                                            </li>
+                                            <li>
+                                                <img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
+                                                <a href="#"
+                                                    class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                                            </li>
+                                        </ul>
+                                    </div>
 
+                                    <div class="share mx-2 my-5 d-sm-block d-lg-none">
+                                        <ul class="list-unstyled d-flex">
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_facebook.svg" alt="facebook"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_pinterest.svg" alt="pinterest"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_twitter.svg" alt="twitter"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_linked.svg" alt="linkedin"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+
+                        <!-- mobile -->
+                        <article class="navbar-mobile">
+                            <div class="hamberger" id="toggle">
+                                <span class="top"></span>
+                                <span class="middle"></span>
+                                <span class="bottom"></span>
+                            </div>
+                            <div class="overlay" id="overlay">
+                                <div class="overlay-menu">
+                                    <ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" aria-current="page" href="../index.html">홈</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../status.html">나의 상태</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../review.html">복습센터</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../mypage.html">내 정보</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">검색하기</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="contact mx-2 my-5 d-sm-block d-lg-none">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-5">
+                                                <img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
+                                                <a href="#"
+                                                    class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                                            </li>
+                                            <li>
+                                                <img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
+                                                <a href="#"
+                                                    class="d-inline text-reset text-decoration-none ms-2">문의하기</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="share mx-2 py-5 d-sm-block d-lg-none">
+                                        <ul class="d-flex justify-content-center">
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_facebook.svg" alt="facebook"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_pinterest.svg" alt="pinterest"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_twitter.svg" alt="twitter"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="rounded-circle me-5"><img
+                                                        src="../images/common/ico_linked.svg" alt="linkedin"
+                                                        class="img-fluid" /></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
                 </div>
             </nav>

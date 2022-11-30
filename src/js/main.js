@@ -303,27 +303,34 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
     }
   }
 
+  // Toggle Button
   class Toggle {
     constructor(opt) {
-      this.btn = document.querySelector('#' + opt.elmName);
-      this.overlay = document.querySelector('#overlay');
+      this.btn = [...document.querySelectorAll('#' + opt.elmName)];
+      this.closeBtn = document.querySelector(".popClose");
+      this.body = document.querySelector("body");
 
       this.target = null;
-      this.active = 'active';
+      this.overlay = null;
       this.parent = null;
-      this.mother = null;
+      this.active = 'active';
+      this.hidden = 'hidden';
     }
     init() {
-      this.mouseEvent();
+      this.btn.forEach(elm => {
+        this.target = elm;
+        this.mouseEvent();
+      });
     }
     mouseEvent() {
-      this.btn.addEventListener('click', e => this.eventHandler(e));
+      this.target.addEventListener('click', e => this.eventHandler(e));
+      this.closeBtn.addEventListener('click', e => this.close());
     }
     eventHandler(e) {
       e.preventDefault();
-
       this.parent = e.currentTarget;
-      console.log(this.parent);
+      this.overlay = this.parent.nextElementSibling;
+
       if (!this.parent.classList.contains(this.active)) {
         this.open();
       } else {
@@ -333,10 +340,12 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
     open() {
       this.parent.classList.add(this.active);
       this.overlay.classList.add(this.active);
+      this.body.classList.add(this.hidden);
     }
     close() {
       this.parent.classList.remove(this.active);
       this.overlay.classList.remove(this.active);
+      this.body.classList.remove(this.hidden);
     }
   }
 
