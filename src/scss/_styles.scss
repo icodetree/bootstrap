@@ -36,10 +36,6 @@ a:link {
 	padding: 0 $font-size-base;
 }
 
-.hidden {
-	overflow-y: hidden;
-}
-
 .container-xxl,
 .container-xl,
 .container-lg,
@@ -215,6 +211,23 @@ button[aria-expanded="true"].btn-category img {
 	font-size: 1.2rem;
 }
 
+// content
+.welcome {
+	p {
+		position: relative;
+	}
+
+	p:nth-child(1)::after {
+		content: '';
+		width: 1px;
+		height: 1.6rem;
+		background: $gray-400;
+		position: absolute;
+		right: 0;
+		top: 5px;
+	}
+}
+
 .breadcrumb {
 	&-item.active {
 		font-weight: 600;
@@ -222,11 +235,11 @@ button[aria-expanded="true"].btn-category img {
 }
 
 .changeViewBtn {
-	&+span {
+	span {
 		opacity: 1;
 	}
 
-	&.active+span {
+	&.active>span {
 		opacity: 0;
 	}
 }
@@ -275,12 +288,40 @@ button[aria-expanded="true"].btn-category img {
 
 	dt {
 		font-size: 1.4rem;
+		margin-bottom: 1.5rem;
 		line-height: 1.2;
 	}
 
 	dd {
 		font-size: 1.2rem;
 		color: #848484;
+		margin-bottom: 1.5rem;
+		line-height: 1;
+
+		span:first-child {
+			display: inline-block;
+			margin-right: 0.6rem;
+			padding-right: 1rem;
+			border-right: 1px solid $gray-300;
+		}
+
+		a {
+			position: relative;
+			display: inline-block;
+			padding-right: 1rem;
+		}
+
+		a::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 2px;
+			display: block;
+			width: 0.56rem;
+			height: 1.1rem;
+			background: url("../../dist/images/common/ico_arr_rb.svg") no-repeat;
+			background-size: contain;
+		}
 	}
 
 	.add-word {
@@ -426,25 +467,27 @@ button[aria-expanded="true"].btn-category img {
 
 	.thumb-area {
 		display: block;
-	}
 
-	.photo {
-		max-width: 12rem;
-		border-radius: 3px;
-		overflow: hidden;
-	}
-
-	dt {
-		font-size: 1.6rem;
-		font-weight: bold;
-		color: #2d2d2d;
-	}
-
-	dd {
-		font-size: 1.2rem;
-		color: #848484;
 	}
 }
+
+.photo {
+	max-width: 12rem;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+dt {
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #2d2d2d;
+}
+
+dd {
+	font-size: 1.2rem;
+	color: #848484;
+}
+
 
 // Layer Popup
 .modal {
@@ -616,6 +659,58 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+// search
+.search {
+
+
+	label {
+		width: 2rem;
+		height: 2rem;
+		position: absolute;
+		left: 0;
+		top: 0.6rem;
+		z-index: 1;
+	}
+
+	input.form-control {
+		position: relative;
+		border: none;
+		border-bottom: 1px solid $gray-500;
+		color: $gray-600;
+		font-size: 1.2rem;
+		border-radius: 0;
+		padding: 1rem 3rem;
+	}
+
+	&-list {
+		li {
+			line-height: 2.5;
+		}
+
+		a {
+			font-size: 1.4rem;
+		}
+	}
+
+	&-banner {
+		min-height: 7rem;
+		border-radius: 5px;
+		background-color: $gray-400;
+	}
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+	border: 1px solid $gray-400;
+	background-color: $gray-300;
+	opacity: 1;
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	border: 1px solid $gray-600;
+	background-color: $primary;
+}
+
+
 
 // Common End
 //
@@ -627,13 +722,27 @@ button[aria-expanded="true"].btn-category img {
 // Mobile Start
 @include media-breakpoint-down(lg) {
 
+	.hidden {
+		overflow-y: hidden;
+	}
+
 	// search
 	.search {
-		button#toggle {
+		&>button#toggle {
 			position: absolute;
 			right: 15%;
 			top: 0.7rem;
 			z-index: 1;
+			background-color: #fff;
+		}
+
+		&>button#toggle::after {
+			content: '';
+			display: block;
+			width: 2.4rem;
+			height: 2.4rem;
+			background: url("../../dist/images/common/btn_search.svg") no-repeat center center;
+			background-size: contain;
 		}
 
 		&-text {
@@ -650,36 +759,6 @@ button[aria-expanded="true"].btn-category img {
 
 		}
 
-		label {
-			width: 2rem;
-			height: 2rem;
-			position: absolute;
-			left: 0;
-			top: 0.6rem;
-			z-index: 1;
-		}
-
-		input.form-control {
-			position: relative;
-			border: none;
-			border-bottom: 1px solid $gray-500;
-			color: $gray-600;
-			font-size: 1.2rem;
-			border-radius: 0;
-			padding: 1rem 3rem;
-		}
-
-		&-list {
-			li {
-				line-height: 2.5;
-			}
-		}
-
-		&-banner {
-			min-height: 7rem;
-			border-radius: 5px;
-			background-color: $gray-400;
-		}
 	}
 
 	.navbar {
@@ -761,9 +840,9 @@ button[aria-expanded="true"].btn-category img {
 		height: 100%;
 		z-index: 100;
 		overflow: hidden;
-		transition: left 0.3s ease-in-out;
 		border-top: 1px solid $gray-300;
 		padding: 0 1.6rem;
+		transition: left 0.3s ease-in-out;
 
 		&-menu {
 			margin-top: 2rem;
@@ -831,6 +910,7 @@ button[aria-expanded="true"].btn-category img {
 	.navbar {
 		&-pc {
 			display: block;
+			margin-right: 6rem;
 		}
 
 		&-mobile {
@@ -881,6 +961,84 @@ button[aria-expanded="true"].btn-category img {
 		}
 	}
 
+	// search
+	.search {
+		width: 60%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 3;
+
+		&>button#toggle {
+			position: absolute;
+			right: 3rem;
+			top: 2rem;
+			z-index: 1;
+			width: 2.4rem;
+			height: 2.4rem;
+			background-color: $primary;
+			border-radius: 50%;
+		}
+
+		&>button#toggle::after {
+			content: '';
+			display: block;
+			width: 1.4rem;
+			height: 1.4rem;
+			background: url("../../dist/images/common/btn_search_w.svg") no-repeat center center;
+			background-size: contain;
+		}
+
+		&>button#toggle.active {
+			background: $white url("../../dist/images/common/btn_b_close.svg") no-repeat center center;
+		}
+
+		&>button#toggle.active::after {
+			background: none;
+		}
+
+		&-banner {
+			position: absolute;
+			right: 0;
+			top: 5rem;
+			z-index: 1;
+			width: 33rem;
+			height: 27rem;
+		}
+
+		button.btn {
+			display: none;
+		}
+
+	}
+
+
+	.overlay {
+		position: absolute;
+		top: 6rem;
+		right: 0;
+		z-index: 100;
+		width: 100%;
+		height: 0;
+		opacity: 0;
+		padding: 4rem;
+		background-color: $white;
+		border-top: 1px solid $gray-400;
+		overflow: hidden;
+		transition: all 0.3s ease-in-out;
+
+		&-menu {
+			position: relative;
+		}
+
+		&.active {
+			height: 44rem;
+			opacity: 1;
+		}
+
+	}
+
+
 	.carousel {
 		&-caption>h2 {
 			font-size: 4.8rem;
@@ -901,8 +1059,6 @@ button[aria-expanded="true"].btn-category img {
 		width: 6.4rem;
 		height: 6.4rem;
 	}
-
-
 
 	.swiper.myNoteSlide {
 		margin: 0 8rem;
@@ -936,18 +1092,18 @@ button[aria-expanded="true"].btn-category img {
 		overflow: hidden;
 
 		.photo {
-			max-width: 250px;
+			max-width: 25rem;
 		}
 
 		dt {
-			font-size: 24px;
+			font-size: 2.4rem;
 		}
 
 		dd {
-			font-size: 18px;
+			font-size: 1.8rem;
 
 			a {
-				font-size: 16px;
+				font-size: 1.6rem;
 			}
 		}
 

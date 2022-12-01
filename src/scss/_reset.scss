@@ -142,7 +142,8 @@ $border-widths: (
 	5: 5px,
 	) !default;
 
-// Breadcrumbs
+$border-color: $gray-400 !default;
+
 
 // scss-docs-start breadcrumb-variables
 $breadcrumb-font-size: null !default;

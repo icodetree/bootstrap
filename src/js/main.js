@@ -229,6 +229,7 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
       this.targetBtn = document.querySelector('.' + opt.elmName);
       this.swiper = document.querySelector('.myNoteSlide');
       this.active = 'active';
+      this.target = null;
       this.parent = null;
     }
     init() {
@@ -239,7 +240,9 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
     }
     eventHandler(e) {
       e.preventDefault();
-      this.parent = e.target;
+      this.target = e.currentTarget.firstElementChild;
+      this.parent = e.currentTarget;
+
       if (!this.parent.classList.contains(this.active)) {
         this.open();
       } else {
@@ -248,13 +251,13 @@ const swiper_thumb = new Swiper('.thumbNailSlide .swiperType_thumb', {
     }
     open() {
       this.targetBtn.classList.add(this.active);
-      this.parent.textContent = `전체보기 취소`;
+      this.target.textContent = `전체보기 취소`;
       this.swiper.classList.add(this.active);
       myNoteSlide.disable();
     }
     close() {
       this.targetBtn.classList.remove(this.active);
-      this.parent.textContent = `전체보기`;
+      this.target.textContent = `전체보기`;
       this.swiper.classList.remove(this.active);
       myNoteSlide.enable();
     }
