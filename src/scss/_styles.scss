@@ -7,7 +7,6 @@ body {
 	font-weight: 400;
 }
 
-
 h1,
 h2,
 h3,
@@ -73,7 +72,8 @@ button[aria-expanded="true"].btn-category img {
 		height: 50%;
 		text-indent: -9999px;
 		font-size: 0;
-		background: url("../../dist/images/common/ico_arr_top.svg") no-repeat center center;
+		background: url("../../dist/images/common/ico_arr_top.svg") no-repeat
+			center center;
 		background-size: contain;
 	}
 
@@ -108,7 +108,7 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
-.navbar-nav .show>.nav-link,
+.navbar-nav .show > .nav-link,
 .navbar-nav .nav-link.active {
 	color: #2d2d2d;
 }
@@ -128,7 +128,6 @@ button[aria-expanded="true"].btn-category img {
 	align-items: center;
 	font-size: 1.4rem;
 }
-
 
 .btn-close {
 	font-size: 2rem;
@@ -153,7 +152,7 @@ button[aria-expanded="true"].btn-category img {
 }
 
 .carousel {
-	&-caption>h2 {
+	&-caption > h2 {
 		font-size: 2.2rem;
 	}
 
@@ -165,7 +164,7 @@ button[aria-expanded="true"].btn-category img {
 		bottom: auto;
 		transform: translateY(-35%);
 
-		&>span {
+		& > span {
 			display: inline-block;
 			width: 4rem;
 			margin-bottom: 0.5em;
@@ -218,13 +217,14 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	p:nth-child(1)::after {
-		content: '';
+		content: "";
 		width: 1px;
 		height: 1.6rem;
 		background: $gray-400;
 		position: absolute;
 		right: 0;
-		top: 5px;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 }
 
@@ -239,11 +239,12 @@ button[aria-expanded="true"].btn-category img {
 		opacity: 1;
 	}
 
-	&.active>span {
+	&.active > span {
 		opacity: 0;
 	}
 }
 
+.swiper.myNoteAddSlide,
 .swiper.myNoteSlide {
 	&.active {
 		margin: 0;
@@ -275,7 +276,7 @@ button[aria-expanded="true"].btn-category img {
 		max-width: 12rem;
 	}
 
-	.swiper-horizontal>.swiper-pagination-bullets,
+	.swiper-horizontal > .swiper-pagination-bullets,
 	.swiper-pagination-bullets.swiper-pagination-horizontal,
 	.swiper-pagination-custom,
 	.swiper-pagination-fraction {
@@ -305,21 +306,23 @@ button[aria-expanded="true"].btn-category img {
 			border-right: 1px solid $gray-300;
 		}
 
-		a {
+		a > em {
 			position: relative;
 			display: inline-block;
-			padding-right: 1rem;
+			padding-right: 1.5rem;
+			font-style: normal;
 		}
 
-		a::after {
-			content: '';
+		a > em::after {
+			content: "";
 			position: absolute;
 			right: 0;
-			top: 2px;
+			top: 3px;
 			display: block;
 			width: 0.56rem;
 			height: 1.1rem;
-			background: url("../../dist/images/common/ico_arr_rb.svg") no-repeat;
+			background: url("../../dist/images/common/ico_arr_rb.svg") no-repeat
+				right 50%;
 			background-size: contain;
 		}
 	}
@@ -327,10 +330,11 @@ button[aria-expanded="true"].btn-category img {
 	.add-word {
 		display: block;
 		padding-left: 1.4rem;
-		background: url("../../dist/images/common/ico_plus.svg") no-repeat left center;
+		background: url("../../dist/images/common/ico_plus.svg") no-repeat left
+			center;
 	}
 
-	.vocabulary.active {
+	.vocabulary {
 		.photo {
 			position: relative;
 			border-radius: 5px;
@@ -338,14 +342,14 @@ button[aria-expanded="true"].btn-category img {
 		}
 
 		.photo::before {
-			content: "추가됨";
+			content: "";
 			position: absolute;
 			left: 50%;
 			top: 65%;
 			z-index: 2;
 			transform: translate(-50%, 0);
 			color: $white;
-			font-size: 1.2rem;
+			transition: fontSize 0.3s;
 		}
 
 		.photo::after {
@@ -356,15 +360,29 @@ button[aria-expanded="true"].btn-category img {
 			z-index: 1;
 			width: 100%;
 			height: 100%;
+			overflow: hidden;
 			background-color: rgba($color: #000000, $alpha: 0.5);
 			background-image: url("../../dist/images/common/ico_v.svg");
 			background-repeat: no-repeat;
 			background-position: center 40%;
+			background-size: 0 0;
+			opacity: 0;
+			transition: opacity 0.3s, backgroundSize 0.2s;
+		}
+
+		&.active .photo::before {
+			content: "추가됨";
+			font-size: 1.2rem;
+		}
+
+		&.active .photo::after {
+			opacity: 1;
 			background-size: 4.8rem 4.8rem;
 		}
 
-		.add-word {
-			background: url("../../dist/images/common/ico_minus.svg") no-repeat left center;
+		&.active .add-word {
+			background: url("../../dist/images/common/ico_minus.svg") no-repeat
+				left center;
 		}
 	}
 }
@@ -387,6 +405,11 @@ button[aria-expanded="true"].btn-category img {
 
 	dd {
 		font-size: 1.2rem;
+		position: absolute;
+		left: 50%;
+		bottom: 1rem;
+		z-index: 1;
+		transform: translateX(-50%);
 
 		a {
 			text-decoration: underline;
@@ -420,14 +443,14 @@ button[aria-expanded="true"].btn-category img {
 		display: flex;
 		flex-direction: column;
 		min-height: 19rem;
-		background: #999;
+		background: $gray-500;
 	}
 
 	.swiper-pagination {
 		display: none;
 	}
 
-	.swiper-horizontal>.swiper-pagination-bullets,
+	.swiper-horizontal > .swiper-pagination-bullets,
 	.swiper-pagination-bullets.swiper-pagination-horizontal,
 	.swiper-pagination-custom,
 	.swiper-pagination-fraction {
@@ -439,10 +462,10 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	dt {
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 	}
 
-	dt+dd {
+	dt + dd {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
@@ -451,9 +474,12 @@ button[aria-expanded="true"].btn-category img {
 		-webkit-box-orient: vertical;
 		word-wrap: break-word;
 	}
-
 	dd {
 		font-size: 1.2rem;
+
+		a {
+			font-size: 1.4rem;
+		}
 	}
 
 	dd:last-child {
@@ -467,41 +493,38 @@ button[aria-expanded="true"].btn-category img {
 
 	.thumb-area {
 		display: block;
+	}
 
+	.photo {
+		max-width: 12rem;
+	}
+
+	dt {
+		font-size: 1.6rem;
+		font-weight: bold;
+		color: #2d2d2d;
+	}
+
+	dd {
+		font-size: 1.2rem;
+		color: #848484;
 	}
 }
 
-.photo {
-	max-width: 12rem;
-	border-radius: 3px;
-	overflow: hidden;
-}
-
-dt {
-	font-size: 1.6rem;
-	font-weight: bold;
-	color: #2d2d2d;
-}
-
-dd {
-	font-size: 1.2rem;
-	color: #848484;
-}
-
-
 // Layer Popup
 .modal {
-
 	.modal-content {
 		border-radius: 15px;
 		overflow: hidden;
+		border: none;
 	}
 
 	.modal-header {
 		position: relative;
 		height: 40vh;
 		overflow: hidden;
-		background: url("../../dist/images/photo/sample_popup.jpg") no-repeat center center;
+		background: url("../../dist/images/photo/sample_popup.jpg") no-repeat
+			center center;
 		background-size: cover;
 		justify-content: center;
 
@@ -521,7 +544,8 @@ dd {
 			font-size: 2.4rem;
 			margin: 0;
 			padding: 0;
-			background: url("../../dist/images/common/btn_w_close.svg") no-repeat left top;
+			background: url("../../dist/images/common/btn_w_close.svg")
+				no-repeat left top;
 		}
 
 		.blackLayer {
@@ -532,20 +556,26 @@ dd {
 			width: 100%;
 			height: 100%;
 			/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+70&0.65+0,0+100 */
-			background: -moz-linear-gradient(top,
-					rgba(0, 0, 0, 0.65) 0%,
-					rgba(0, 0, 0, 0.2) 70%,
-					rgba(0, 0, 0, 0) 100%);
+			background: -moz-linear-gradient(
+				top,
+				rgba(0, 0, 0, 0.65) 0%,
+				rgba(0, 0, 0, 0.2) 70%,
+				rgba(0, 0, 0, 0) 100%
+			);
 			/* FF3.6-15 */
-			background: -webkit-linear-gradient(top,
-					rgba(0, 0, 0, 0.65) 0%,
-					rgba(0, 0, 0, 0.2) 70%,
-					rgba(0, 0, 0, 0) 100%);
+			background: -webkit-linear-gradient(
+				top,
+				rgba(0, 0, 0, 0.65) 0%,
+				rgba(0, 0, 0, 0.2) 70%,
+				rgba(0, 0, 0, 0) 100%
+			);
 			/* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom,
-					rgba(0, 0, 0, 0.65) 0%,
-					rgba(0, 0, 0, 0.2) 70%,
-					rgba(0, 0, 0, 0) 100%);
+			background: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0.65) 0%,
+				rgba(0, 0, 0, 0.2) 70%,
+				rgba(0, 0, 0, 0) 100%
+			);
 			/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
 			/* IE6-9 */
@@ -553,14 +583,13 @@ dd {
 	}
 
 	.modal-body {
-
 		.info-list {
 			width: 90%;
 			position: absolute;
 			top: 0;
 			left: 50%;
 			z-index: 11;
-			transform: translate(-50%, -25%);
+			transform: translate(-50%, -20%);
 		}
 
 		.info-list ul {
@@ -661,8 +690,6 @@ dd {
 
 // search
 .search {
-
-
 	label {
 		width: 2rem;
 		height: 2rem;
@@ -699,18 +726,49 @@ dd {
 	}
 }
 
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets
+	.swiper-pagination-bullet {
 	border: 1px solid $gray-400;
 	background-color: $gray-300;
 	opacity: 1;
 }
 
-.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination-horizontal.swiper-pagination-bullets
+	.swiper-pagination-bullet.swiper-pagination-bullet-active {
 	border: 1px solid $gray-600;
 	background-color: $primary;
 }
 
+.challenge {
+	padding: 2rem 0 0 0;
 
+	#toggle {
+		img {
+			transform: rotate(0);
+			transition: transform 0.3s ease-in-out;
+		}
+	}
+	#toggle.active {
+		img {
+			transform: rotate(-180deg);
+		}
+	}
+	.addinfo {
+		width: 100%;
+		height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: height 0.3s, opacity 0.3s 0.1s;
+
+		&.active {
+			height: 33rem;
+			opacity: 1;
+		}
+	}
+	> span {
+		font-size: 1.4rem;
+	}
+}
 
 // Common End
 //
@@ -721,14 +779,13 @@ dd {
 
 // Mobile Start
 @include media-breakpoint-down(lg) {
-
 	.hidden {
 		overflow-y: hidden;
 	}
 
 	// search
 	.search {
-		&>button#toggle {
+		& > button#toggle {
 			position: absolute;
 			right: 15%;
 			top: 0.7rem;
@@ -736,12 +793,13 @@ dd {
 			background-color: #fff;
 		}
 
-		&>button#toggle::after {
-			content: '';
+		& > button#toggle::after {
+			content: "";
 			display: block;
 			width: 2.4rem;
 			height: 2.4rem;
-			background: url("../../dist/images/common/btn_search.svg") no-repeat center center;
+			background: url("../../dist/images/common/btn_search.svg") no-repeat
+				center center;
 			background-size: contain;
 		}
 
@@ -756,9 +814,7 @@ dd {
 			top: 0.7rem;
 			z-index: 1;
 			color: $gray-600;
-
 		}
-
 	}
 
 	.navbar {
@@ -768,7 +824,7 @@ dd {
 
 		.nav-item {
 			padding: 1em 0.5em;
-			border-bottom: 1px solid #e2e2e2;
+			border-bottom: 1px solid $gray-400;
 		}
 
 		.nav-item {
@@ -784,7 +840,7 @@ dd {
 		height: 2rem;
 		cursor: pointer;
 		z-index: 101;
-		transition: opacity .25s ease;
+		transition: opacity 0.25s ease;
 
 		&.active {
 			.top {
@@ -815,7 +871,7 @@ dd {
 			top: 0;
 			right: 0;
 			border-radius: 1rem;
-			transition: all .35s ease;
+			transition: all 0.35s ease;
 			cursor: pointer;
 			overflow: hidden;
 
@@ -836,9 +892,9 @@ dd {
 		background-color: $white;
 		top: 6rem;
 		left: 100%;
+		z-index: 100;
 		width: 100%;
 		height: 100%;
-		z-index: 100;
 		overflow: hidden;
 		border-top: 1px solid $gray-300;
 		padding: 0 1.6rem;
@@ -851,9 +907,7 @@ dd {
 		&.active {
 			left: 0;
 		}
-
 	}
-
 
 	.carousel {
 		&-indicators {
@@ -878,7 +932,7 @@ dd {
 		padding: 0 1.8rem;
 
 		li {
-			border-bottom: 1px solid #e2e2e2;
+			border-bottom: 1px solid $gray-400;
 			padding: 1rem 0;
 
 			a {
@@ -897,16 +951,27 @@ dd {
 		}
 	}
 
+	.swiper.cardSlide {
+		.swiper-button-next,
+		.swiper-button-prev {
+			display: none;
+		}
+	}
+
 	.modal {
 		width: 90%;
 		margin: 0 5%;
-
 	}
 }
 
-// desktop
-@include media-breakpoint-up(lg) {
+//
+//
+//
+//
+//
 
+// Desktop
+@include media-breakpoint-up(lg) {
 	.navbar {
 		&-pc {
 			display: block;
@@ -917,7 +982,7 @@ dd {
 			display: none;
 		}
 
-		&-nav .show>.nav-link,
+		&-nav .show > .nav-link,
 		&-nav .nav-link.active {
 			color: $blue;
 		}
@@ -935,7 +1000,6 @@ dd {
 			background: $blue;
 		}
 
-
 		&-expand-lg .navbar-nav .nav-item {
 			margin: 0 0 0 3.6rem;
 		}
@@ -949,11 +1013,9 @@ dd {
 			height: 6rem !important;
 		}
 
-
 		&-expand-lg .offcanvas .offcanvas-body {
 			height: 100%;
 		}
-
 
 		&-expand-lg .offcanvas .offcanvas-end {
 			height: 6rem;
@@ -969,7 +1031,7 @@ dd {
 		top: 0;
 		z-index: 3;
 
-		&>button#toggle {
+		& > button#toggle {
 			position: absolute;
 			right: 3rem;
 			top: 2rem;
@@ -980,20 +1042,22 @@ dd {
 			border-radius: 50%;
 		}
 
-		&>button#toggle::after {
-			content: '';
+		& > button#toggle::after {
+			content: "";
 			display: block;
 			width: 1.4rem;
 			height: 1.4rem;
-			background: url("../../dist/images/common/btn_search_w.svg") no-repeat center center;
+			background: url("../../dist/images/common/btn_search_w.svg")
+				no-repeat center center;
 			background-size: contain;
 		}
 
-		&>button#toggle.active {
-			background: $white url("../../dist/images/common/btn_b_close.svg") no-repeat center center;
+		& > button#toggle.active {
+			background: $white url("../../dist/images/common/btn_b_close.svg")
+				no-repeat center center;
 		}
 
-		&>button#toggle.active::after {
+		& > button#toggle.active::after {
 			background: none;
 		}
 
@@ -1009,9 +1073,7 @@ dd {
 		button.btn {
 			display: none;
 		}
-
 	}
-
 
 	.overlay {
 		position: absolute;
@@ -1025,7 +1087,7 @@ dd {
 		background-color: $white;
 		border-top: 1px solid $gray-400;
 		overflow: hidden;
-		transition: all 0.3s ease-in-out;
+		transition: height 0.3s;
 
 		&-menu {
 			position: relative;
@@ -1035,12 +1097,10 @@ dd {
 			height: 44rem;
 			opacity: 1;
 		}
-
 	}
 
-
 	.carousel {
-		&-caption>h2 {
+		&-caption > h2 {
 			font-size: 4.8rem;
 		}
 	}
@@ -1059,7 +1119,7 @@ dd {
 		width: 6.4rem;
 		height: 6.4rem;
 	}
-
+	.swiper.myNoteAddSlide,
 	.swiper.myNoteSlide {
 		margin: 0 8rem;
 		overflow: visible;
@@ -1088,6 +1148,20 @@ dd {
 		}
 	}
 
+	.challenge {
+		margin-bottom: 7rem;
+
+		button > span {
+			font-size: 2.4rem;
+			font-weight: bold;
+		}
+		// .addinfo {
+		// 	&.active {
+		// 		height: 33rem;
+		// 	}
+		// }
+	}
+
 	.swiperType_01 {
 		overflow: hidden;
 
@@ -1102,18 +1176,23 @@ dd {
 		dd {
 			font-size: 1.8rem;
 
-			a {
+			a > em {
 				font-size: 1.6rem;
+			}
+			a > em::after {
+				width: 7.5rem;
+				height: 1.5rem;
+				top: 0;
 			}
 		}
 
-		.vocabulary.active {
-			.photo::before {
+		.vocabulary {
+			&.active .photo::before {
 				top: 60%;
 				font-size: 2.4rem;
 			}
 
-			.photo::after {
+			&.active .photo::after {
 				background-position: center 40%;
 				background-size: 6.4rem 6.4rem;
 			}
@@ -1126,7 +1205,8 @@ dd {
 		font-weight: normal;
 		line-height: 1;
 		height: 9.3rem;
-		border-top: 1px solid #e2e2e2;
+		overflow: hidden;
+		border-top: 1px solid $gray-400;
 		transition: height 0.3s ease-in-out;
 
 		&.active {
@@ -1135,11 +1215,11 @@ dd {
 
 		ul {
 			margin-top: 1rem;
-			border-top: 1px solid #e2e2e2;
+			border-top: 1px solid $gray-400;
 			padding: 3rem 0 1rem 0;
 		}
 
-		ul>li {
+		ul > li {
 			padding: 0.2rem 0;
 			margin-right: 3rem;
 			padding-right: 3rem;
@@ -1177,7 +1257,7 @@ dd {
 				display: none;
 			}
 
-			a.subtit+.depth {
+			a.subtit + .depth {
 				visibility: hidden;
 				height: auto;
 				overflow: hidden;
@@ -1186,11 +1266,12 @@ dd {
 				top: 100px;
 				z-index: 10;
 				opacity: 0;
-				transition: opacity 0.3s ease-in-out;
+				transition: visibility 0.3s ease-in-out,
+					opacity 0.2s 0.1s ease-in-out;
 				display: inline-flex;
 			}
 
-			a.subtit.active+.depth {
+			a.subtit.active + .depth {
 				opacity: 1;
 				visibility: visible;
 			}
@@ -1314,15 +1395,29 @@ dd {
 
 	.swiper.thumbNailSlide {
 		padding-top: 8px;
-		border-top: 1px solid #e2e2e2;
+		border-top: 1px solid $gray-400;
+	}
+
+	.swiperType_card {
+		.card-body {
+			min-height: 22rem;
+		}
+
+		dt {
+			font-size: 2.4rem;
+		}
+
+		dd {
+			font-size: 1.6rem;
+		}
 	}
 
 	.swiperType_thumb {
-		border-top: 1px solid #e2e2e2;
+		border-top: 1px solid $gray-400;
 		padding-top: 3.6rem;
 
 		.swiper-slide {
-			border-right: 1px solid #e2e2e2;
+			border-right: 1px solid $gray-400;
 		}
 
 		.photo {
@@ -1332,10 +1427,7 @@ dd {
 		dt {
 			font-size: 3.2rem;
 			letter-spacing: -1px;
-		}
-
-		dt+dd {
-			font-weight: bold;
+			line-height: 1.2;
 		}
 
 		dd {
@@ -1343,11 +1435,35 @@ dd {
 		}
 	}
 
+	.swiper.cardSlide {
+		.swiper-button-prev {
+			right: auto;
+			left: -1.5rem;
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 6rem;
+			height: 6rem;
+			color: $black;
+			background-color: $white;
+			border-radius: 50%;
+
+			&::after {
+				font-size: 3rem;
+				font-weight: bold;
+			}
+		}
+	}
+
 	// Layer Popup
 	.modal {
-
+		.modal-header {
+			height: 27rem;
+		}
 		.modal-body {
-
+			.info-list {
+				transform: translate(-50%, -25%);
+			}
 			.info-list dl dt {
 				font-size: 1.6rem;
 			}
