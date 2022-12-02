@@ -2,16 +2,16 @@ $blue: #017afb;
 $indigo: #485cc7;
 $purple: #6f42c1;
 $pink: #d63384;
-$red: #BF2D2D;
+$red: #bf2d2d;
 $orange: #fd7e14;
-$yellow: #F6C233;
+$yellow: #f6c233;
 $green: #005427;
 $teal: #20c997;
 $cyan: #0dcaf0;
 
-$gray-100: #FAFAFA !default;
+$gray-100: #fafafa !default;
 $gray-200: #e9ecef !default;
-$gray-300: #F1F2F2 !default;
+$gray-300: #f1f2f2 !default;
 $gray-400: #c6c6c6 !default;
 $gray-500: #666666 !default;
 $gray-600: #333333 !default;
@@ -32,49 +32,49 @@ $utility: $gray-600 !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-	"primary": $primary,
-	"secondary": $secondary,
-	"success": $success,
-	"info": $info,
-	"warning": $warning,
-	"danger": $danger,
-	"light": $light,
-	"dark": $dark,
-	"utility": $utility,
-	) !default;
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark,
+    "utility": $utility,
+) !default;
 
 $grid-breakpoints: (
-	xs: 0,
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
-	xl: 1200px,
-	xxl: 1440px,
-	) !default;
+    xs: 0,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1200px,
+    xxl: 1440px,
+) !default;
 
 $container-max-widths: (
-	sm: 100%,
-	md: 100%,
-	lg: 100%,
-	xl: 100%,
-	xxl: 1440px,
-	) !default;
+    sm: 100%,
+    md: 100%,
+    lg: 100%,
+    xl: 100%,
+    xxl: 1440px,
+) !default;
 
 // scss-docs-start spacer-variables-maps
 $spacer: 1.8rem !default;
 $spacers: (
-	0: 0,
-	1: $spacer * 0.25,
-	2: $spacer * 0.5,
-	3: $spacer,
-	4: $spacer * 1.5,
-	5: $spacer * 2,
-	6: $spacer * 2.5,
-	7: $spacer * 3,
-	8: $spacer * 3.5,
-	9: $spacer * 4,
-	10: $spacer * 5,
-	) !default;
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    6: $spacer * 2.5,
+    7: $spacer * 3,
+    8: $spacer * 3.5,
+    9: $spacer * 4,
+    10: $spacer * 5,
+) !default;
 
 $font-size-root: 10px !default;
 $font-size-base: 1.6rem !default; // Assumes the browser default, typically `16px`
@@ -106,44 +106,43 @@ $h8-font-size: $font-size-base * 0.5 !default; // 10px
 
 // scss-docs-start font-sizes
 $font-sizes: (
-	1: $h1-font-size,
-	2: $h2-font-size,
-	3: $h3-font-size,
-	4: $h4-font-size,
-	5: $h5-font-size,
-	6: $h6-font-size,
-	7: $h7-font-size,
-	8: $h8-font-size,
-	) !default;
+    1: $h1-font-size,
+    2: $h2-font-size,
+    3: $h3-font-size,
+    4: $h4-font-size,
+    5: $h5-font-size,
+    6: $h6-font-size,
+    7: $h7-font-size,
+    8: $h8-font-size,
+) !default;
 
 // scss-docs-start display-headings
 $display-font-sizes: (
-	1: 5rem,
-	2: 4.5rem,
-	3: 4rem,
-	4: 3.5rem,
-	5: 3rem,
-	6: 2.5rem,
-	16: 1.6rem,
-	14: 1.4rem,
-	12: 1.2rem,
-	20: 2rem,
-	24: 2.4rem,
-	32: 3.2rem,
-	) !default;
+    1: 5rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem,
+    16: 1.6rem,
+    14: 1.4rem,
+    12: 1.2rem,
+    20: 2rem,
+    24: 2.4rem,
+    32: 3.2rem,
+) !default;
 
 // scss-docs-start border-variables
 $border-width: 1px !default;
 $border-widths: (
-	1: 1px,
-	2: 2px,
-	3: 3px,
-	4: 4px,
-	5: 5px,
-	) !default;
+    1: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px,
+) !default;
 
 $border-color: $gray-400 !default;
-
 
 // scss-docs-start breadcrumb-variables
 $breadcrumb-font-size: null !default;
@@ -152,7 +151,7 @@ $breadcrumb-padding-x: 0 !default;
 $breadcrumb-item-padding-x: 0.5rem !default;
 $breadcrumb-margin-bottom: 1rem !default;
 $breadcrumb-bg: null !default;
-$breadcrumb-divider-color: $gray-600 !default;
+$breadcrumb-divider-color: $gray-400 !default;
 $breadcrumb-active-color: $blue !default;
 $breadcrumb-divider: quote("/") !default;
 $breadcrumb-divider-flipped: $breadcrumb-divider !default;
@@ -160,33 +159,33 @@ $breadcrumb-border-radius: null !default;
 
 /* 스크롤바 */
 ::-webkit-scrollbar {
-	width: 6px;
+    width: 6px;
 }
 
 /* 스크롤 바 */
 ::-webkit-scrollbar-track {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 /* 스크롤 바 밑의 배경 */
 ::-webkit-scrollbar-thumb {
-	background: #aaa;
-	border-radius: 0.25rem;
+    background: #aaa;
+    border-radius: 0.25rem;
 }
 
 /* 실질적 스크롤 바 */
 ::-webkit-scrollbar-thumb:hover {
-	background: transparent;
+    background: transparent;
 }
 
 /* 실질적 스크롤 바 위에 마우스를 올려다 둘 때 */
 ::-webkit-scrollbar-thumb:active {
-	background: #808080;
+    background: #808080;
 }
 
 /* 실질적 스크롤 바를 클릭할 때 */
 ::-webkit-scrollbar-button {
-	display: none;
+    display: none;
 }
 
 /* 스크롤 바 상 하단 버튼 */
