@@ -17,10 +17,17 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
 //     initialSlide: 1,
 // });
 const slideTopMenu = new Swiper(".slideTopMenu", {
-    spaceBetween: 25,
-    slidesPerView: 2.5,
-    freeMode: true,
+    spaceBetween: 0,
+    slidesPerView: 2.8,
     watchSlidesProgress: true,
+    centeredSlides: false,
+    initialSlide: 1,
+});
+const mySwiper = new Swiper(".mySwiper", {
+    spaceBetween: 10,
+    thumbs: {
+        swiper: slideTopMenu,
+    },
 });
 
 // myNoteSlide

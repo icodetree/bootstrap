@@ -768,15 +768,77 @@ button[aria-expanded="true"].btn-category img {
     }
 }
 
-.swiper.slideTopMenu {
-    border-bottom: 1px solid $gray-400;
+.slide-menu {
+    position: relative;
 
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        width: 90%;
+        border-bottom: 1px solid $gray-400;
+    }
+}
+.swiper.slideTopMenu {
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        z-index: 1;
+        width: 90%;
+        border-bottom: 1px solid $gray-400;
+    }
     .swiper-slide {
         button {
+            position: relative;
             width: 100%;
-            text-align: left;
-            border-right: 1px solid $gray-400;
         }
+        button::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            width: 100%;
+            height: 1.6rem;
+            border-left: 1px solid $gray-400;
+        }
+    }
+    .swiper-slide.swiper-slide-thumb-active {
+        button {
+            color: $primary;
+            font-weight: bold;
+        }
+    }
+}
+
+.submenu {
+    li {
+        display: flex;
+        margin: 1.5rem 0;
+
+        a {
+            flex: 1;
+            color: $black;
+        }
+        .active {
+            color: $primary;
+            font-weight: bold;
+        }
+    }
+
+    .depth {
+        flex: 4;
+        display: flex;
+        justify-content: space-around;
+        border-left: 1px solid $gray-400;
+        padding-left: 2rem;
     }
 }
 
