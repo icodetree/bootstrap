@@ -9,21 +9,14 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
     new Popover(popover);
 });
 
-// const slideTopMenu = new Swiper(".slideTopMenu .swiper-container", {
-//     slidesPerView: 2.5,
-//     spaceBetween: 10,
-//     grabCursor: true,
-//     centeredSlides: false,
-//     initialSlide: 1,
-// });
+// Top Slide Menu
 const slideTopMenu = new Swiper(".slideTopMenu", {
     spaceBetween: 0,
     slidesPerView: 2.8,
     watchSlidesProgress: true,
     centeredSlides: false,
-    initialSlide: 1,
 });
-const mySwiper = new Swiper(".mySwiper", {
+const subSwiper = new Swiper(".subSwiper", {
     spaceBetween: 10,
     thumbs: {
         swiper: slideTopMenu,
@@ -408,6 +401,66 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
         }
     }
 
+    // Mobile only Nav
+    class MoNavi {
+        constructor(opt) {
+            this.mother = document.querySelector("." + opt.elmName);
+            this.slideTopMenu = this.mother.querySelector(".slideTopMenu");
+            this.tabSlide = [
+                ...this.slideTopMenu.querySelectorAll(".swiper-slide"),
+            ];
+
+            this.subSwiper = this.mother.querySelector(".subSwiper");
+            this.subTabLink = [...this.subSwiper.querySelectorAll("a")];
+
+            this.target = null;
+            this.tabLi = null;
+            this.subTarget = null;
+
+            this.active = "active";
+        }
+        init() {
+            this.tabSlide.map((elm) => {
+                this.target = elm;
+                this.mouseEvent();
+            });
+        }
+        mouseEvent() {
+            this.target.addEventListener("click", (e) => this.eventHandler(e));
+        }
+        eventHandler(e) {
+            e.preventDefault();
+
+            console.log(this.subTabLink);
+            this.subSwiper.classList.add(this.active);
+
+            this.subTabLink.map((elm) => {
+                elm.addEventListener("click", (e) =>
+                    this.subTabEventHandler(e)
+                );
+            });
+        }
+        subTabEventHandler(e) {
+            this.subTarget = e.target;
+
+            if (!e.target.classList.contains(this.active)) {
+                this.open();
+            } else {
+                this.close();
+            }
+        }
+        open() {
+            this.subTarget.classList.add(this.active);
+        }
+        close() {
+            this.subTarget.classList.remove(this.active);
+            // 3 depth check
+            if (this.subTarget.nextElementSibling === null) return;
+            [...this.subTarget.nextElementSibling.children].map((elm) => {
+                elm.classList.remove(this.active);
+            });
+        }
+    }
     window.addEventListener("load", () => {
         const tabList = new TabList({ elmName: "TabList" });
         tabList.init();
@@ -423,5 +476,8 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
 
         const toggle = new Toggle({ elmName: "toggle" });
         toggle.init();
+
+        const moNavi = new MoNavi({ elmName: "moNavi" });
+        moNavi.init();
     });
 })();

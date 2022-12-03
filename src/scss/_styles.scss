@@ -817,6 +817,17 @@ button[aria-expanded="true"].btn-category img {
         }
     }
 }
+.swiper.subSwiper {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s, opacity 0.2s;
+
+    &.active {
+        opacity: 1;
+        height: auto;
+    }
+}
 
 .submenu {
     li {
@@ -827,18 +838,28 @@ button[aria-expanded="true"].btn-category img {
             flex: 1;
             color: $black;
         }
+
         .active {
             color: $primary;
             font-weight: bold;
         }
-    }
 
-    .depth {
-        flex: 4;
-        display: flex;
-        justify-content: space-around;
-        border-left: 1px solid $gray-400;
-        padding-left: 2rem;
+        .depth {
+            width: 0;
+            opacity: 0;
+            overflow: hidden;
+            flex: 4;
+            display: flex;
+            justify-content: space-around;
+            border-left: 1px solid $gray-400;
+            padding-left: 2rem;
+            transition: width 0.3s, opacity 0.2s;
+        }
+
+        a.active + .depth {
+            width: 100%;
+            opacity: 1;
+        }
     }
 }
 
