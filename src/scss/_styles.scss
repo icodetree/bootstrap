@@ -768,6 +768,18 @@ button[aria-expanded="true"].btn-category img {
     }
 }
 
+.swiper.slideTopMenu {
+    border-bottom: 1px solid $gray-400;
+
+    .swiper-slide {
+        button {
+            width: 100%;
+            text-align: left;
+            border-right: 1px solid $gray-400;
+        }
+    }
+}
+
 // Common End
 //
 //

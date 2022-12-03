@@ -9,6 +9,20 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
     new Popover(popover);
 });
 
+// const slideTopMenu = new Swiper(".slideTopMenu .swiper-container", {
+//     slidesPerView: 2.5,
+//     spaceBetween: 10,
+//     grabCursor: true,
+//     centeredSlides: false,
+//     initialSlide: 1,
+// });
+const slideTopMenu = new Swiper(".slideTopMenu", {
+    spaceBetween: 25,
+    slidesPerView: 2.5,
+    freeMode: true,
+    watchSlidesProgress: true,
+});
+
 // myNoteSlide
 const myNoteSlide = new Swiper(".myNoteSlide .swiperType_01", {
     slidesPerView: 1.8,
