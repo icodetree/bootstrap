@@ -219,7 +219,7 @@
 
 		<main class="main">
 			<!-- visual -->
-			<section class="visual">
+			<section class="visual d-none d-lg-block">
 				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-indicators">
 						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
@@ -295,10 +295,134 @@
 				</div>
 			</section>
 
-			<div class="content mt-5 mb-7">
+			<div class="content mt-lg-5 mb-7">
+
+                <!-- mobileSlideMenu -->
+                <nav class="slide-menu moNavi d-lg-none">
+					<!-- menu -->
+					<div class="swiper slideTopMenu mt-3 pb-3">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<button type="button" class="btn btn-black p-0 m-0 border-0">벤리 인기 콘텐츠</button>
+							</div>
+							<div class="swiper-slide">
+								<button type="button" class="btn btn-black p-0 m-0 border-0">프리미엄 컨텐츠</button>
+							</div>
+							<div class="swiper-slide">
+								<button type="button" class="btn btn-black p-0 m-0 border-0">10대</button>
+							</div>
+							<div class="swiper-slide">
+								<button type="button" class="btn btn-black p-0 m-0 border-0">20-30대</button>
+							</div>
+						</div> 
+					</div>
+
+					<!-- sub -->
+					<div class="swiper subSwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<article class="submenu subTab">
+									<ul>
+										<li><a href="#">Benly</a></li>
+										<li>
+											<a href="#">TOEIC</a>
+											<div class="depth">
+												<a href="#">ETS</a>
+												<a href="#">경선식</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li>
+											<a href="#">TOEFL</a>
+											<div class="depth">
+												<a href="#">fads</a>
+												<a href="#">경선식ss</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li><a href="#">전문직</a></li>
+									</ul>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<article class="submenu subTab">
+									<ul>
+										<li><a href="#">프리미엄</a></li>
+										<li>
+											<a href="#">TOEIC</a>
+											<div class="depth">
+												<a href="#">ETS</a>
+												<a href="#">경선식</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li>
+											<a href="#">TOEFL</a>
+											<div class="depth">
+												<a href="#">fads</a>
+												<a href="#">경선식ss</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li><a href="#">전문직</a></li>
+									</ul>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<article class="submenu subTab">
+									<ul>
+										<li><a href="#">10대</a></li>
+										<li>
+											<a href="#">TOEIC</a>
+											<div class="depth">
+												<a href="#">ETS</a>
+												<a href="#">경선식</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li>
+											<a href="#">20-30대</a>
+											<div class="depth">
+												<a href="#">fads</a>
+												<a href="#">경선식ss</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li><a href="#">전문직</a></li>
+									</ul>
+								</article>
+							</div>
+							<div class="swiper-slide">
+								<article class="submenu subTab">
+									<ul>
+										<li><a href="#">Benly</a></li>
+										<li>
+											<a href="#">TOEIC</a>
+											<div class="depth">
+												<a href="#">ETS</a>
+												<a href="#">경선식</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li>
+											<a href="#">TOEFL</a>
+											<div class="depth">
+												<a href="#">fads</a>
+												<a href="#">경선식ss</a>
+												<a href="#">해커스</a>
+											</div>
+										</li>
+										<li><a href="#">전문직</a></li>
+									</ul>
+								</article>
+							</div>
+						</div>
+						<button type="button" class="btn-close btnClose" aria-label="Close"></button>
+					</div>
+				</nav>
 
 				<!-- welcome -->
-				<section class="welcome">
+				<section class="welcome d-none d-lg-block">
 					<div class="text-start border-top border-bottom mb-3 mx-3 py-3">
 						<p class="d-inline me-2 pe-3">안녕하세요, 정윤 님</p>
 						<p class="d-inline">첫 방문을 환영합니다.</p>
@@ -307,8 +431,8 @@
 
 				<!-- 나의 단어장 -->
 				<section class="my-note mb-3">
-					<article class="title mx-3 d-flex justify-content-between">
-						<div class="hgroup d-flex justify-content-between align-items-center">
+					<article class="title mx-3 d-flex justify-content-lg-between justify-content-end">
+						<div class="hgroup d-none d-lg-flex justify-content-between align-items-center hidde">
 							<h2 class="fw-bold fs-4">나의 단어장</h2>
 							<a href="#" class="ms-2 link-secondary fs-7 text-decoration-underline changeViewBtn"><strong
 									class="fw-normal">전체보기</strong><span class="fs-7">(3)</span></a>
@@ -334,8 +458,9 @@
 							</nav>
 						</article>
 
+
 						<!-- 분류 : mobile -->
-						<button type="button" class="btn link-utility btn-category border-0 d-lg-none"
+						<button type="button" class="btn link-secondary btn-category border-0 d-lg-none"
 							data-bs-toggle="collapse" data-bs-target="#collapseMobile" aria-expanded="false"
 							aria-controls="collapseMobile">
 							<span class="fs-7 text-decoration-underline">분류</span>
@@ -360,7 +485,7 @@
 				</section>
 
 				<!-- 나의 단어장 슬라이드 -->
-				<section class="swiper myNoteSlide mb-4">
+				<section class="swiper myNoteSlide mb-4 d-none d-lg-block">
 					<!-- Slider main container -->
                     <div class="swiperType_01">
                         <div class="swiper-wrapper">
@@ -459,7 +584,7 @@
 				</section>
 
 				<!-- 더 많은 단어에 도전하세요 -->
-				<article class="challenge">
+				<article class="challenge d-none d-lg-block">
 					<div class="border-top py-3 mx-3 text-end" id="toggle">
 						<button type="button" class="btn link-utility border-0 p-0">
 							<span class="me-2">정윤님, 더 많은 단어에 도전하세요!</span>
@@ -580,7 +705,7 @@
 				</article>
 
 				<!-- 메뉴 -->
-				<article class="menu-list TabList mx-lg-3">
+				<article class="menu-list TabList mx-lg-3 d-none d-lg-block">
 					<ul class="d-lg-flex mx-lg-0 mb-3 px-0">
 						<li class="d-flex justify-content-between">
 							<a href="#none" class="px-0 subtit">벤리 인기 콘텐츠</a>
@@ -598,7 +723,7 @@
 								</ol>
 								<ol class="fs-5">
 									<li><a href="#" class="text-reset">TOEFL</a></li>
-									<li><a href="#" class="text-reset">해커스</a></li>
+									<li><a href="#" class="text-reset">전문직</a></li>
 								</ol>
 							</div>
 							<span><img src="../images/common/ico_arr_rbk.svg" alt=""></span>
@@ -743,11 +868,12 @@
 					</nav>
 				</article>
 
-				<!-- Title : ETS -->
-				<section class="my-note mt-6 mb-3">
+
+				<!-- Title : Benly -->
+				<section class="my-note mt-lg-6  mb-3">
 					<article class="title mx-3 d-flex justify-content-between">
 						<div class="hgroup d-flex justify-content-between align-items-center">
-							<h2 class="fw-bold fs-4">ETS</h2>
+							<h2 class="fw-bold fs-4">Benly</h2>
 							<a href="#" class=" text-decoration-underline ms-2 link-secondary fs-7">전체보기
 								<span>(6)</span></a>
 						</div>
@@ -770,434 +896,6 @@
 										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
 										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
 											영단어 영단어 초등학생 영단어 영단어초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">SFSAMFL;AMFL; 최대 50자</dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
-											영단어 영단어 초등학생 영단어 영단어 </dd>
-										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
-												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
-										</dd>
-									</dl>
-								</article>
-							</div>
-						</div>
-						<!-- pagination -->
-						<div class="swiper-pagination"></div>
-					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-				</section>
-
-				<!-- Slide : 카드 슬라이드 -->
-				<section class="swiper cardSlide mb-4">
-					<!-- Slider main container -->
-					<div class="swiperType_card pb-6">
-						<div class="swiper-wrapper">
-							<!-- Slides -->
-							<div class="swiper-slide">
-								<!-- title -->
-								<article class="card rounded-5">
-									<div class="photo">
-										<img src="../images/photo/sample.jpg" alt="...">
-									</div>
-									<dl class="card-body m-0">
-										<dt class="card-title text-white">Benly 초등학생 영단어</dt>
-										<dd class="card-tex text-white mb-3">초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생 영단어 영단어 초등학생
 											영단어 영단어 초등학생 영단어 영단어 </dd>
 										<dd><a href="#" class="d-block text-white rounded-pill btn btn-primary py-2"
 												data-bs-toggle="modal" data-bs-target="#chapterModal">Button</a>
@@ -1334,7 +1032,6 @@
 		<article class="btn-top btnTop">
 			<a href="#">페이지 상단으로 이동</a>
 		</article>
-
 
 		<!-- Popup -->
 		<div class="modal fade" id="chapterModal" tabindex="-1" aria-labelledby="chapterModalLabel" aria-hidden="true">

@@ -9,20 +9,6 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
     new Popover(popover);
 });
 
-// Top Slide Menu
-const slideTopMenu = new Swiper(".slideTopMenu", {
-    spaceBetween: 0,
-    slidesPerView: 2.8,
-    watchSlidesProgress: true,
-    centeredSlides: false,
-});
-const subSwiper = new Swiper(".subSwiper", {
-    spaceBetween: 10,
-    thumbs: {
-        swiper: slideTopMenu,
-    },
-});
-
 // myNoteSlide
 const myNoteSlide = new Swiper(".myNoteSlide .swiperType_01", {
     slidesPerView: 1.8,
@@ -141,6 +127,24 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
         540: {
             slidesPerView: 3,
         },
+    },
+});
+
+// Top Slide Menu
+const slideTopMenu = new Swiper(".slideTopMenu", {
+    spaceBetween: 0,
+    slidesPerView: 2.8,
+    watchSlidesProgress: true,
+    centeredSlides: false,
+});
+const subSwiper = new Swiper(".subSwiper", {
+    effect: "fade",
+    fadeEffect: {
+        crossFade: true,
+    },
+    spaceBetween: 10,
+    thumbs: {
+        swiper: slideTopMenu,
     },
 });
 
@@ -269,8 +273,9 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
     // Common ChangeView
     class ChangeView {
         constructor(opt) {
+            this.slideName = opt.targetSlideName;
             this.targetBtn = document.querySelector("." + opt.elmName);
-            this.swiper = document.querySelector(".myNoteSlide");
+            this.swiper = document.querySelector("." + opt.targetSlideName);
             this.active = "active";
             this.target = null;
             this.parent = null;
@@ -298,13 +303,14 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
             this.targetBtn.classList.add(this.active);
             this.target.textContent = `전체보기 취소`;
             this.swiper.classList.add(this.active);
-            myNoteSlide.disable();
+            console.log(this.swiper);
+            this.swiper.disable();
         }
         close() {
             this.targetBtn.classList.remove(this.active);
             this.target.textContent = `전체보기`;
             this.swiper.classList.remove(this.active);
-            myNoteSlide.enable();
+            this.swiper.enable();
         }
     }
 
@@ -412,12 +418,14 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
 
             this.subSwiper = this.mother.querySelector(".subSwiper");
             this.subTabLink = [...this.subSwiper.querySelectorAll("a")];
+            this.closeBtn = [...this.subSwiper.querySelectorAll(".btnClose")];
 
             this.target = null;
             this.tabLi = null;
             this.subTarget = null;
 
             this.active = "active";
+            this.menuActive = "on";
         }
         init() {
             this.tabSlide.map((elm) => {
@@ -427,12 +435,27 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
         }
         mouseEvent() {
             this.target.addEventListener("click", (e) => this.eventHandler(e));
+            this.closeBtn.map((elm) => {
+                elm.addEventListener("click", (e) => this.closeAll());
+            });
         }
         eventHandler(e) {
             e.preventDefault();
-
-            console.log(this.subTabLink);
             this.subSwiper.classList.add(this.active);
+
+            console.log(
+                e.currentTarget,
+                e.currentTarget.classList.contains("swiper-slide-thumb-active")
+            );
+
+            // 대메뉴 활성화 클래스 넣기
+            if (
+                e.currentTarget.classList.contains("swiper-slide-thumb-active")
+            ) {
+                e.currentTarget.classList.add(this.menuActive);
+            } else {
+                e.currentTarget.classList.remove(this.menuActive);
+            }
 
             this.subTabLink.map((elm) => {
                 elm.addEventListener("click", (e) =>
@@ -460,23 +483,56 @@ const swiper_thumb = new Swiper(".thumbNailSlide .swiperType_thumb", {
                 elm.classList.remove(this.active);
             });
         }
+        closeAll() {
+            this.subSwiper.classList.remove(this.active);
+            this.tabSlide.map((elm) => {
+                if (elm.classList.contains(this.menuActive)) {
+                    elm.classList.remove(this.menuActive);
+                }
+            });
+            this.subTabLink.map((elm) => {
+                if (elm.classList.contains(this.active)) {
+                    elm.classList.remove(this.active);
+                }
+            });
+        }
     }
     window.addEventListener("load", () => {
+        // PC 버전 : 카테고리
         const tabList = new TabList({ elmName: "TabList" });
         tabList.init();
 
+        // PC 버전 : 검색열기
         const addSearch = new AddSearch({ elmName: "addSearchBtn" });
         addSearch.init();
 
-        const changeView = new ChangeView({ elmName: "changeViewBtn" });
-        changeView.init();
+        // 공통 :  전체보기 열기
+        const myNoteSlide = new ChangeView({
+            elmName: "changeViewBtn",
+            targetSlideName: "myNoteSlide",
+        });
+        myNoteSlide.init();
 
+        // 공통 :  카드섹션 전체보기 열기
+        const isChangeBtn = document.querySelector(".changeCardBtn");
+        if (isChangeBtn === null) return;
+        const cardSlide = new ChangeView({
+            elmName: "changeCardBtn",
+            targetSlideName: "cardSlide",
+        });
+        cardSlide.init();
+
+        // 공통 :  단어장 선택
         const vocabulary = new Vocabulary({ elmName: "vocabulary" });
         vocabulary.init();
 
+        // 공통 : Toggle
         const toggle = new Toggle({ elmName: "toggle" });
         toggle.init();
 
+        // Mobile 버전 : 상단 카테고리
+        const isNavi = document.querySelector(".moNavi");
+        if (isNavi === null) return;
         const moNavi = new MoNavi({ elmName: "moNavi" });
         moNavi.init();
     });
