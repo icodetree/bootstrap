@@ -598,17 +598,73 @@
                     </div>
                 </section>
 
-                <div class="content mt-5 mb-7">
+                <div class="content mt-3 mb-7">
+                    <!-- PC location -->
+                    <div class="location d-none d-lg-block mx-3 mb-3">
+                        <a href="#">홈으로 돌아가기</a>
+                    </div>
+
                     <!-- welcome -->
                     <section class="welcome">
                         <div
-                            class="text-start border-top border-bottom mb-3 mx-3 py-3"
+                            class="text-start border-top border-bottom mb-4 mx-3 py-3"
                         >
-                            <p class="d-inline me-2 pe-3">
+                            <p class="d-inline me-3 pe-3">
                                 안녕하세요, 정윤 님
                             </p>
                             <p class="d-inline">첫 방문을 환영합니다.</p>
                         </div>
+                    </section>
+
+                    <!-- 레벨그래프 -->
+                    <div class="graph mx-3 py-5 px-3 text-center">
+                        <h2>정윤님의 레벨은 <strong>기억술사</strong></h2>
+                        <div class="graph__line">
+                            <div class="animated-progress">
+                                <!-- data-progress : value -->
+                                <span
+                                    class="animated-progress--bubble"
+                                    data-progress="45"
+                                ></span>
+                            </div>
+                        </div>
+                        <div class="graph__icon">
+                            <span
+                                ><img
+                                    src="../images/common/ico_medal_01.svg"
+                                    alt=""
+                            /></span>
+                            <span
+                                ><img
+                                    src="../images/common/ico_medal_02.svg"
+                                    alt=""
+                            /></span>
+                            <span
+                                ><img
+                                    src="../images/common/ico_medal_04.svg"
+                                    alt=""
+                            /></span>
+                            <span
+                                ><img
+                                    src="../images/common/ico_medal_03.svg"
+                                    alt=""
+                            /></span>
+                        </div>
+                        <div class="graph__notice">
+                            <i class="ico-mark"></i>
+                            <p class="m-0">
+                                오답퍼널에서는 더 많은 포인트 획득!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- grid -->
+                    <section class="ginfo mx-3">
+                        <div class="ginfo__item">.g-col-1</div>
+                        <div class="ginfo__item">.g-col-2</div>
+
+                        <div class="ginfo__item">.g-col-3</div>
+                        <div class="ginfo__item">.g-col-4</div>
                     </section>
                 </div>
             </main>
@@ -689,7 +745,9 @@
             </article>
         </div>
 
+        <script src="../js/jquery-3.2.1.min.js"></script>
         <script src="../js/swiper-bundle.min.js"></script>
         <script src="../main.js"></script>
+        <script src="../graph.js"></script>
     </body>
 </html>
