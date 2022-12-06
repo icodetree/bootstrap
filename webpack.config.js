@@ -6,11 +6,11 @@ module.exports = {
   entry: './src/js/main.js',
   plugins: [new miniCssExtractPlugin ()],
   output: {
-    filename: 'main.js',
-    path: path.resolve (__dirname, 'dist'),
+    filename: 'common.js',
+    path: path.resolve (__dirname, 'dist/js'),
   },
   devServer: {
-    static: path.resolve (__dirname, 'dist'),
+    static: path.resolve (__dirname, 'dist/js'),
     port: 8080,
     hot: true,
   },
@@ -25,7 +25,7 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(scss)$/,
         use: [
           {
             loader: miniCssExtractPlugin.loader,
