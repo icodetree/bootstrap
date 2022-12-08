@@ -1841,7 +1841,7 @@ button[aria-expanded="true"].btn-category img {
             }
 
             .hgroup {
-                padding: 4.8rem;
+                padding: 4.8rem 4.8rem 0 4.8rem;
             }
         }
     }
@@ -1866,7 +1866,12 @@ button[aria-expanded="true"].btn-category img {
     .memory {
         padding: 1.6rem;
 
+        .hgroup {
+            padding: 3.2rem 3.2rem 0 3.2rem;
+        }
+
         &__graph {
+            height: 32rem;
             margin: 3rem 0;
         }
 
@@ -1875,27 +1880,20 @@ button[aria-expanded="true"].btn-category img {
             justify-content: space-between;
 
             dl {
+                align-items: flex-start;
                 width: 49%;
                 min-height: 10rem;
                 padding: 1.5rem;
             }
             dt {
-                flex: 1;
-                text-align: center;
-                font-size: 1.2rem;
-                font-weight: $font-weight-normal;
-                margin-right: 1rem;
+                font-size: 1.6rem;
 
                 strong {
-                    display: block;
-                    font-size: 1.8rem;
-                    font-weight: bold;
-                    margin-top: 0.5rem;
+                    font-size: 2.4rem;
                 }
             }
             dd {
-                flex: 4;
-                font-size: 1.2rem;
+                flex: 3;
             }
         }
     }
