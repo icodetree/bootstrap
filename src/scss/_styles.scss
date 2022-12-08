@@ -22,7 +22,9 @@ li {
     list-style: none;
 }
 
-dl {
+dl,
+dt,
+dd {
     margin: 0;
 }
 
@@ -939,6 +941,82 @@ button[aria-expanded="true"].btn-category img {
         border: 1px solid $gray-400;
         border-radius: 1.6rem;
         margin-top: 0.8rem;
+        padding: 1.6rem;
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        p {
+            color: $gray-500;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.score {
+    dd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: 1rem 0 0 0;
+        height: 4rem;
+    }
+    span {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.6rem;
+        font-weight: bold;
+        height: 100%;
+    }
+    a {
+        font-size: 1.4rem;
+        width: 12rem;
+        height: 4rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary;
+        color: $white;
+        border-radius: 5rem;
+    }
+}
+
+.memory {
+    &__graph {
+        margin: 3rem 0;
+    }
+
+    &__count {
+        dl {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            color: $black;
+            border-radius: 0.6rem;
+            background-color: $gray-300;
+            padding: 1rem;
+        }
+        dt {
+            flex: 1;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: $font-weight-normal;
+            margin-right: 1rem;
+
+            strong {
+                display: block;
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-top: 0.5rem;
+            }
+        }
+        dd {
+            flex: 4;
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -1693,9 +1771,6 @@ button[aria-expanded="true"].btn-category img {
         &__item:nth-child(3) {
             grid-area: 2 / 1 / 5 / 2;
         }
-
-        &__item:nth-child(4) {
-        }
     }
 
     // Layer Popup
@@ -1746,6 +1821,81 @@ button[aria-expanded="true"].btn-category img {
 
             .price-wrap {
                 margin-top: 10rem;
+            }
+        }
+    }
+
+    // status
+    .ginfo {
+        &__item {
+            padding: 0;
+            margin: 0;
+
+            h3 {
+                font-size: 2.4rem;
+            }
+            p {
+                color: $gray-600;
+                font-size: 1.6rem;
+                margin-top: 2.4rem;
+            }
+
+            .hgroup {
+                padding: 4.8rem;
+            }
+        }
+    }
+
+    .score {
+        padding: 4.8rem;
+
+        dd {
+            align-items: end;
+            margin: 2rem 0 0 0;
+            height: 6rem;
+        }
+        span {
+            font-size: 6rem;
+        }
+        a {
+            width: 18rem;
+            height: 4rem;
+        }
+    }
+
+    .memory {
+        padding: 1.6rem;
+
+        &__graph {
+            margin: 3rem 0;
+        }
+
+        &__count {
+            display: flex;
+            justify-content: space-between;
+
+            dl {
+                width: 49%;
+                min-height: 10rem;
+                padding: 1.5rem;
+            }
+            dt {
+                flex: 1;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: $font-weight-normal;
+                margin-right: 1rem;
+
+                strong {
+                    display: block;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    margin-top: 0.5rem;
+                }
+            }
+            dd {
+                flex: 4;
+                font-size: 1.2rem;
             }
         }
     }
