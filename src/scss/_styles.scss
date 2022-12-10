@@ -937,6 +937,7 @@ button[aria-expanded="true"].btn-category img {
 
 .ginfo {
     &__item {
+        position: relative;
         background-color: $gray-100;
         border: 1px solid $gray-400;
         border-radius: 1.6rem;
