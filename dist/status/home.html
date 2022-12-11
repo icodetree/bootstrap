@@ -1,884 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Benly</title>
-        <meta
-            name="description"
-            content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나."
-        />
-        <meta property="og:url" content="" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Benly" />
-        <meta property="og:image" content="../img/common/opengraph.jpg" />
-        <meta
-            property="og:description"
-            content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나."
-        />
 
-        <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="../main.css" />
-    </head>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Benly</title>
+	<meta name="description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+	<meta property="og:url" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Benly" />
+	<meta property="og:image" content="../img/common/opengraph.jpg" />
+	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
 
-    <body>
-        <div class="container">
-            <!-- header -->
-            <header class="header">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <!-- logo -->
-                        <h1 class="d-flex align-items-center mb-0 mt-1">
-                            <a class="navbar-brand p-0" href="#"
-                                ><img
-                                    src="../images/common/logo.svg"
-                                    alt=""
-                                    class="img-fluid"
-                            /></a>
-                        </h1>
+	<link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="../main.css" />
+</head>
 
-                        <div class="inner">
-                            <!-- PC -->
-                            <article class="navbar-pc">
-                                <button
-                                    class="navbar-toggler"
-                                    type="button"
-                                    data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasNavbar"
-                                    aria-controls="offcanvasNavbar"
-                                >
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div
-                                    class="offcanvas offcanvas-end"
-                                    tabindex="-1"
-                                    id="offcanvasNavbar"
-                                    aria-labelledby="offcanvasNavbarLabel"
-                                >
-                                    <div class="offcanvas-header">
-                                        <h5
-                                            class="offcanvas-title"
-                                            id="offcanvasNavbarLabel"
-                                        ></h5>
-                                        <button
-                                            type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="offcanvas"
-                                            aria-label="Close"
-                                        ></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <ul
-                                            class="navbar-nav flex-grow-1 align-items-lg-center"
-                                        >
-                                            <li class="nav-item active">
-                                                <a
-                                                    class="nav-link"
-                                                    aria-current="page"
-                                                    href="../index.html"
-                                                    >홈</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../status.html"
-                                                    >나의 상태</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../review.html"
-                                                    >복습센터</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../mypage.html"
-                                                    >내 정보</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#"
-                                                    >검색하기</a
-                                                >
-                                            </li>
-                                        </ul>
+<body>
+	<div class="container">
+		<!-- header -->
+		<header class="header">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<!-- logo -->
+					<h1 class="d-flex align-items-center mb-0 mt-1">
+						<a class="navbar-brand p-0" href="#"><img src="../images/common/logo.svg" alt=""
+								class="img-fluid" /></a>
+					</h1>
 
-                                        <div
-                                            class="contact mx-2 my-5 d-sm-block d-lg-none"
-                                        >
-                                            <ul class="list-unstyled">
-                                                <li class="mb-5">
-                                                    <img
-                                                        src="../images/common/ico_mail.svg"
-                                                        alt=""
-                                                        class="img-fluid"
-                                                    />
-                                                    <a
-                                                        href="#"
-                                                        class="d-inline text-reset ms-2"
-                                                        >문의하기</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <img
-                                                        src="../images/common/ico_phone.svg"
-                                                        alt=""
-                                                        class="img-fluid"
-                                                    />
-                                                    <a
-                                                        href="#"
-                                                        class="d-inline text-reset ms-2"
-                                                        >문의하기</a
-                                                    >
-                                                </li>
-                                            </ul>
-                                        </div>
+					<div class="inner">
+						<!-- PC -->
+						<article class="navbar-pc">
+							<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+								aria-labelledby="offcanvasNavbarLabel">
+								<div class="offcanvas-header">
+									<h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+									<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+										aria-label="Close"></button>
+								</div>
+								<div class="offcanvas-body">
+									<ul class="navbar-nav flex-grow-1 align-items-lg-center">
+										<li class="nav-item active">
+											<a class="nav-link" aria-current="page" href="../index.html">홈</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../status.html">나의 상태</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../review.html">복습센터</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../mypage.html">내 정보</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">검색하기</a>
+										</li>
+									</ul>
 
-                                        <div
-                                            class="share mx-2 my-5 d-sm-block d-lg-none"
-                                        >
-                                            <ul class="list-unstyled d-flex">
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_facebook.svg"
-                                                            alt="facebook"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_pinterest.svg"
-                                                            alt="pinterest"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_twitter.svg"
-                                                            alt="twitter"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_linked.svg"
-                                                            alt="linkedin"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+									<div class="contact mx-2 my-5 d-sm-block d-lg-none">
+										<ul class="list-unstyled">
+											<li class="mb-5">
+												<img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+											<li>
+												<img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+										</ul>
+									</div>
 
-                            <!-- search -->
-                            <article class="search">
-                                <button id="toggle" class="border-0"></button>
-                                <div class="overlay" id="overlay">
-                                    <div class="overlay-menu">
-                                        <!-- search-input -->
-                                        <div class="search-text mb-3">
-                                            <label for="search_text"
-                                                ><img
-                                                    src="../images/common/btn_search.svg"
-                                                    class="w-100"
-                                                    alt="search"
-                                            /></label>
-                                            <input
-                                                class="form-control"
-                                                id="search_text"
-                                                type="text"
-                                                placeholder="검색하기"
-                                                aria-label="검색하기"
-                                            />
-                                            <button
-                                                type="button"
-                                                class="popClose btn text-decoration-underline border-0 px-0"
-                                            >
-                                                닫기
-                                            </button>
-                                        </div>
+									<div class="share mx-2 my-5 d-sm-block d-lg-none">
+										<ul class="list-unstyled d-flex">
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_facebook.svg" alt="facebook"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_pinterest.svg" alt="pinterest"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_twitter.svg" alt="twitter"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_linked.svg" alt="linkedin"
+														class="img-fluid" /></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</article>
 
-                                        <!-- search-list -->
-                                        <div class="search-list">
-                                            <ul class="p-0 m-0">
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="link-utility"
-                                                        >추천 검색어</a
-                                                    >
-                                                </li>
-                                            </ul>
-                                        </div>
+						<!-- search -->
+						<article class="search">
+							<button id="toggle" class="border-0"></button>
+							<div class="overlay" id="overlay">
+								<div class="overlay-menu">
+									<!-- search-input -->
+									<div class="search-text mb-3">
+										<label for="search_text"><img src="../images/common/btn_search.svg"
+												class="w-100" alt="search" /></label>
+										<input class="form-control" id="search_text" type="text" placeholder="검색하기"
+											aria-label="검색하기" />
+										<button type="button"
+											class="popClose btn text-decoration-underline border-0 px-0">
+											닫기
+										</button>
+									</div>
 
-                                        <!-- search-banner -->
-                                        <div class="search-banner mt-3">
-                                            <a href="#" class="link-utility"
-                                                >배너 이미지</a
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+									<!-- search-list -->
+									<div class="search-list">
+										<ul class="p-0 m-0">
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+											<li>
+												<a href="#" class="link-utility">추천 검색어</a>
+											</li>
+										</ul>
+									</div>
 
-                            <!-- mobile -->
-                            <article class="navbar-mobile">
-                                <div class="hamberger" id="toggle">
-                                    <span class="top"></span>
-                                    <span class="middle"></span>
-                                    <span class="bottom"></span>
-                                </div>
-                                <div class="overlay" id="overlay">
-                                    <div class="overlay-menu">
-                                        <ul
-                                            class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center"
-                                        >
-                                            <li class="nav-item active">
-                                                <a
-                                                    class="nav-link"
-                                                    aria-current="page"
-                                                    href="../index.html"
-                                                    >홈</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../status.html"
-                                                    >나의 상태</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../review.html"
-                                                    >복습센터</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    href="../mypage.html"
-                                                    >내 정보</a
-                                                >
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#"
-                                                    >검색하기</a
-                                                >
-                                            </li>
-                                        </ul>
+									<!-- search-banner -->
+									<div class="search-banner mt-3">
+										<a href="#" class="link-utility">배너 이미지</a>
+									</div>
+								</div>
+							</div>
+						</article>
 
-                                        <div
-                                            class="contact mx-2 my-5 d-sm-block d-lg-none"
-                                        >
-                                            <ul class="list-unstyled">
-                                                <li class="mb-5">
-                                                    <img
-                                                        src="../images/common/ico_mail.svg"
-                                                        alt=""
-                                                        class="img-fluid"
-                                                    />
-                                                    <a
-                                                        href="#"
-                                                        class="d-inline text-reset ms-2"
-                                                        >문의하기</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <img
-                                                        src="../images/common/ico_phone.svg"
-                                                        alt=""
-                                                        class="img-fluid"
-                                                    />
-                                                    <a
-                                                        href="#"
-                                                        class="d-inline text-reset ms-2"
-                                                        >문의하기</a
-                                                    >
-                                                </li>
-                                            </ul>
-                                        </div>
+						<!-- mobile -->
+						<article class="navbar-mobile">
+							<div class="hamberger" id="toggle">
+								<span class="top"></span>
+								<span class="middle"></span>
+								<span class="bottom"></span>
+							</div>
+							<div class="overlay" id="overlay">
+								<div class="overlay-menu">
+									<ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
+										<li class="nav-item active">
+											<a class="nav-link" aria-current="page" href="../index.html">홈</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../status.html">나의 상태</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../review.html">복습센터</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../mypage.html">내 정보</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">검색하기</a>
+										</li>
+									</ul>
 
-                                        <div
-                                            class="share mx-2 py-5 d-sm-block d-lg-none"
-                                        >
-                                            <ul
-                                                class="d-flex justify-content-center"
-                                            >
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_facebook.svg"
-                                                            alt="facebook"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_pinterest.svg"
-                                                            alt="pinterest"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_twitter.svg"
-                                                            alt="twitter"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
-                                                        class="rounded-circle me-5"
-                                                        ><img
-                                                            src="../images/common/ico_linked.svg"
-                                                            alt="linkedin"
-                                                            class="img-fluid"
-                                                    /></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+									<div class="contact mx-2 my-5 d-sm-block d-lg-none">
+										<ul class="list-unstyled">
+											<li class="mb-5">
+												<img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+											<li>
+												<img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+										</ul>
+									</div>
 
-            <main class="main">
-                <!-- visual -->
-                <section class="visual">
-                    <div
-                        id="carouselExampleCaptions"
-                        class="carousel slide"
-                        data-bs-ride="carousel"
-                    >
-                        <div class="carousel-indicators">
-                            <button
-                                type="button"
-                                data-bs-target="#carouselExampleCaptions"
-                                data-bs-slide-to="0"
-                                class="rounded-circle active"
-                                aria-current="true"
-                                aria-label="Slide 1"
-                            ></button>
-                            <button
-                                type="button"
-                                data-bs-target="#carouselExampleCaptions"
-                                data-bs-slide-to="1"
-                                class="rounded-circle"
-                                aria-label="Slide 2"
-                            ></button>
-                            <button
-                                type="button"
-                                data-bs-target="#carouselExampleCaptions"
-                                data-bs-slide-to="2"
-                                class="rounded-circle"
-                                aria-label="Slide 3"
-                            ></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div
-                                class="carousel-item active"
-                                data-bs-interval="5000"
-                            >
-                                <picture>
-                                    <source
-                                        srcset="
+									<div class="share mx-2 py-5 d-sm-block d-lg-none">
+										<ul class="d-flex justify-content-center">
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_facebook.svg" alt="facebook"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_pinterest.svg" alt="pinterest"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_twitter.svg" alt="twitter"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_linked.svg" alt="linkedin"
+														class="img-fluid" /></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main class="main">
+			<!-- visual -->
+			<section class="visual">
+				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+							class="rounded-circle active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+							class="rounded-circle" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+							class="rounded-circle" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active" data-bs-interval="5000">
+							<picture>
+								<source srcset="
                                             ../images/main/main_visual_01_2x.png
-                                        "
-                                        media="all and (min-width: 960px)"
-                                    />
-                                    <img
-                                        src="../images/main/main_visual_01.png"
-                                        class="d-block w-100"
-                                        alt=""
-                                    />
-                                </picture>
-                                <div class="carousel-caption">
-                                    <span class="d-lg-none"
-                                        ><img
-                                            src="../images/common/logo_w.svg"
-                                            class="mw-100"
-                                            alt=""
-                                    /></span>
-                                    <h2>
-                                        <span class="d-inline-block me-2"
-                                            >목표는 수능 1등급</span
-                                        ><span
-                                            class="d-block d-md-inline-block"
-                                        >
-                                            영단어</span
-                                        >
-                                    </h2>
-                                    <p
-                                        class="d-none d-lg-block text-decoration-underline"
-                                    >
-                                        내게 필요한 영단어 찾아보기
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000">
-                                <picture>
-                                    <source
-                                        srcset="
+                                        " media="all and (min-width: 960px)" />
+								<img src="../images/main/main_visual_01.png" class="d-block w-100" alt="" />
+							</picture>
+							<div class="carousel-caption">
+								<span class="d-lg-none"><img src="../images/common/logo_w.svg" class="mw-100"
+										alt="" /></span>
+								<h2>
+									<span class="d-inline-block me-2">목표는 수능 1등급</span><span
+										class="d-block d-md-inline-block">
+										영단어</span>
+								</h2>
+								<p class="d-none d-lg-block text-decoration-underline">
+									내게 필요한 영단어 찾아보기
+								</p>
+							</div>
+						</div>
+						<div class="carousel-item" data-bs-interval="5000">
+							<picture>
+								<source srcset="
                                             ../images/main/main_visual_01_2x.png
-                                        "
-                                        media="all and (min-width: 960px)"
-                                    />
-                                    <img
-                                        src="../images/main/main_visual_01.png"
-                                        class="d-block w-100"
-                                        alt=""
-                                    />
-                                </picture>
-                                <div class="carousel-caption">
-                                    <span class="d-lg-none"
-                                        ><img
-                                            src="../images/common/logo_w.svg"
-                                            class="mw-100"
-                                            alt=""
-                                    /></span>
-                                    <h2>
-                                        <span class="d-inline-block me-2"
-                                            >목표는 수능 1등급</span
-                                        ><span
-                                            class="d-block d-md-inline-block"
-                                        >
-                                            영단어</span
-                                        >
-                                    </h2>
-                                    <p
-                                        class="d-none d-lg-block text-decoration-underline"
-                                    >
-                                        내게 필요한 영단어 찾아보기
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="carousel-item" data-bs-interval="5000">
-                                <picture>
-                                    <source
-                                        srcset="
+                                        " media="all and (min-width: 960px)" />
+								<img src="../images/main/main_visual_01.png" class="d-block w-100" alt="" />
+							</picture>
+							<div class="carousel-caption">
+								<span class="d-lg-none"><img src="../images/common/logo_w.svg" class="mw-100"
+										alt="" /></span>
+								<h2>
+									<span class="d-inline-block me-2">목표는 수능 1등급</span><span
+										class="d-block d-md-inline-block">
+										영단어</span>
+								</h2>
+								<p class="d-none d-lg-block text-decoration-underline">
+									내게 필요한 영단어 찾아보기
+								</p>
+							</div>
+						</div>
+						<div class="carousel-item" data-bs-interval="5000">
+							<picture>
+								<source srcset="
                                             ../images/main/main_visual_01_2x.png
-                                        "
-                                        media="all and (min-width: 960px)"
-                                    />
-                                    <img
-                                        src="../images/main/main_visual_01.png"
-                                        class="d-block w-100"
-                                        alt=""
-                                    />
-                                </picture>
-                                <div class="carousel-caption">
-                                    <span class="d-lg-none"
-                                        ><img
-                                            src="../images/common/logo_w.svg"
-                                            class="mw-100"
-                                            alt=""
-                                    /></span>
-                                    <h2>
-                                        <span class="d-inline-block me-2"
-                                            >목표는 수능 1등급</span
-                                        ><span
-                                            class="d-block d-md-inline-block"
-                                        >
-                                            영단어</span
-                                        >
-                                    </h2>
-                                    <p
-                                        class="d-none d-lg-block text-decoration-underline"
-                                    >
-                                        내게 필요한 영단어 찾아보기
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="carousel-control-prev d-none d-lg-block"
-                            type="button"
-                            data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="prev"
-                        >
-                            <span
-                                class="carousel-control-prev-icon"
-                                aria-hidden="true"
-                            ></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                            class="carousel-control-next d-none d-lg-block"
-                            type="button"
-                            data-bs-target="#carouselExampleCaptions"
-                            data-bs-slide="next"
-                        >
-                            <span
-                                class="carousel-control-next-icon"
-                                aria-hidden="true"
-                            ></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </section>
+                                        " media="all and (min-width: 960px)" />
+								<img src="../images/main/main_visual_01.png" class="d-block w-100" alt="" />
+							</picture>
+							<div class="carousel-caption">
+								<span class="d-lg-none"><img src="../images/common/logo_w.svg" class="mw-100"
+										alt="" /></span>
+								<h2>
+									<span class="d-inline-block me-2">목표는 수능 1등급</span><span
+										class="d-block d-md-inline-block">
+										영단어</span>
+								</h2>
+								<p class="d-none d-lg-block text-decoration-underline">
+									내게 필요한 영단어 찾아보기
+								</p>
+							</div>
+						</div>
+					</div>
+					<button class="carousel-control-prev d-none d-lg-block" type="button"
+						data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next d-none d-lg-block" type="button"
+						data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</section>
 
-                <div class="content mt-3 mb-7">
-                    <!-- PC location -->
-                    <div class="location d-none d-lg-block mx-3 mb-3">
-                        <a href="#">홈으로 돌아가기</a>
-                    </div>
+			<div class="content mt-3 mb-7">
+				<!-- PC location -->
+				<div class="location d-none d-lg-block mx-3 mb-3">
+					<a href="#">홈으로 돌아가기</a>
+				</div>
 
-                    <!-- welcome -->
-                    <section class="welcome">
-                        <div
-                            class="text-start border-top border-bottom mb-4 mx-3 py-3"
-                        >
-                            <p class="d-inline me-3 pe-3">
-                                안녕하세요, 정윤 님
-                            </p>
-                            <p class="d-inline">첫 방문을 환영합니다.</p>
-                        </div>
-                    </section>
+				<!-- welcome -->
+				<section class="welcome">
+					<div class="text-start border-top border-bottom mb-4 mx-3 py-3">
+						<p class="d-inline me-3 pe-3">
+							안녕하세요, 정윤 님
+						</p>
+						<p class="d-inline">첫 방문을 환영합니다.</p>
+					</div>
+				</section>
 
-                    <!-- 레벨그래프 -->
-                    <div class="graph mx-3 py-5 px-3 text-center">
-                        <h2>정윤님의 레벨은 <strong>기억술사</strong></h2>
-                        <div class="graph__line">
-                            <div class="animated-progress">
-                                <!-- data-progress : value -->
-                                <span
-                                    class="animated-progress--bubble"
-                                    data-progress="45"
-                                ></span>
-                            </div>
-                        </div>
-                        <div class="graph__icon">
-                            <span
-                                ><img
-                                    src="../images/common/ico_medal_01.svg"
-                                    alt=""
-                            /></span>
-                            <span
-                                ><img
-                                    src="../images/common/ico_medal_02.svg"
-                                    alt=""
-                            /></span>
-                            <span
-                                ><img
-                                    src="../images/common/ico_medal_04.svg"
-                                    alt=""
-                            /></span>
-                            <span
-                                ><img
-                                    src="../images/common/ico_medal_03.svg"
-                                    alt=""
-                            /></span>
-                        </div>
-                        <div class="graph__notice">
-                            <i class="ico-mark"></i>
-                            <p class="m-0">
-                                오답퍼널에서는 더 많은 포인트 획득!
-                            </p>
-                        </div>
-                    </div>
+				<!-- 레벨그래프 -->
+				<div class="graph mx-3 py-5 px-3 text-center">
+					<h2>정윤님의 레벨은 <strong>기억술사</strong></h2>
+					<div class="graph__line">
+						<div class="animated-progress">
+							<!-- data-progress : value -->
+							<span class="animated-progress--bubble" data-progress="45"></span>
+						</div>
+					</div>
+					<div class="graph__icon">
+						<span><img src="../images/common/ico_medal_01.svg" alt="" /></span>
+						<span><img src="../images/common/ico_medal_02.svg" alt="" /></span>
+						<span><img src="../images/common/ico_medal_04.svg" alt="" /></span>
+						<span><img src="../images/common/ico_medal_03.svg" alt="" /></span>
+					</div>
+					<div class="graph__notice">
+						<i class="ico-mark"></i>
+						<p class="m-0">
+							오답퍼널에서는 더 많은 포인트 획득!
+						</p>
+					</div>
+				</div>
 
-                    <!-- grid -->
-                    <section class="ginfo mx-3">
-                        <div class="ginfo__item">
-                            <!-- 이달의 기억관리 -->
-                            <dl class="score">
-                                <dt><h3>이달의 기억관리</h3></dt>
-                                <dd>
-                                    <span>92점</span>
-                                    <a href="#">자세히 보기</a>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="ginfo__item">
-                            <!-- 내 머릿속 기억률 현황 -->
-                            <div class="memory">
-                                <div class="hgroup">
-                                    <h3>내 머릿속 기억률 현황</h3>
-                                    <p>
-                                        공부했던 모든 단어들의 기억률을 매일
-                                        예측하고 기록해요 복습 게임을 많이
-                                        할수록 정확도가 올라가요
-                                    </p>
-                                </div>
+				<!-- grid -->
+				<section class="ginfo mx-3">
+					<div class="ginfo__item">
+						<!-- 이달의 기억관리 -->
+						<dl class="score">
+							<dt>
+								<h3>이달의 기억관리</h3>
+							</dt>
+							<dd>
+								<span>92점</span>
+								<a href="#">자세히 보기</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ginfo__item">
+						<!-- 내 머릿속 기억률 현황 -->
+						<div class="memory">
+							<div class="hgroup">
+								<h3>내 머릿속 기억률 현황</h3>
+								<p>
+									공부했던 모든 단어들의 기억률을 매일
+									예측하고 기록해요 복습 게임을 많이
+									할수록 정확도가 올라가요
+								</p>
+							</div>
 
-                                <div class="memory__graph">그래프</div>
-                                <div class="memory__count">
-                                    <dl class="mb-2 mb-lg-0">
-                                        <dt>정답 <strong>7회</strong></dt>
-                                        <dd>
-                                            틀렸다가 맞게 된 단어의 개수로, 이
-                                            개수를 늘려야 영단어가 해결되요!
-                                        </dd>
-                                    </dl>
-                                    <dl>
-                                        <dt>복습횟수 <strong>7회</strong></dt>
-                                        <dd>
-                                            틀렸다가 맞게 된 단어의 개수로, 이
-                                            개수를 늘려야 영단어가 해결되요!
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ginfo__item">
-                            <!-- 단어장 리포트 -->
-                            <div class="report">
-                                <div class="hgroup">
-                                    <h3>단어장 리포트</h3>
-                                    <p>단어장 별로 분석된 상세 리포트</p>
-                                </div>
-                            
-                                <!-- Slide : 리포트 슬라이드 -->
-                                <section class="swiper reportSlide mb-4">
-                                    <!-- Slider main container -->
-                                    <div class="swiperType_report pb-6">
-                                        <div class="swiper-wrapper">
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <!-- thumb -->
-                                                <a href="#" class="thumb-area">
-                                                    <div class="card border-0">
-                                                        <div class="d-flex">
-                                                            <div class="photo col-md-4">
-                                                                <img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <dl class="card-body py-0 px-3">
-                                                                    <dt class="card-title">수도 한번 맞춰볼래?</dt>
-                                                                    <dd class="card-text">나라별 수도 맞추기</dd>
-                                                                    <dd class="card-text">예능 준비 게임</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <!-- thumb -->
-                                                <a href="#" class="thumb-area">
-                                                    <div class="card border-0">
-                                                        <div class="d-flex">
-                                                            <div class="photo col-md-4">
-                                                                <img src="../images/photo/photo_m_02.jpg" class="img-fluid" alt="">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <dl class="card-body py-0 px-3">
-                                                                    <dt class="card-title">요정도는 기본이지!</dt>
-                                                                    <dd class="card-text">시험에 항상 나오는 기본 PACK 8</dd>
-                                                                    <dd class="card-text">고등 영어</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!-- Slides -->
-                                            <div class="swiper-slide">
-                                                <!-- thumb -->
-                                                <a href="#" class="thumb-area">
-                                                    <div class="card border-0">
-                                                        <div class="d-flex">
-                                                            <div class="photo col-md-4">
-                                                                <img src="../images/photo/photo_m_03.jpg" class="img-fluid" alt="">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <dl class="card-body py-0 px-3">
-                                                                    <dt class="card-title">부동산 용어 암기!</dt>
-                                                                    <dd class="card-text">기억술사들이 선택한 자격증 시험 암기 TOP 8</dd>
-                                                                    <dd class="card-text">자격증 시험 암기</dd>
-                                                                </dl>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+							<div class="memory__graph">그래프</div>
+							<div class="memory__count">
+								<dl class="mb-2 mb-lg-0">
+									<dt>정답 <strong>7회</strong></dt>
+									<dd>
+										틀렸다가 맞게 된 단어의 개수로, 이
+										개수를 늘려야 영단어가 해결되요!
+									</dd>
+								</dl>
+								<dl>
+									<dt>복습횟수 <strong>7회</strong></dt>
+									<dd>
+										틀렸다가 맞게 된 단어의 개수로, 이
+										개수를 늘려야 영단어가 해결되요!
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="ginfo__item px-0">
+						<!-- 단어장 리포트 -->
+						<div class="report">
+							<div class="hgroup px-3 mb-3">
+								<h3>단어장 리포트</h3>
+								<p>단어장 별로 분석된 상세 리포트</p>
+							</div>
 
+							<!-- Slide : 리포트 슬라이드 -->
+							<section class="swiper reportSlide mb-4">
+								<!-- Slider main container -->
+								<div class="swiperType_report pb-6">
+									<div class="swiper-wrapper">
+										<!-- Slides -->
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
+										<div class="swiper-slide">
+											<a href="#" class="thumb-area">
+												<div class="photo">
+													<img src="../images/photo/photo_m_01.jpg" class="img-fluid" alt="">
+												</div>
+												<dl>
+													<dt>초등학생 레벨 (3-4학년) 영단어 100</dt>
+													<dd>루이스 캐럴</dd>
+												</dl>
+											</a>
+										</div>
 
-                                        </div>
-                                        <!-- pagination -->
-                                        <div class="swiper-pagination"></div>
-                                    </div>
-                                </section>
+									</div>
+									<!-- pagination -->
+									<div class="swiper-pagination"></div>
+								</div>
+							</section>
 
-                                <a href="#">모두보기</a>
-                            </div>
-                        </div>
-                        <div class="ginfo__item">
-                            <!-- 친구들은 지금?! -->
-                            <div class="friends">
-                                <div class="hgroup">
-                                    <h3>친구들은 지금?!</h3>
-                                    <p>친구들과 기억 리포트를 공유하세요</p>
-                                </div>
-                              
-                                <div class="friends__slide">슬라이드</div>
-                                <a href="#">모두보기</a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </main>
+							<a href="#">모두보기</a>
+						</div>
+					</div>
+					<div class="ginfo__item">
+						<!-- 친구들은 지금?! -->
+						<div class="friends">
+							<div class="hgroup">
+								<h3>친구들은 지금?!</h3>
+								<p>친구들과 기억 리포트를 공유하세요</p>
+							</div>
 
-            <footer class="footer">
-                <div
-                    class="container-fluid bg-black text-white py-4 py-lg-6 d-lg-flex px-4"
-                >
-                    <div class="footer-logo pb-3 pb-lg-0 ms-lg-6">
-                        <img
-                            src="../images/common/logo_w.svg"
-                            class="mw-100"
-                            alt=""
-                        />
-                    </div>
-                    <div class="footer-info mb-5 mb-lg-0 mx-lg-9">
-                        <ul class="list-unstyled lh-lg">
-                            <li>업체명 : 벤리</li>
-                            <li>사업자등록번호 : 120-81-84429</li>
-                            <li>통신판매업신고번호 : 제2011서울송파-00810호</li>
-                            <li>대표이사 : 이정윤</li>
-                            <li>주소 : 서울특별시 송파구 풍납동 260</li>
-                            <li>대표전화 : 000-0000-0000</li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu">
-                        <ul class="list-unstyled lh-lg mb-0">
-                            <li
-                                class="pb-2 border-bottom d-flex justify-content-between"
-                            >
-                                <a href="#" class="text-reset">이용 약관</a>
-                                <span
-                                    ><img
-                                        src="../images/common/ico_arr_bw.svg"
-                                        alt=""
-                                /></span>
-                            </li>
-                            <li
-                                class="py-2 border-bottom d-flex justify-content-between"
-                            >
-                                <a href="#" class="text-reset"
-                                    >개인정보 취급방침</a
-                                >
-                                <span
-                                    ><img
-                                        src="../images/common/ico_arr_bw.svg"
-                                        alt=""
-                                /></span>
-                            </li>
-                            <li
-                                class="py-2 border-bottom d-flex justify-content-between"
-                            >
-                                <a href="#" class="text-reset">유료 이용약관</a>
-                                <span
-                                    ><img
-                                        src="../images/common/ico_arr_bw.svg"
-                                        alt=""
-                                /></span>
-                            </li>
-                            <li class="py-2 d-flex justify-content-between">
-                                <a href="#" class="text-reset"
-                                    >청소년 보호정책</a
-                                >
-                                <span
-                                    ><img
-                                        src="../images/common/ico_arr_bw.svg"
-                                        alt=""
-                                /></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
+							<div class="friends__slide">슬라이드</div>
+							<a href="#">모두보기</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
 
-            <!-- TOP -->
-            <article class="btn-top btnTop">
-                <a href="#">페이지 상단으로 이동</a>
-            </article>
-        </div>
+		<footer class="footer">
+			<div class="container-fluid bg-black text-white py-4 py-lg-6 d-lg-flex px-4">
+				<div class="footer-logo pb-3 pb-lg-0 ms-lg-6">
+					<img src="../images/common/logo_w.svg" class="mw-100" alt="" />
+				</div>
+				<div class="footer-info mb-5 mb-lg-0 mx-lg-9">
+					<ul class="list-unstyled lh-lg">
+						<li>업체명 : 벤리</li>
+						<li>사업자등록번호 : 120-81-84429</li>
+						<li>통신판매업신고번호 : 제2011서울송파-00810호</li>
+						<li>대표이사 : 이정윤</li>
+						<li>주소 : 서울특별시 송파구 풍납동 260</li>
+						<li>대표전화 : 000-0000-0000</li>
+					</ul>
+				</div>
+				<div class="footer-menu">
+					<ul class="list-unstyled lh-lg mb-0">
+						<li class="pb-2 border-bottom d-flex justify-content-between">
+							<a href="#" class="text-reset">이용 약관</a>
+							<span><img src="../images/common/ico_arr_bw.svg" alt="" /></span>
+						</li>
+						<li class="py-2 border-bottom d-flex justify-content-between">
+							<a href="#" class="text-reset">개인정보 취급방침</a>
+							<span><img src="../images/common/ico_arr_bw.svg" alt="" /></span>
+						</li>
+						<li class="py-2 border-bottom d-flex justify-content-between">
+							<a href="#" class="text-reset">유료 이용약관</a>
+							<span><img src="../images/common/ico_arr_bw.svg" alt="" /></span>
+						</li>
+						<li class="py-2 d-flex justify-content-between">
+							<a href="#" class="text-reset">청소년 보호정책</a>
+							<span><img src="../images/common/ico_arr_bw.svg" alt="" /></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 
-        <script src="../js/jquery-3.2.1.min.js"></script>
-        <script src="../js/swiper-bundle.min.js"></script>
-        <script src="../js/common.js"></script>
-    </body>
+		<!-- TOP -->
+		<article class="btn-top btnTop">
+			<a href="#">페이지 상단으로 이동</a>
+		</article>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/swiper-bundle.min.js"></script>
+	<script src="../main.js"></script>
+</body>
+
 </html>

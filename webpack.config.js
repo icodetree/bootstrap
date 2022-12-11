@@ -2,11 +2,16 @@ const miniCssExtractPlugin = require ('mini-css-extract-plugin');
 const path = require ('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/js/main.js',
-  plugins: [new miniCssExtractPlugin ()],
+  plugins: [
+    // 플러그인 추가
+    new miniCssExtractPlugin ({
+      filename: 'main.css',
+    }),
+  ],
   output: {
-    filename: 'common.js',
+    filename: 'main.js',
     path: path.resolve (__dirname, 'dist'),
   },
   devServer: {
