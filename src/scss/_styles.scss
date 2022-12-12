@@ -84,6 +84,19 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	background-color: $white;
+}
+
+.main {
+	margin-top: 6rem;
+}
+
 // menu
 .navbar {
 	border-bottom: 1px solid $gray-300;
@@ -109,6 +122,8 @@ button[aria-expanded="true"].btn-category img {
 	&-expand-lg {
 		height: 6rem;
 		padding: 0;
+		max-width: 144rem;
+		margin: 0 auto;
 	}
 }
 
@@ -155,7 +170,12 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+.visual {
+	background-color: $orange;
+}
+
 .carousel {
+
 	&-caption > h2 {
 		font-size: 2.2rem;
 	}
@@ -1274,6 +1294,8 @@ button[aria-expanded="true"].btn-category img {
 			font-weight: normal;
 		}
 	}
+
+	
 }
 
 //
@@ -1284,6 +1306,18 @@ button[aria-expanded="true"].btn-category img {
 
 // Desktop
 @include media-breakpoint-up(lg) {
+
+	.welcome,
+	.my-note,
+	.challenge,
+	.pc-search,
+	.menu-list,
+	.footer > div,
+	.carousel {
+		max-width: 144rem;
+		margin: 0 auto;
+	}
+
 	// pc only
 	.location {
 		a {
@@ -1429,6 +1463,7 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	.footer {
+		background-color: $black;
 		&-menu {
 			width: 32rem;
 
@@ -1445,7 +1480,10 @@ button[aria-expanded="true"].btn-category img {
 
 	.swiper.myNoteAddSlide,
 	.swiper.myNoteSlide {
-		margin: 0 8rem;
+		max-width: 136rem;
+		margin: 0 auto;
+
+		padding: 0 8rem;
 		overflow: visible;
 
 		&.active .swiper-slide {
@@ -1464,11 +1502,11 @@ button[aria-expanded="true"].btn-category img {
 		}
 
 		.swiper-button-prev {
-			left: -5rem;
+			left: 0;
 		}
 
 		.swiper-button-next {
-			right: -5rem;
+			right: 0;
 		}
 	}
 
@@ -1532,13 +1570,13 @@ button[aria-expanded="true"].btn-category img {
 			height: 15rem;
 		}
 
-		ul {
+		& > ul {
 			margin-top: 1rem;
 			border-top: 1px solid $gray-400;
 			padding: 3rem 0 1rem 0;
 		}
 
-		ul > li {
+		& > ul > li {
 			padding: 0.2rem 0;
 			margin-right: 3rem;
 			padding-right: 3rem;
@@ -1578,7 +1616,7 @@ button[aria-expanded="true"].btn-category img {
 
 			a.subtit + .depth {
 				visibility: hidden;
-				height: auto;
+				height: 2.7rem;
 				overflow: hidden;
 				position: absolute;
 				left: 0;
@@ -1586,7 +1624,7 @@ button[aria-expanded="true"].btn-category img {
 				z-index: 10;
 				opacity: 0;
 				transition: visibility 0.3s ease-in-out,
-					opacity 0.2s 0.1s ease-in-out;
+				opacity 0.2s 0.1s ease-in-out;
 				display: inline-flex;
 			}
 
@@ -1602,25 +1640,44 @@ button[aria-expanded="true"].btn-category img {
 		display: flex;
 		align-items: center;
 		padding: 0;
-		margin-right: 3rem;
-		padding-right: 3rem;
-		border-right: 1px solid #c6c6c6;
 
 		&:last-child {
 			border: none;
 		}
 
+		.depth--3 {
+			width: 0;
+			opacity: 0;
+			overflow: hidden;
+			transition: width 0.1s ease-out, opacity 0.2s 0.1s ease-in;
+		}
+		.depth--3.active {
+			width: 100%;
+			opacity: 1;
+		}
+		.depth--3 ul {
+			display: flex;
+			align-items: center;
+			margin:0 0 0 6rem;
+			padding:0 0 0 6rem;
+			border-left: 1px solid #c6c6c6;
+			border-right: 1px solid #c6c6c6;
+		}
+
 		li {
+			display: inline-flex;
+			align-items: center;
+	
 			list-style: none;
-			margin-right: 3rem;
+			margin-right: 6rem;
 			line-height: 1.2;
 
-			&:last-child {
-				margin-right: 0;
+
+			a {
+				color: $black;
 			}
 
-			&:hover,
-			&.active {
+			a.active {
 				color: $primary;
 				font-weight: bold;
 			}

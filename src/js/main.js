@@ -486,6 +486,7 @@ const subSwiper = new Swiper ('.subSwiper', {
       });
     }
   }
+
   window.addEventListener ('load', () => {
     // PC 버전 : 카테고리
     const isTablist = document.querySelector ('.TabList');
