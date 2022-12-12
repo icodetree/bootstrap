@@ -103,7 +103,7 @@ const cardSlide = new Swiper ('.cardSlide .swiperType_card', {
       slidesPerView: 1.2,
     },
     540: {
-      slidesPerView: 3,
+      slidesPerView: 2.5,
     },
     960: {
       slidesPerView: 4,
@@ -581,42 +581,35 @@ function levelGarph () {
 }
 window.addEventListener ('load', () => levelGarph ());
 
-/*============================================================
+(() => {
+  /*============================================================
  * Description : responsive slide
  *============================================================*/
-let ww = $ (window).width ();
-let swiper_report = undefined;
+  let ww = $ (window).width ();
+  let swiper_report = undefined;
 
-function deviceChcek () {
-  if (ww < 960 && swiper_report == undefined) {
-    // reportSlide
-    swiper_report = new Swiper ('.reportSlide .swiperType_report', {
-      loop: false,
-      spaceBetween: 15,
-      slidesPerView: 2.2,
-      centeredSlides: false,
-      pagination: {
-        el: '.reportSlide .swiperType_report .swiper-pagination',
-        clickable: true,
-      },
-    });
-  } else if (ww >= 960 && swiper_report != undefined) {
-    swiper_report.destroy ();
-    swiper_report = undefined;
+  function deviceChcek () {
+    if (ww < 960 && swiper_report == undefined) {
+      // reportSlide
+      swiper_report = new Swiper ('.reportSlide .swiperType_report', {
+        loop: false,
+        spaceBetween: 15,
+        slidesPerView: 2.2,
+        centeredSlides: false,
+        pagination: {
+          el: '.reportSlide .swiperType_report .swiper-pagination',
+          clickable: true,
+        },
+      });
+    } else if (ww >= 960 && swiper_report != undefined) {
+      swiper_report.destroy ();
+      swiper_report = undefined;
+    }
   }
-}
 
-deviceChcek ();
-
-$ (window).on ('resize', function () {
-  ww = $ (window).width ();
-  deviceChcek ();
-});
-
-/*============================================================
- * Description : Login TAb
- *============================================================*/
-(() => {
+  /*============================================================
+	 * Description : Login TAb
+	 *============================================================*/
   class Tab {
     constructor (opt) {
       this.tab = document.querySelector ('.' + opt.elmName);
@@ -679,6 +672,13 @@ $ (window).on ('resize', function () {
       tab.init ();
     }
   }
-  window.addEventListener ('load', () => isTabCheck ());
-  window.addEventListener ('resize', () => isTabCheck ());
+  window.addEventListener ('load', () => {
+    isTabCheck ();
+    deviceChcek ();
+  });
+  window.addEventListener ('resize', () => {
+    isTabCheck ();
+    ww = $ (window).width ();
+    deviceChcek ();
+  });
 }) ();

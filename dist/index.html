@@ -1,376 +1,347 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <title>Benly</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta
-            name="viewport"
-            id="viewport"
-            content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width"
-        />
-        <meta
-            name="description"
-            content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나."
-        />
-        <meta property="og:url" content="" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Benly" />
-        <meta property="og:image" content="./img/common/opengraph.jpg" />
-        <meta
-            property="og:description"
-            content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나."
-        />
 
-        <link rel="stylesheet" href="./js/main.css" />
+<head>
+	<title>Benly</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" id="viewport"
+		content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+	<meta name="description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+	<meta property="og:url" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Benly" />
+	<meta property="og:image" content="./img/common/opengraph.jpg" />
+	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
 
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+	<link rel="stylesheet" href="./main.css" />
 
-            html {
-                font-size: 62.5%;
-            }
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
 
-            body {
-                min-width: 32rem;
-                font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
-                line-height: 1.5;
-                color: #343745;
-                font-weight: normal;
-                margin: 1em;
-            }
+		html {
+			font-size: 62.5%;
+		}
 
-            button {
-                border: 0;
-                padding: 0;
-                margin: 0;
-                background: none;
-                cursor: pointer;
-                font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
-            }
+		body {
+			min-width: 32rem;
+			font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+			line-height: 1.5;
+			color: #343745;
+			font-weight: normal;
+			margin: 1em;
+		}
 
-            h1 {
-                color: #000;
-                text-align: center;
-            }
+		button {
+			border: 0;
+			padding: 0;
+			margin: 0;
+			background: none;
+			cursor: pointer;
+			font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+		}
 
-            h1 span {
-                font-size: 2rem;
-            }
+		h1 {
+			color: #000;
+			text-align: center;
+		}
 
-            .btnSet {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
+		h1 span {
+			font-size: 2rem;
+		}
 
-            p.desc {
-                height: 2rem;
-            }
+		.btnSet {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
-            p.desc span {
-                display: inline-block;
-                padding: 0.2rem 1rem;
-                font-size: 1.2rem;
-                border-radius: 0.3rem;
-            }
+		p.desc {
+			height: 2rem;
+		}
 
-            p.desc span.done {
-                background: #00a950;
-                color: #fff;
-            }
+		p.desc span {
+			display: inline-block;
+			padding: 0.2rem 1rem;
+			font-size: 1.2rem;
+			border-radius: 0.3rem;
+		}
 
-            p.desc span.ing {
-                background: #f00;
-                color: #fff;
-            }
+		p.desc span.done {
+			background: #00a950;
+			color: #fff;
+		}
 
-            p.btn {
-                padding: 5px 0;
-                text-align: right;
-            }
+		p.desc span.ing {
+			background: #f00;
+			color: #fff;
+		}
 
-            p.btn button {
-                padding: 0.2rem 0.6rem;
-                font-size: 1.1rem;
-                border-radius: 0.2rem;
-                border: 1px solid #666;
-                background: #fff;
-                color: #666;
-                box-sizing: border-box;
-            }
+		p.btn {
+			padding: 5px 0;
+			text-align: right;
+		}
 
-            p.btn .ctrBtn.cl {
-                background: #999;
-                color: #fff;
-                border: none;
-            }
+		p.btn button {
+			padding: 0.2rem 0.6rem;
+			font-size: 1.1rem;
+			border-radius: 0.2rem;
+			border: 1px solid #666;
+			background: #fff;
+			color: #666;
+			box-sizing: border-box;
+		}
 
-            table {
-                font-size: 1.4rem;
-                width: 100%;
-                text-align: left;
-                border-collapse: collapse;
-                border-bottom: 1px solid #d1d1d1;
-                border-top: 1px solid #d1d1d1;
-            }
+		p.btn .ctrBtn.cl {
+			background: #999;
+			color: #fff;
+			border: none;
+		}
 
-            table thead th {
-                color: #fff;
-                background: #888;
-            }
+		table {
+			font-size: 1.4rem;
+			width: 100%;
+			text-align: left;
+			border-collapse: collapse;
+			border-bottom: 1px solid #d1d1d1;
+			border-top: 1px solid #d1d1d1;
+		}
 
-            table th {
-                height: 1.6em;
-                text-align: center;
-                padding: 0.5em;
-                border: 1px solid #d1d1d1;
-            }
+		table thead th {
+			color: #fff;
+			background: #888;
+		}
 
-            table td {
-                height: 1.6em;
-                padding: 0.2rem 0.5rem;
-                white-space: nowrap;
-                border: 1px solid #d1d1d1;
-            }
+		table th {
+			height: 1.6em;
+			text-align: center;
+			padding: 0.5em;
+			border: 1px solid #d1d1d1;
+		}
 
-            table td a {
-                letter-spacing: 0;
-            }
+		table td {
+			height: 1.6em;
+			padding: 0.2rem 0.5rem;
+			white-space: nowrap;
+			border: 1px solid #d1d1d1;
+		}
 
-            table tbody th {
-                font-weight: normal;
-            }
+		table td a {
+			letter-spacing: 0;
+		}
 
-            table .sector {
-                font-weight: bold;
-                cursor: pointer;
-                background: #ffe9ed;
-            }
+		table tbody th {
+			font-weight: normal;
+		}
 
-            table .sector th {
-                font-weight: bold;
-            }
+		table .sector {
+			font-weight: bold;
+			cursor: pointer;
+			background: #ffe9ed;
+		}
 
-            table th span {
-                color: #888;
-                white-space: nowrap;
-            }
+		table .sector th {
+			font-weight: bold;
+		}
 
-            table th span:last-child {
-                color: #333;
-            }
+		table th span {
+			color: #888;
+			white-space: nowrap;
+		}
 
-            table .done {
-                color: #00a950;
-                text-align: center;
-            }
+		table th span:last-child {
+			color: #333;
+		}
 
-            table .ing {
-                color: #f00;
-                text-align: center;
-            }
+		table .done {
+			color: #00a950;
+			text-align: center;
+		}
 
-            table .sector th:first-child {
-                width: 30%;
-                text-align: left;
-            }
+		table .ing {
+			color: #f00;
+			text-align: center;
+		}
 
-            table .sector td:last-child {
-                width: 20%;
-            }
+		table .sector th:first-child {
+			width: 30%;
+			text-align: left;
+		}
 
-            table .sector.on {
-                background: #d6faff;
-            }
+		table .sector td:last-child {
+			width: 20%;
+		}
 
-            @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
-                body {
-                    font-size: 11px;
-                }
-            }
-        </style>
-    </head>
+		table .sector.on {
+			background: #d6faff;
+		}
 
-    <body>
-        <h1><span>Benly</span></h1>
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+			body {
+				font-size: 11px;
+			}
+		}
+	</style>
+</head>
 
-        <table>
-            <colgroup>
-                <col width="150" />
-                <col width="250" />
-                <col width="50" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>화면</th>
-                    <th>경로</th>
-                    <th>상태</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="sector">
-                    <th>member</th>
-                    <td>/member</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>로그인</td>
-                    <td>
-                        <a href="./member/login.html" target="_self"
-                            >login.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">완료</span></td>
-                </tr>
-                <tr class="sector">
-                    <th>store</th>
-                    <td>/store</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>기본 화면</td>
-                    <td>
-                        <a href="./store/home_members.html" target="_self"
-                            >home_members.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">완료</span></td>
-                </tr>
-                <tr>
-                    <td>더 많은 단어에 도전하세요 펼 쳤을때 화면</td>
-                    <td>
-                        <a href="./store/home_wordchallenge.html" target="_self"
-                            >home_wordchallenge.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>가입 후 첫 화면</td>
-                    <td>
-                        <a href="./store/home_first.html" target="_self"
-                            >home_first.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>home_L(mobile_only)</td>
-                    <td>
-                        <a href="./store/home_L.html" target="_self"
-                            >home_L.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>home_L1</td>
-                    <td>
-                        <a href="./store/home_L1.html" target="_self"
-                            >home_L1.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>home_L2</td>
-                    <td>
-                        <a href="./store/home_L2.html" target="_self"
-                            >home_L2.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>home_L3</td>
-                    <td>
-                        <a href="./store/home_L3.html" target="_self"
-                            >home_L3.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>home_allview(mobile_only)</td>
-                    <td>
-                        <a href="./store/home_allview.html" target="_self"
-                            >home_allview.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+<body>
+	<h1><span>Benly</span></h1>
 
-                <tr class="sector">
-                    <th>status</th>
-                    <td>/status</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>나의 상태</td>
-                    <td>
-                        <a href="./status/home.html" target="_self"
-                            >home.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+	<table>
+		<colgroup>
+			<col width="150" />
+			<col width="250" />
+			<col width="50" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>화면</th>
+				<th>경로</th>
+				<th>상태</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="sector">
+				<th>member</th>
+				<td>/member</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>로그인</td>
+				<td>
+					<a href="./member/login.html" target="_self">login.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr class="sector">
+				<th>store</th>
+				<td>/store</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>기본 화면</td>
+				<td>
+					<a href="./store/home_members.html" target="_self">home_members.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>더 많은 단어에 도전하세요 펼 쳤을때 화면</td>
+				<td>
+					<a href="./store/home_wordchallenge.html" target="_self">home_wordchallenge.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>가입 후 첫 화면</td>
+				<td>
+					<a href="./store/home_first.html" target="_self">home_first.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>home_L(mobile_only)</td>
+				<td>
+					<a href="./store/home_L.html" target="_self">home_L.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>home_L1</td>
+				<td>
+					<a href="./store/home_L1.html" target="_self">home_L1.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>home_L2</td>
+				<td>
+					<a href="./store/home_L2.html" target="_self">home_L2.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>home_L3</td>
+				<td>
+					<a href="./store/home_L3.html" target="_self">home_L3.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td>home_allview(mobile_only)</td>
+				<td>
+					<a href="./store/home_allview.html" target="_self">home_allview.html</a>
+				</td>
+				<td class="done"><span class="ing">완료</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
 
-                <tr class="sector">
-                    <th>review</th>
-                    <td>/review</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>단어장 상세페이지</td>
-                    <td>
-                        <a href="./review/view.html" target="_self"
-                            >view.html</a
-                        >
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+			<tr class="sector">
+				<th>status</th>
+				<td>/status</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>나의 상태</td>
+				<td>
+					<a href="./status/home.html" target="_self">home.html</a>
+				</td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
 
-                <tr class="sector">
-                    <th>game</th>
-                    <td>/game</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>게임화면</td>
-                    <td>
-                        <a href="./game/play.html" target="_self">view.html</a>
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td>게임화면</td>
-                    <td>
-                        <a href="./game/play.html" target="_self">view.html</a>
-                    </td>
-                    <td class="done"><span class="ing">진행중</span></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+			<tr class="sector">
+				<th>review</th>
+				<td>/review</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>단어장 상세페이지</td>
+				<td>
+					<a href="./review/view.html" target="_self">view.html</a>
+				</td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr class="sector">
+				<th>game</th>
+				<td>/game</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>게임화면</td>
+				<td>
+					<a href="./game/play.html" target="_self">view.html</a>
+				</td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td>게임화면</td>
+				<td>
+					<a href="./game/play.html" target="_self">view.html</a>
+				</td>
+				<td class="done"><span class="ing">진행중</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
 </html>

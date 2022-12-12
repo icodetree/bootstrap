@@ -793,6 +793,7 @@ button[aria-expanded="true"].btn-category img {
 
 .slide-menu {
 	position: relative;
+	margin-top: 7.5rem;
 
 	&::after {
 		content: "";
@@ -863,6 +864,8 @@ button[aria-expanded="true"].btn-category img {
 }
 
 .submenu {
+	margin: 0 1.8rem;
+
 	li {
 		display: flex;
 		margin: 1.5rem 0;
