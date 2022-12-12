@@ -78,7 +78,7 @@ const swiper_title = new Swiper ('.contentTitleSlide .swiperType_02', {
     },
     960: {
       spaceBetween: 25,
-      slidesPerView: 4.5,
+      slidesPerView: 5,
     },
   },
 });
@@ -103,13 +103,10 @@ const cardSlide = new Swiper ('.cardSlide .swiperType_card', {
       slidesPerView: 1.2,
     },
     540: {
-      slidesPerView: 2.2,
+      slidesPerView: 3,
     },
     960: {
-      slidesPerView: 4.8,
-    },
-    1200: {
-      slidesPerView: 3.8,
+      slidesPerView: 4,
     },
   },
 });
@@ -590,7 +587,7 @@ window.addEventListener ('load', () => levelGarph ());
 let ww = $ (window).width ();
 let swiper_report = undefined;
 
-function initSwiper () {
+function deviceChcek () {
   if (ww < 960 && swiper_report == undefined) {
     // reportSlide
     swiper_report = new Swiper ('.reportSlide .swiperType_report', {
@@ -609,9 +606,79 @@ function initSwiper () {
   }
 }
 
-initSwiper ();
+deviceChcek ();
 
 $ (window).on ('resize', function () {
   ww = $ (window).width ();
-  initSwiper ();
+  deviceChcek ();
 });
+
+/*============================================================
+ * Description : Login TAb
+ *============================================================*/
+(() => {
+  class Tab {
+    constructor (opt) {
+      this.tab = document.querySelector ('.' + opt.elmName);
+      console.log (this.tabUl);
+      this.tabUl = this.tab.firstElementChild;
+      this.tabLi = [...this.tabUl.children];
+      this.parent = null;
+      this.target = null;
+      this.tabInfo = null;
+      this.elm = null;
+
+      this.active = 'active';
+      this.addSlide = 'addSlide';
+      this.opts = opt.effect;
+    }
+
+    init () {
+      this.tabLi.map (elm => {
+        this.target = elm;
+        this.mouseEvent ();
+
+        this.tabUl.firstElementChild.classList.add (this.active);
+
+        if (this.opts === 'slide') {
+          this.tabUl.firstElementChild.classList.add (this.addSlide);
+        }
+      });
+    }
+
+    mouseEvent () {
+      this.target.addEventListener ('click', e => this.eventHandler (e));
+    }
+    eventHandler (e) {
+      this.parent = e.target.parentElement;
+      this.tabInfo = e.target.nextElementSibling;
+
+      if (!this.parent.classList.contains (this.active)) {
+        this.tabLi.map (elm => {
+          this.elm = elm;
+          this.elm.classList.remove (this.active);
+          this.parent.classList.add (this.active);
+
+          if (this.opts === 'slide') this.slide ();
+        });
+      }
+    }
+    slide () {
+      this.elm.classList.remove (this.addSlide);
+      this.parent.classList.add (this.addSlide);
+    }
+  }
+
+  function isTabCheck () {
+    const isTab = document.querySelector ('.Tab');
+    if (isTab !== null) {
+      const tab = new Tab ({
+        elmName: 'Tab', // 탭 전체 부모 클래스
+        effect: '', // 슬라이드 옵션 활성화 유무 ("sldie" OR " " 로 변경)
+      });
+      tab.init ();
+    }
+  }
+  window.addEventListener ('load', () => isTabCheck ());
+  window.addEventListener ('resize', () => isTabCheck ());
+}) ();

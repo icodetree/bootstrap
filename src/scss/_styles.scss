@@ -22,10 +22,12 @@ li {
 	list-style: none;
 }
 
+ul,
 dl,
 dt,
 dd {
 	margin: 0;
+	padding: 0;
 }
 
 a:link {
@@ -175,7 +177,6 @@ button[aria-expanded="true"].btn-category img {
 }
 
 .carousel {
-
 	&-caption > h2 {
 		font-size: 2.2rem;
 	}
@@ -1078,6 +1079,84 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+// login
+.login {
+	position: relative;
+
+	&__btn {
+		margin-bottom: 2.4rem;
+
+		a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.2rem;
+			border: 1px solid $gray-400;
+			color: $black;
+			height: 4rem;
+		}
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			padding-left: 3.2rem;
+		}
+
+		&--google {
+			background: url("../../dist/images/common/ico_google.svg") no-repeat
+				left center;
+		}
+
+		&--apple {
+			background: url("../../dist/images/common/ico_apple.svg") no-repeat
+				left center;
+		}
+	}
+
+	&__info {
+		label {
+			font-size: 1.2rem;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			font-size: 1.2rem;
+			border: 1px solid $gray-400;
+			color: $black;
+			height: 4rem;
+			border-radius: 0;
+		}
+		input[type="checkbox"] {
+			border: 1px solid $black;
+			border-radius: 0;
+			width: 1.6rem;
+			height: 1.6rem;
+		}
+		button[type="submit"] {
+			border-radius: 5rem;
+			height: 4rem;
+			font-size: 1.4rem;
+			font-weight: bold;
+		}
+
+		.forgot {
+			display: block;
+			color: $black;
+			text-decoration: underline;
+		}
+
+		dl {
+			margin-bottom: 3.6rem;
+			text-align: center;
+		}
+		dt {
+			margin-bottom: 1.2rem;
+		}
+	}
+}
+
 // Common End
 //
 //
@@ -1295,7 +1374,54 @@ button[aria-expanded="true"].btn-category img {
 		}
 	}
 
-	
+	// login
+	.login {
+		margin: 11rem 3.2rem 6rem 3.2rem;
+
+		li {
+			& > a {
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 1;
+				font-size: 1.8rem;
+				color: $gray-400;
+				font-weight: bold;
+			}
+
+			& > a.tab_01 {
+				left: 0;
+
+				&::after {
+					content: "";
+					display: inline-block;
+					width: 1px;
+					height: 1.2rem;
+					background-color: $gray-400;
+					margin-left: 2.4rem;
+				}
+			}
+
+			& > a.tab_02 {
+				left: 11rem;
+			}
+
+			.login__info {
+				display: none;
+			}
+		}
+		li.active {
+			& > a {
+				color: $primary;
+			}
+			.login__info {
+				display: block;
+			}
+		}
+		&__info {
+			padding-top: 4.8rem;
+		}
+	}
 }
 
 //
@@ -1306,14 +1432,9 @@ button[aria-expanded="true"].btn-category img {
 
 // Desktop
 @include media-breakpoint-up(lg) {
-
-	.welcome,
-	.my-note,
-	.challenge,
-	.pc-search,
-	.menu-list,
+	.carousel,
 	.footer > div,
-	.carousel {
+	.content {
 		max-width: 144rem;
 		margin: 0 auto;
 	}
@@ -1624,7 +1745,7 @@ button[aria-expanded="true"].btn-category img {
 				z-index: 10;
 				opacity: 0;
 				transition: visibility 0.3s ease-in-out,
-				opacity 0.2s 0.1s ease-in-out;
+					opacity 0.2s 0.1s ease-in-out;
 				display: inline-flex;
 			}
 
@@ -1658,8 +1779,8 @@ button[aria-expanded="true"].btn-category img {
 		.depth--3 ul {
 			display: flex;
 			align-items: center;
-			margin:0 0 0 6rem;
-			padding:0 0 0 6rem;
+			margin: 0 0 0 6rem;
+			padding: 0 0 0 6rem;
 			border-left: 1px solid #c6c6c6;
 			border-right: 1px solid #c6c6c6;
 		}
@@ -1667,11 +1788,10 @@ button[aria-expanded="true"].btn-category img {
 		li {
 			display: inline-flex;
 			align-items: center;
-	
+
 			list-style: none;
 			margin-right: 6rem;
 			line-height: 1.2;
-
 
 			a {
 				color: $black;
@@ -1776,7 +1896,7 @@ button[aria-expanded="true"].btn-category img {
 
 	.swiperType_card {
 		.card-body {
-			min-height: 22rem;
+			height: 22rem;
 		}
 
 		dt {
@@ -1815,6 +1935,10 @@ button[aria-expanded="true"].btn-category img {
 		.swiper-button-prev {
 			right: auto;
 			left: -1.5rem;
+		}
+		.swiper-button-next {
+			left: auto;
+			right: -1.5rem;
 		}
 		.swiper-button-next,
 		.swiper-button-prev {
@@ -1990,6 +2114,42 @@ button[aria-expanded="true"].btn-category img {
 			dd {
 				flex: 3;
 			}
+		}
+	}
+
+	// login
+	.login {
+		background-color: $gray-300;
+
+		ul {
+			display: flex;
+			justify-content: center;
+			padding: 15rem 0;
+		}
+		li {
+			width: 46rem;
+			height: 54rem;
+			background-color: $white;
+			border-radius: 1.6rem;
+			padding: 4rem;
+
+			&:first-child {
+				margin-right: 1.6rem;
+			}
+			&:first-child + li > a {
+				margin-bottom: 4.3rem;
+			}
+			& > a {
+				display: block;
+				text-align: center;
+				font-weight: bold;
+				color: $black;
+				font-size: 2.4rem;
+			}
+		}
+
+		&__info {
+			margin-top: 3rem;
 		}
 	}
 }

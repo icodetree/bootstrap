@@ -12,10 +12,10 @@ module.exports = {
   ],
   output: {
     filename: 'main.js',
-    path: path.resolve (__dirname, 'dist'),
+    path: `${__dirname}/dist/js`,
   },
   devServer: {
-    static: path.resolve (__dirname, 'dist'),
+    static: `${__dirname}/dist/`,
     port: 8080,
     hot: true,
   },

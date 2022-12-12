@@ -210,22 +210,67 @@
 
 		<main class="main">
 			<!-- login -->
-            <article class="login">
-                <ul>
-                    <li class="active">
-                        <a href="#">Tab_01</a>
-                        <div class="tabInfo">
-                            <h2>Heading 1</h2>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">Tab_02</a>
-                        <div class="tabInfo">
-                            <h2>Heading 2</h2>
-                        </div>
-                    </li>
-                </ul>
-            </article>
+			<article class="login Tab">
+				<ul>
+					<li>
+						<a href="#" class="tab_01">Sign In</a>
+						<div class="login__info">
+							<form class="">
+								<div class="login__btn">
+									<a href="#" class="mb-2">
+										<span class="login__btn--google">SIGN IN WITH GOOGLE</span>
+									</a>
+									<a href="#">
+										<span class="login__btn--apple">SIGN IN WITH APPLE</span>
+									</a>
+								</div>
+								<div class="col-auto mb-3">
+									<label for="email" class="mb-1">Email address*</label>
+									<input type="email" class="form-control" id="email">
+								</div>
+								<div class="col-auto mb-2">
+									<label for="pw" class="mb-1">Password</label>
+									<input type="password" class="form-control" id="pw">
+								</div>
+								<div class="form-check mb-4">
+									<input class="form-check-input" type="checkbox" value="" id="remember">
+									<label class="form-check-label" for="remember">Remember me</label>
+								</div>
+								<div class="col-auto">
+									<button type="submit" class="btn bg-primary text-white w-100">로그인 하기</button>
+								</div>
+								<div class="mt-3">
+									<a href="#" class="forgot">Forgot your password?</a>
+								</div>
+							</form>
+						</div>
+					</li>
+					<li>
+						<a href="#" class="tab_02">Sign Up</a>
+						<div class="login__info">
+							<dl class="mt-3">
+								<dt>게임으로 외우는 <strong class="text-primary">놀라운 영단어 암기 툴</strong>.</dt>
+								<dd>100명중 50명이 3시간에 100단어 암기 성공.</dd>
+							</dl>
+							<dl>
+								<dt>내 머리속 기억률 현황, <strong class="text-primary">나의 상태</strong> 리포트.</dt>
+								<dd>Ai가 유저의 암기력을 측정, 내일 몇% 기억할지 예측.</dd>
+							</dl>
+							<dl>
+								<dt>단어장을 직접 <strong class="text-primary">제작하고, 공유, 게임까지</strong>.</dt>
+								<dd>직접 만든 단어장으로 회원인 친구들과 공유하고 게임까지 가능.</dd>
+							</dl>
+							<div class="col-auto">
+								<button type="submit" class="btn bg-black text-white w-100">가입하기</button>
+							</div>
+							<div class="mt-3">
+								<a href="#" class="forgot">Forgot your password?</a>
+							</div>
+
+						</div>
+					</li>
+				</ul>
+			</article>
 		</main>
 
 		<footer class="footer">
