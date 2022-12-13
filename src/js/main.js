@@ -150,6 +150,29 @@ const subSwiper = new Swiper ('.subSwiper', {
   },
 });
 
+// friendSlide
+const swiper_friend = new Swiper ('.friendSlide .swiperType_friend', {
+  loop: false,
+  spaceBetween: 12,
+  centeredSlides: false,
+  pagination: {
+    el: '.friendSlide .swiperType_friend .swiper-pagination',
+    clickable: true,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 3.2,
+    },
+    540: {
+      slidesPerView: 5,
+    },
+    960: {
+      slidesPerView: 5,
+    },
+  },
+});
+
 // UI Common
 (() => {
   // Category TabList only DeskTop
@@ -583,8 +606,8 @@ window.addEventListener ('load', () => levelGarph ());
 
 (() => {
   /*============================================================
- * Description : responsive slide
- *============================================================*/
+	* Description : responsive slide
+	*============================================================*/
   let ww = $ (window).width ();
   let swiper_report = undefined;
 
@@ -593,7 +616,7 @@ window.addEventListener ('load', () => levelGarph ());
       // reportSlide
       swiper_report = new Swiper ('.reportSlide .swiperType_report', {
         loop: false,
-        spaceBetween: 15,
+        spaceBetween: 12,
         slidesPerView: 2.2,
         centeredSlides: false,
         pagination: {

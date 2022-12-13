@@ -1050,6 +1050,10 @@ button[aria-expanded="true"].btn-category img {
 	overflow: hidden;
 	padding: 0 1.8rem;
 
+	.thumb-area {
+		display: block;
+		max-width: 14rem;
+	}
 	.photo {
 		border-radius: 1.6rem;
 		overflow: hidden;
@@ -1079,6 +1083,28 @@ button[aria-expanded="true"].btn-category img {
 		font-size: 1.2rem;
 		color: $gray-500;
 		text-decoration: underline;
+	}
+}
+
+.swiperType_friend {
+	overflow: hidden;
+	padding: 0 1.8rem;
+	margin-top: 2rem;
+
+	.thumb-area {
+		display: block;
+		max-width: 9rem;
+	}
+	.photo {
+		border-radius: 50%;
+		overflow: hidden;
+		margin-bottom: 1rem;
+	}
+
+	p {
+		font-size: 1.4rem;
+		color: $black;
+		text-align: center;
 	}
 }
 
@@ -1423,6 +1449,22 @@ button[aria-expanded="true"].btn-category img {
 		}
 		&__info {
 			padding-top: 4.8rem;
+		}
+	}
+
+	.report {
+		.hgroup {
+			margin: 0 1.8rem;
+		}
+
+		.swiperType_report {
+			margin-top: 2rem;
+		}
+	}
+
+	.friends {
+		.hgroup {
+			margin: 0 1.8rem;
 		}
 	}
 }
@@ -1975,15 +2017,29 @@ button[aria-expanded="true"].btn-category img {
 	.ginfo {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 20rem 20rem 20rem 30rem;
+		grid-template-rows: 20rem 20rem 20rem 32rem;
 		column-gap: 2.4rem;
 		row-gap: 2.4rem;
 		margin-top: 2.4rem;
 
 		&__item {
+			padding: 0;
+			margin: 0;
 			background-color: $gray-100;
 			border: 1px solid $gray-400;
 			border-radius: 1.6rem;
+
+			h3 {
+				font-size: 2.4rem;
+			}
+			p {
+				color: $gray-600;
+				font-size: 1.6rem;
+			}
+
+			.hgroup {
+				padding: 4.8rem 4.8rem 0 4.8rem;
+			}
 		}
 
 		&__item:nth-child(2) {
@@ -2043,27 +2099,6 @@ button[aria-expanded="true"].btn-category img {
 
 			.price-wrap {
 				margin-top: 10rem;
-			}
-		}
-	}
-
-	// status
-	.ginfo {
-		&__item {
-			padding: 0;
-			margin: 0;
-
-			h3 {
-				font-size: 2.4rem;
-			}
-			p {
-				color: $gray-600;
-				font-size: 1.6rem;
-				margin-top: 2.4rem;
-			}
-
-			.hgroup {
-				padding: 4.8rem 4.8rem 0 4.8rem;
 			}
 		}
 	}
@@ -2154,5 +2189,47 @@ button[aria-expanded="true"].btn-category img {
 		&__info {
 			margin-top: 3rem;
 		}
+	}
+
+	.swiperType_report {
+		padding: 0 3.2rem;
+
+		.swiper-wrapper {
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.swiper-slide {
+			width: 14rem;
+			margin-top: 4rem;
+		}
+		.photo {
+			max-width: 14rem;
+		}
+	}
+
+	.swiperType_friend {
+		padding: 0 4.8rem;
+		margin-top: 1rem;
+
+		.swiper-slide {
+			width: 9rem;
+		}
+		.photo {
+			max-width: 9rem;
+			margin-bottom: 0.5rem;
+		}
+		.swiper-pagination {
+			display: none;
+		}
+	}
+	a.btn_allview {
+		position: absolute;
+		right: 2rem;
+		bottom: 2rem;
+		z-index: 1;
+	}
+	a.btn_allview:link {
+		text-decoration: underline;
 	}
 }
