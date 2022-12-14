@@ -234,6 +234,7 @@ const swiper_friend = new Swiper ('.friendSlide .swiperType_friend', {
     constructor (opt) {
       this.html = document.querySelector ('html');
       this.body = document.querySelector ('body');
+      this.category = document.querySelector ('.pc-category > nav');
       this.addBtn = document.querySelector ('.' + opt.elmName);
       this.addSearch = document.querySelector ('.addSearch');
 
@@ -241,18 +242,20 @@ const swiper_friend = new Swiper ('.friendSlide .swiperType_friend', {
     }
     init () {
       this.mouseEvent ();
+
     }
     mouseEvent () {
-      this.body.addEventListener ('click', e => this.eventHandler (e));
+      this.category.addEventListener ('click', e => this.eventHandler (e));
       window.addEventListener ('scroll', e => this.scrollEvent (e));
     }
     eventHandler (e) {
+      
       e.preventDefault ();
-
-      this.parent = e.target.parentElement;
-
+      
+      this.target = e.target;
+      console.log("test", !this.target.classList.contains (this.active) ,e.target, e.currentTarget);
       if (
-        !this.parent.classList.contains (this.active) &&
+        !this.target.classList.contains (this.active) &&
         e.target === e.currentTarget.querySelector ('.addSearchBtn')
       ) {
         this.open ();
