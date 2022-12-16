@@ -2367,17 +2367,35 @@ button[aria-expanded="true"].btn-category img {
 	.swiperType_review {
 		margin: 0 8rem;
 		padding-bottom: 0;
+		overflow: hidden;
 
 		.card {
 			display: flex;
 			flex-direction: row;
 			border: none;
 		}
-
+		.card-body {
+			padding: 0 2.4rem;
+		}
+	
 		.card-info {
 			min-width: 40rem;
 			margin-top: 0;
+			margin-left: 3rem;
+			border-left: 1px solid  $gray-400;
 		}
+			
+		dt {
+			font-size: 1.8rem;
+			color: $black;
+		}
+
+		dd {
+			font-size: 1.6rem;
+			color: $gray-500;
+		}
+
+
 	}
 
 	.swiper.myReviewSlide {
