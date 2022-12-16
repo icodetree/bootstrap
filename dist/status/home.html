@@ -375,13 +375,43 @@
 							<div class="hgroup">
 								<h3>내 머릿속 기억률 현황</h3>
 								<p>
-									공부했던 모든 단어들의 기억률을 매일
-									예측하고 기록해요 복습 게임을 많이
-									할수록 정확도가 올라가요
+									<span class="d-block">공부했던 모든 단어들의 기억률을 매일 예측하고 기록해요 </span>
+									<span>복습 게임을 많이 할수록 정확도가 올라가요</span>
 								</p>
 							</div>
 
-							<div class="memory__graph">그래프</div>
+							<div class="memory__graph">
+
+								<!-- 그래프 슬라이드 -->
+								<div class="status statusSlide">
+
+									<!-- 그래프 슬라이드 -->
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<section class="status__graph">
+													<canvas id="reportCanvas_01"></canvas>
+												</section>
+											</div>
+											<div class="swiper-slide">
+												<section class="status__graph">
+													<canvas id="reportCanvas_02"></canvas>
+												</section>
+											</div>
+											<div class="swiper-slide">
+												<section class="status__graph">
+													<canvas id="reportCanvas_03"></canvas>
+												</section>
+											</div>
+										</div>
+
+									</div>
+									<!-- Add Arrows -->
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+
+								</div>
+							</div>
 							<div class="memory__count">
 								<dl class="mb-2 mb-lg-0">
 									<dt>정답 <strong>7회</strong></dt>
@@ -639,9 +669,11 @@
 	</div>
 
 	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/chart.js@3.2.0.js"></script>
 	<script src="../js/swiper-bundle.min.js"></script>
 	<script src="../main.js"></script>
 	<script src="../graph.js"></script>
+
 </body>
 
 </html>
