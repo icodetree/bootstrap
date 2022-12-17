@@ -1,0 +1,112 @@
+{
+  "LIST" : [
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "braky",
+      "answer" : "braky"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "bulb",
+      "answer" : "bulb"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "buff",
+      "answer" : "buff"
+    },
+    {
+      "type" : "B",
+      "url" : "",
+      "question" : "고생 끝에 즐거움이 온다는 말",
+      "answer" : "고진감래"
+    },
+    {
+      "type" : "C",
+      "url" : "../img/data/img_01.png",
+      "question" : "도끼를 갈아 바늘을 만든다는 뜻으로, 끊임없는 노력과 끈기 있는 인내로 성공하고야 만다는 뜻",
+      "answer" : "마부작침"
+    },
+    {
+      "type" : "D",
+      "url" : "../img/data/img_02.png",
+      "question" : "",
+      "answer" : "나팔꽃"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "foci",
+      "answer" : "foci"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "lulus",
+      "answer" : "lulus"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "lane",
+      "answer" : "lane"
+    },
+    {
+      "type" : "B",
+      "url" : "",
+      "question" : "지나침은 미치지 못함과 같다는 뜻.",
+      "answer" : "과유불급"
+    },
+    {
+      "type" : "C",
+      "url" : "../img/data/img_01.png",
+      "question" : "여러 번 죽을 고비를 넘기고 간신히 살아남.",
+      "answer" : "구사일생"
+    },
+    {
+      "type" : "D",
+      "url" : "../img/data/img_02.png",
+      "question" : "flower",
+      "answer" : "flower"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "suet",
+      "answer" : "suet"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "knelt",
+      "answer" : "knelt"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "leuds",
+      "answer" : "leuds"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "snell",
+      "answer" : "snell"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "spoke",
+      "answer" : "spoke"
+    },
+    {
+      "type" : "A",
+      "url" : "",
+      "question" : "aging",
+      "answer" : "aging"
+    }
+  ]
+}

@@ -31,6 +31,16 @@ dd {
 	padding: 0;
 }
 
+legend,
+caption {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -999px;
+}
 a:link {
 	text-decoration: none;
 }
@@ -1415,6 +1425,120 @@ button[aria-expanded="true"].btn-category img {
 	}
 }
 
+.chapter {
+	.modal-content {
+		position: relative;
+	}
+
+	.btn-close {
+		position: absolute;
+		right: 1.6rem;
+		top: 1.6rem;
+		z-index: 10;
+		width: 2.4rem;
+		height: 2.4rem;
+		font-size: 2.4rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__graph {
+		position: relative;
+	}
+
+	&__step {
+		padding: 3rem 0 0 0;
+		ul {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		li {
+			width: 25%;
+			display: flex;
+			justify-content: center;
+			margin: 0.5rem 0;
+		}
+		span {
+			color: $gray-500;
+			font-size: 1.4rem;
+			font-weight: bold;
+			width: 6rem;
+			height: 6rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+		}
+		span.on {
+			background-color: $primary;
+			color: $white;
+		}
+		span.line {
+			color: $primary;
+			border: 0.4rem solid rgba($color: #017afb, $alpha: 0.6);
+		}
+	}
+	.btn-add {
+		padding-bottom: 2rem;
+	}
+}
+
+.single {
+	position: relative;
+
+	&__figure {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	&__option {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		z-index: 1;
+		transform: translate(-50%, -35%);
+		text-align: center;
+	}
+
+	&__caption {
+		color: $black;
+		font-size: 1.6rem;
+		text-align: center;
+	}
+
+	&__step {
+		color: $black;
+		font-size: 2.4rem;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	&__progress {
+		color: $black;
+		font-size: 1.6rem;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	&__sum {
+		font-size: 1.6rem;
+		text-align: center;
+
+		strong {
+			color: $primary;
+		}
+
+		span {
+			color: $black;
+		}
+	}
+
+	&__value {
+		display: none;
+	}
+}
+
 // Common End
 //
 //
@@ -2573,17 +2697,50 @@ button[aria-expanded="true"].btn-category img {
 		margin: 0 9rem;
 		padding: 0;
 
-		&__container {
-		}
-
 		.swiper-wrapper {
 			flex-wrap: wrap;
 		}
 
 		.swiper-slide {
-			width: 28rem;
-			height: 35rem;
+			max-width: 28rem;
+			// height: 35rem;
 			margin: 1rem 1rem;
+		}
+		.swiper-pagination {
+			display: none;
+		}
+	}
+
+	.chapter {
+		.modal-dialog {
+			max-width: 93rem;
+		}
+		.btn-close {
+			right: 2.6rem;
+			top: 2.6rem;
+		}
+
+		&__step {
+			ul {
+				justify-content: space-around;
+			}
+			li {
+				width: auto;
+			}
+			span {
+				border: 1px solid $gray-400;
+			}
+		}
+		.btn-add {
+			width: 30rem;
+			margin: 0 auto;
+			margin-bottom: 4rem;
+		}
+	}
+
+	.single {
+		&__figure {
+			width: 25%;
 		}
 	}
 }

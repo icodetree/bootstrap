@@ -718,66 +718,62 @@
 
 
 		<!-- Popup -->
-		<div class="modal fade" id="chapterModal" tabindex="-1" aria-labelledby="chapterModalLabel" aria-hidden="true">
+		<div class="modal chapter fade" id="chapterModal" tabindex="-1" aria-labelledby="chapterModalLabel"
+			aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
-					<div class="modal-header border-0">
-						<div class="blackLayer"></div>
-						<h2 class="modal-title" id="chapterModalLabel">title</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
 					<div class="modal-body">
-						<div class="info-list">
-							<ul class="p-0">
-								<li>
-									<dl>
-										<dt>단어 수</dt>
-										<dd>297개</dd>
-									</dl>
-								</li>
-								<li>
-									<dl>
-										<dt>클리어 목표</dt>
-										<dd>8일</dd>
-									</dl>
-								</li>
-								<li>
-									<dl>
-										<dt>총 다운로드</dt>
-										<dd>297회</dd>
-									</dl>
-								</li>
-								<li>
-									<dl>
-										<dt>쳅터 수</dt>
-										<dd>단어 100개</dd>
-									</dl>
-								</li>
+
+						<!-- 챕터 : 내용 -->
+						<div class="chapter__graph">
+							<section class="single">
+								<figure class="single__figure">
+									<canvas class="single__canvas slingleGraph"></canvas>
+								</figure>
+							</section>
+							<div class="single__option">
+								<div class="single__step">2단계</div>
+								<div class="single__caption">챕터명</div>
+							</div>
+						</div>
+						<div class="single__sum">
+							<div class="single__progress">진행중</div>
+							<span>맞춘 답 수</span>
+							<strong>700</strong> / <span>1000</span>
+						</div>
+
+						<!-- 단계별 슬라이드 -->
+						<div class="chapter__step">
+							<ul>
+								<li><span class="on">1단계</span></li>
+								<li><span class="line">2단계</span></li>
+								<li><span>3단계</span></li>
+								<li><span>4단계</span></li>
+								<li><span>5단계</span></li>
+								<li><span>6단계</span></li>
+								<li><span>7단계</span></li>
+								<li><span>8단계</span></li>
+								<li><span>9단계</span></li>
+								<li><span>10단계</span></li>
 							</ul>
 						</div>
-
-						<div class="price-wrap">
-							<strong>5,900원</strong>
-							<p class="text-utility">11월 19일 - 12월 30일 까지</p>
-						</div>
-
-
 					</div>
 					<div class="modal-footer btn-add border-0">
 						<button type="button"
-							class="btn btn-primary text-white d-block rounded-pill w-100 p-2 ">추가하기</button>
-						<!-- <button type="button" class="btn btn-black text-decoration-underline border-0 fw-bold mt-3">닫기</button> -->
+							class="btn btn-primary text-white d-block rounded-pill w-100 p-2 ">시작하기</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/chart.js@3.2.0.js"></script>
-	<script src="../js/swiper-bundle.min.js"></script>
-	<script src="../main.js"></script>
-	<script src="../graph.js"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/chart.js@3.2.0.js"></script>
+		<script src="../js/swiper-bundle.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script src="../main.js"></script>
+		<script src="../graph.js"></script>
 
 </body>
 

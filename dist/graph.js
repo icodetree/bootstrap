@@ -477,3 +477,67 @@ window.addEventListener ('load', function () {
     start: false,
   });
 });
+
+// 팝업 그래프
+function ModalGraph (option) {
+  const percent = option.percent;
+  const color = option.innerColor;
+  const bgcolor = option.bgColor;
+  const canvas = option.className;
+  const container = $ (option.className).parent ();
+
+  const percentValue = percent;
+  const innerColor = color, fontColor = color, animationTime = '700';
+
+  const chartCanvas = $ (canvas),
+    chartContainer = container,
+    divElement = document.createElement ('div'),
+    domString =
+      '<div class="single__value"><p style=color:' +
+      fontColor +
+      '>' +
+      percentValue +
+      '%</p></div>';
+
+  // Create a new Chart object
+  const doughnutChart = new Chart (chartCanvas, {
+    type: 'doughnut',
+    data: {
+      datasets: [
+        {
+          data: [percentValue, 100 - percentValue],
+          backgroundColor: [innerColor, bgcolor],
+          borderRadius: [0, 0],
+          borderWidth: 0,
+        },
+      ],
+    },
+    options: {
+      cutout: '80%',
+      // circumference : 360,
+      radius: '80%',
+      responsive: true,
+      rotation: 0,
+      tooltips: {
+        enabled: false, // Hide tooltips
+      },
+      animation: {
+        animateScale: true,
+        duration: animationTime,
+      },
+    },
+  });
+
+  divElement.innerHTML = domString;
+  chartContainer.append (divElement.firstChild);
+  // doughnutChart.update();
+}
+
+window.addEventListener ('load', function () {
+  let modalGraph = new ModalGraph ({
+    className: '.slingleGraph',
+    innerColor: '#017AFB',
+    bgColor: '#C6C6C6',
+    percent: 50,
+  });
+});

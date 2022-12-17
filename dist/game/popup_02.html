@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Benly</title>
+	<meta name="description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+	<meta property="og:url" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Benly" />
+	<meta property="og:image" content="../img/common/opengraph.jpg" />
+	<meta property="og:description" content="Benly - 우울하고, 답답할 땐 글자 수를 세어봐. 아무거나." />
+
+	<link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="../main.css" />
+</head>
+
+<body>
+	<div class="container">
+		<!-- header -->
+		<header class="header">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<!-- logo -->
+					<h1 class="d-flex align-items-center mb-0 mt-1">
+						<a class="navbar-brand p-0" href="#"><img src="../images/common/logo.svg" alt=""
+								class="img-fluid" /></a>
+					</h1>
+
+					<div class="inner">
+						<!-- mobile -->
+						<article class="navbar-mobile">
+							<div class="hamberger" id="toggle">
+								<span class="top"></span>
+								<span class="middle"></span>
+								<span class="bottom"></span>
+							</div>
+							<div class="overlay" id="overlay">
+								<div class="overlay-menu">
+									<ul class="navbar-nav justify-content-end flex-grow-1 align-items-lg-center">
+										<li class="nav-item active">
+											<a class="nav-link" aria-current="page" href="../index.html">홈</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../status.html">나의 상태</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../review.html">복습센터</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../mypage.html">내 정보</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">검색하기</a>
+										</li>
+									</ul>
+
+									<div class="contact mx-2 my-5 d-sm-block d-lg-none">
+										<ul class="list-unstyled">
+											<li class="mb-5">
+												<img src="../images/common/ico_mail.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+											<li>
+												<img src="../images/common/ico_phone.svg" alt="" class="img-fluid" />
+												<a href="#" class="d-inline text-reset ms-2">문의하기</a>
+											</li>
+										</ul>
+									</div>
+
+									<div class="share mx-2 py-5 d-sm-block d-lg-none">
+										<ul class="d-flex justify-content-center">
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_facebook.svg" alt="facebook"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_pinterest.svg" alt="pinterest"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_twitter.svg" alt="twitter"
+														class="img-fluid" /></a>
+											</li>
+											<li>
+												<a href="#" class="rounded-circle me-5"><img
+														src="../images/common/ico_linked.svg" alt="linkedin"
+														class="img-fluid" /></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="container">
+			<!-- main -->
+			<section class="game option gameUi">
+				<article class="game__setup">
+					<div class="game-opt d-flex">
+						<ul class="w-100 d-flex justify-content-between">
+							<li class="me-3"><a href="#" class="text-white">나가기</a></li>
+							<li><span class="text-white">정답 : 24개</span></li>
+						</ul>
+					</div>
+					<div class="game-opt d-flex justify-content-end">
+						<span class="text-white me-3">LIFE</span>
+						<ul class="game-heart__list"></ul>
+					</div>
+				</article>
+
+				<!-- 게임리스트 -->
+				<section class="game__inner">
+					<!-- 생성된 단어리스트 삽입 -->
+					<div class="game__list"></div>
+				</section>
+
+				<!-- 입력창 -->
+				<article class="game__input">
+					<fieldset>
+						<legend>레벨테스트</legend>
+						<div class="game__input-box">
+							<input type="text" class="game__input-box--typing" name="" id="" value="" />
+
+							<button type="button" class="game__input-box--send"></button>
+						</div>
+					</fieldset>
+				</article>
+
+				<!-- 임시옵션 -->
+				<div class="game__info">
+					<p>임시 옵션</p>
+					<div class="game__info--life">
+						LIFE : <span class="game__info--time">0</span>
+					</div>
+					<div class="game__info--scorebox">
+						획득점수 :
+						<span class="game__info--score">0</span>점
+					</div>
+					<button type="button" class="game__button--start border-0">
+						게임준비중...
+					</button>
+				</div>
+
+				<!-- 하트 소진시 오답퍼널 넘어감 : 오답 게임 1차 -->
+				<article class="popup gameOver closeLayer">
+					<div class="dimmed"></div>
+					<div class="popup__bg">
+						<div class="popup__contents">
+							<h1 class="popup__h1 popup--ac">
+								오답 게임 1차
+							</h1>
+							<div class="popup-wrong">
+								<p class="popup-wrong__text">
+									암기시간 <strong>60초</strong>가
+									주어집니다.
+								</p>
+							</div>
+
+							<div class="popup__button--vertical gameRestart">
+
+								<button type="button" class="btn btn-round--gray" onclick="game.init()">
+									잠깐 쉴래요.
+								</button>
+							</div>
+						</div>
+					</div>
+				</article>
+
+
+			</section>
+		</main>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/swiper-bundle.min.js"></script>
+	<script src="../js/common.js"></script>
+	<!-- <script src="../js/game.js"></script> -->
+	<script src="../main.js"></script>
+	<script>
+		game.init();
+	</script>
+</body>
+
+</html>
