@@ -149,27 +149,26 @@
 					</button>
 				</div>
 
-				<!-- 하트 소진시 오답퍼널 넘어감 : 오답 게임 1차 -->
-				<article class="popup gameOver closeLayer">
+				<!-- 팝업 : 챕터 클리어 -->
+				<article class="popup">
 					<div class="dimmed"></div>
 					<div class="popup__bg">
+						<button type="button" class="btn-close"></button>
 						<div class="popup__contents">
-							<h1 class="popup__h1 popup--ac">
-								오답 게임 1차
-							</h1>
-							<div class="popup-wrong">
-								<p class="popup-wrong__text">
-									암기시간 <strong>60초</strong>가
-									주어집니다.
+							<h1 class="popup__h1 popup--ac">챕터 클리어</h1>
+							<div class="popup-text">
+								<p class="popup-text--chapter">
+									챕터를 끝냈어요!<br>
+									복습으로 기억율을 유지시켜주세요
 								</p>
 							</div>
 
-							<div class="popup__button--vertical gameRestart">
-
-								<button type="button" class="btn btn-round--gray" onclick="game.init()">
-									잠깐 쉴래요.
-								</button>
+							<div class="popup__button">
+								<button type="button" class="text-white bg-primary border-0 mb-3">확인</button>
+								<button type="button"
+									class="text-primary btn-line closeLayerBtn"><span>나가기</span></button>
 							</div>
+
 						</div>
 					</div>
 				</article>

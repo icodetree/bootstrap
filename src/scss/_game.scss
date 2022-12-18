@@ -333,9 +333,6 @@
 			padding: 1rem 0;
 			font-weight: bold;
 		}
-		button:first-child {
-			margin-bottom: 1.6rem;
-		}
 
 		.btn-line {
 			background: $white;
@@ -374,7 +371,7 @@
 
 	&--ac {
 		text-align: center;
-		padding-top: 1em;
+		padding-top: 4rem;
 	}
 
 	&__timer {
@@ -430,24 +427,23 @@
 
 .popup-step {
 	position: relative;
-	margin: 3rem 0;
+	margin: 3rem 0 2rem 0;
 
 	&__text {
 		text-align: center;
 		font-size: 1.6rem;
-		font-weight: bold;
 		padding-top: 10rem;
+		color: $gray-500;
 
 		&::after {
 			content: "";
 			display: block;
-			clear: both;
 			position: absolute;
-			width: 8rem;
-			height: 8rem;
 			left: 50%;
 			top: 0;
 			z-index: 1;
+			width: 8rem;
+			height: 8rem;
 			background: url("../../dist/images/common/ico_v_blue.svg") no-repeat;
 			transform: translate(-50%, 0);
 			background-size: contain;
@@ -455,6 +451,111 @@
 	}
 }
 
+.popup-text {
+	position: relative;
+	margin: 2rem 0;
+
+	&--chapter {
+		text-align: center;
+		font-size: 1.6rem;
+		padding-top: 10rem;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			z-index: 1;
+			width: 8rem;
+			height: 8rem;
+			background: url("../../dist/images/common/ico_clear.svg") no-repeat;
+			transform: translate(-50%, 0);
+			background-size: contain;
+		}
+	}
+	&--remind {
+		font-size: 1.4rem;
+		color: $gray-500;
+		word-break: break-word;
+		margin-top: 2rem;
+	}
+	&--timer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.6rem;
+		color: $red;
+
+		span {
+			display: flex;
+			align-items: center;
+			position: relative;
+			padding-left: 2.5rem;
+		}
+		span::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			z-index: 1;
+			width: 2rem;
+			height: 2rem;
+			background: url("../../dist/images/common/ico_timer.svg") no-repeat;
+			background-size: contain;
+			transform: translate(0, -50%);
+		}
+	}
+	&--finish {
+		text-align: center;
+		font-size: 1.6rem;
+		padding-top: 10rem;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			z-index: 1;
+			width: 8rem;
+			height: 8rem;
+			background: url("../../dist/images/common/ico_finish.svg") no-repeat;
+			transform: translate(-50%, 0);
+			background-size: contain;
+		}
+	}
+}
+
+.popup-list {
+	li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:nth-child(odd) {
+			background-color: $gray-300;
+		}
+	}
+	dl {
+		width: 100%;
+		display: flex;
+		font-size: 1.4rem;
+		color: $gray-500;
+
+		dt {
+			flex: 1;
+			margin: 0.5rem 1.2rem;
+			display: flex;
+		}
+
+		dd {
+			flex: 1;
+			margin: 0.5rem 1.2rem;
+		}
+	}
+}
 //
 //
 //
