@@ -307,11 +307,18 @@ button[aria-expanded="true"].btn-category img {
 .swiperType_01 {
 	margin: 0 1.8rem;
 	padding-bottom: 4rem;
-
 	.photo {
-		max-width: 12rem;
+		width: 11.8rem;
+		height: 11.8rem;
+		position: relative;
+		border-radius: 5px;
+		overflow: hidden;
+		background-color: #ddd;
 	}
 
+	.photo + div {
+		max-width: 16rem;
+	}
 	.swiper-horizontal > .swiper-pagination-bullets,
 	.swiper-pagination-bullets.swiper-pagination-horizontal,
 	.swiper-pagination-custom,
@@ -328,7 +335,11 @@ button[aria-expanded="true"].btn-category img {
 		margin-bottom: 1.5rem;
 		line-height: 1.2;
 	}
-
+	dt + dd {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 	dd {
 		font-size: 1.2rem;
 		color: #848484;
@@ -371,12 +382,6 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	.vocabulary {
-		.photo {
-			position: relative;
-			border-radius: 5px;
-			overflow: hidden;
-		}
-
 		.photo::before {
 			content: "";
 			position: absolute;
@@ -461,7 +466,7 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	.photo {
-		max-height: 30rem;
+		height: 20rem;
 		background: #d9d9d9;
 		overflow: hidden;
 
@@ -478,7 +483,7 @@ button[aria-expanded="true"].btn-category img {
 	.card-body {
 		display: flex;
 		flex-direction: column;
-		min-height: 19rem;
+		min-height: 17rem;
 		background: $gray-500;
 	}
 
@@ -501,7 +506,7 @@ button[aria-expanded="true"].btn-category img {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
-		-webkit-line-clamp: 3;
+		-webkit-line-clamp: 2;
 		/* 라인수 */
 		-webkit-box-orient: vertical;
 		word-wrap: break-word;
@@ -2009,7 +2014,7 @@ button[aria-expanded="true"].btn-category img {
 
 	.swiper.myNoteAddSlide,
 	.swiper.myNoteSlide {
-		max-width: 136rem;
+		max-width: 140rem;
 		margin: 0 auto;
 
 		padding: 0 8rem;
@@ -2040,11 +2045,17 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	.challenge {
-		margin-bottom: 7rem;
+		margin-bottom: 3rem;
 
 		button > span {
 			font-size: 2.4rem;
 			font-weight: bold;
+		}
+
+		.addinfo {
+			&.active {
+				height: 38rem;
+			}
 		}
 	}
 
@@ -2052,11 +2063,18 @@ button[aria-expanded="true"].btn-category img {
 		overflow: hidden;
 
 		.photo {
-			max-width: 25rem;
+			width: 22rem;
+			height: 22rem;
+		}
+		.photo + div {
+			max-width: fit-content;
 		}
 
 		dt {
 			font-size: 2.4rem;
+		}
+		dt + dd {
+			padding-right: 5rem;
 		}
 
 		dd {
@@ -2306,8 +2324,12 @@ button[aria-expanded="true"].btn-category img {
 	}
 
 	.swiperType_card {
+		.photo {
+			height: 26rem;
+		}
+
 		.card-body {
-			height: 22rem;
+			height: 19rem;
 		}
 
 		dt {
