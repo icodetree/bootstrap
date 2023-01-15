@@ -72,19 +72,187 @@ const swiper_title = new Swiper ('.contentTitleSlide .swiperType_02', {
   },
 });
 
-// cardSlide
-const cardSlide = new Swiper ('.cardSlide .swiperType_card', {
+// cardSlide_01
+const cardSlide_01 = new Swiper ('.cardSlide_01 .swiperType_card', {
   loop: false,
   slidesPerView: 1.8,
   spaceBetween: 20,
   centeredSlides: false,
   pagination: {
-    el: '.cardSlide .swiperType_card .swiper-pagination',
+    el: '.cardSlide_01 .swiperType_card .swiper-pagination',
     clickable: true,
   },
   navigation: {
-    nextEl: '.cardSlide .swiper-button-next',
-    prevEl: '.cardSlide .swiper-button-prev',
+    nextEl: '.cardSlide_01 .swiper-button-next',
+    prevEl: '.cardSlide_01 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_02
+const cardSlide_02 = new Swiper ('.cardSlide_02 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_02 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_02 .swiper-button-next',
+    prevEl: '.cardSlide_02 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_03
+const cardSlide_03 = new Swiper ('.cardSlide_03 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_03 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_03 .swiper-button-next',
+    prevEl: '.cardSlide_03 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_04
+const cardSlide_04 = new Swiper ('.cardSlide_04 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_04 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_04 .swiper-button-next',
+    prevEl: '.cardSlide_04 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_05
+const cardSlide_05 = new Swiper ('.cardSlide_05 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_05 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_05 .swiper-button-next',
+    prevEl: '.cardSlide_05 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_06
+const cardSlide_06 = new Swiper ('.cardSlide_06 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_06 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_06 .swiper-button-next',
+    prevEl: '.cardSlide_06 .swiper-button-prev',
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    960: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+// cardSlide_07
+const cardSlide_07 = new Swiper ('.cardSlide_07 .swiperType_card', {
+  loop: false,
+  slidesPerView: 1.8,
+  spaceBetween: 20,
+  centeredSlides: false,
+  pagination: {
+    el: '.cardSlide_07 .swiperType_card .swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.cardSlide_07 .swiper-button-next',
+    prevEl: '.cardSlide_07 .swiper-button-prev',
   },
 
   breakpoints: {
